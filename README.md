@@ -68,12 +68,13 @@ The app lint overrides allow native links/images for the shared standalone React
 
 The latest logo and 3D chakra revision is available on localhost for review; the previously published private website has not been redeployed.
 
-## Free GitHub + Render + Supabase deployment
+## Free GitHub + Render + Neon deployment
 
-The default render.yaml now uses Render's Free web service, with no paid disk. Supabase Free stores the database and uploaded website images. See [FREE_SETUP.md](FREE_SETUP.md) for the setup steps. Do not deploy until the Supabase environment variables are configured; the server deliberately refuses an ephemeral-database fallback.
+The default render.yaml now uses Render's Free web service, with no paid disk. Neon stores the database and small website image uploads. See [FREE_SETUP.md](FREE_SETUP.md) for the setup steps. Do not deploy until DATABASE_URL are configured; the server deliberately refuses an ephemeral-database fallback.
 
-Local development continues to use SQLite and files in data/. Render uses Postgres in the private business_destiny schema and a public Supabase bucket named business-destiny containing only website images. Database content, enquiries, sessions, and password hashes are not exposed via the browser or Supabase's public API. Only the Node backend holds the database connection and server key.
+Local development continues to use SQLite and files in data/. Render uses Postgres in the private business_destiny schema, including small uploaded images. Database content, enquiries, sessions, and password hashes are not exposed via the browser. Only the Node backend holds the database connection.
 
-Run node --test server/*.test.mjs to check both SQLite and PostgreSQL backends, publication transactions, private-schema permissions and the mocked Supabase Storage integration. A live Supabase connection still needs verification after the owner's project is connected.
+Run node --test server/*.test.mjs to check both SQLite and PostgreSQL backends, publication transactions, private-schema permissions and the mocked Supabase Storage integration. A live Neon connection still needs verification after the owner's project is connected. Uploads count toward database storage limits; see the setup guide.
 
 For an existing Render service, update/sync its Blueprint after pushing. Confirm that the plan is Free and there is no disk before deploying. Data already held in a previous local or paid deployment is not automatically migrated. The current default homepage is used on a new database.
+

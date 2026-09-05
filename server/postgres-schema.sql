@@ -1,5 +1,8 @@
 CREATE SCHEMA IF NOT EXISTS business_destiny;
 REVOKE ALL ON SCHEMA business_destiny FROM PUBLIC;
+CREATE TABLE IF NOT EXISTS business_destiny.media (
+  id TEXT PRIMARY KEY, data TEXT NOT NULL, mime TEXT NOT NULL
+);
 CREATE TABLE IF NOT EXISTS business_destiny.content (
   id TEXT PRIMARY KEY, value TEXT NOT NULL, updated BIGINT NOT NULL
 );

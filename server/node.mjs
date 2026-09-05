@@ -1,6 +1,7 @@
 import { localStorage } from './local-storage.mjs';
 import { connectPostgres } from './postgres.mjs';
 import { connectMedia } from './supabase-media.mjs';
+import { postgresMedia } from './postgres-media.mjs';
 import http from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
@@ -9,27 +10,29 @@ import { isIP } from 'node:net';
 import { handleAPI } from './api.mjs';
 const root = fileURLToPath(new URL('..', import.meta.url));
 const dataDir = path.resolve(process.env.DATA_DIR || path.join(root, 'data'));
-const remoteStorage = process.env.STORAGE_BACKEND === 'supabase';
+const neonStorage = process.env.STORAGE_BACKEND === 'neon';
+const remoteStorage = neonStorage || process.env.STORAGE_BACKEND === 'supabase';
 if (process.env.REQUIRE_PERSISTENT_STORAGE === '1' && !remoteStorage)
   throw Error(
-    'Configure Supabase before deploying. Local storage is not safe on the Render free plan.',
+    'Configure Neon or Supabase before deploying. Local storage is not safe on the Render free plan.',
   );
 if (
   remoteStorage &&
   (!process.env.DATABASE_URL ||
-    !process.env.SUPABASE_URL ||
-    !process.env.SUPABASE_SERVICE_ROLE_KEY)
+    (!neonStorage &&
+      (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY)))
 )
   throw Error(
-    'Set DATABASE_URL, SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in Render.',
+    'Set DATABASE_URL in Render. Supabase storage also requires its URL and server key.',
   );
 const env = remoteStorage
   ? {
       ...process.env,
       DB: await connectPostgres(process.env),
-      MEDIA: await connectMedia(process.env),
+      MEDIA: neonStorage ? null : await connectMedia(process.env),
     }
   : await localStorage(root, dataDir);
+if (neonStorage) env.MEDIA = postgresMedia(env.DB);
 const development = process.argv.includes('--dev');
 const vite = development
   ? await (
@@ -98,6 +101,20 @@ const server = http.createServer(async (req, res) => {
       return;
     }
     if (/^\/media\/[a-f0-9-]+\.(png|jpg|webp)$/.test(url.pathname)) {
+      if (neonStorage) {
+        const media = await env.MEDIA.get(path.basename(url.pathname));
+        if (!media) {
+          res.writeHead(404);
+          res.end('Not found');
+          return;
+        }
+        res.writeHead(200, {
+          'Content-Type': media.type,
+          'Cache-Control': 'public,max-age=31536000,immutable',
+        });
+        res.end(media.bytes);
+        return;
+      }
       if (remoteStorage) {
         res.writeHead(302, {
           Location: env.MEDIA.publicUrl(path.basename(url.pathname)),

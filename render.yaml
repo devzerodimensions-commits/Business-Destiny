@@ -1,4 +1,4 @@
-# Free Render compute. Supabase Free provides durable database and image storage.
+# Free Render compute. Neon provides durable database and small-site image storage.
 services:
   - type: web
     name: business-destiny
@@ -17,14 +17,10 @@ services:
       - key: TRUST_PROXY
         value: "1"
       - key: STORAGE_BACKEND
-        value: supabase
+        value: neon
       - key: REQUIRE_PERSISTENT_STORAGE
         value: "1"
       - key: DATABASE_URL
-        sync: false
-      - key: SUPABASE_URL
-        sync: false
-      - key: SUPABASE_SERVICE_ROLE_KEY
         sync: false
       - key: ADMIN_USERNAME
         sync: false

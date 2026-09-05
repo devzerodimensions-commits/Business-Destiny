@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { PGlite } from '@electric-sql/pglite';
 import { postgresAdapter } from './postgres.mjs';
+import { postgresMedia } from './postgres-media.mjs';
 import { handleAPI, passwordHash } from './api.mjs';
 import defaults from '../content/default.json' with { type: 'json' };
 await test('Postgres: protected admin, draft isolation, atomic publication, enquiries and password rotation', async () => {
@@ -40,6 +41,25 @@ await test('Postgres: protected admin, draft isolation, atomic publication, enqu
     );
   }
   try {
+    const media = postgresMedia(DB);
+    const bytes = Buffer.from([137, 80, 78, 71, 0, 255]);
+    await media.put('test.png', bytes, {
+      httpMetadata: { contentType: 'image/png' },
+    });
+    const saved = await postgresMedia(postgresAdapter(pool)).get('test.png');
+    assert.deepEqual(saved.bytes, bytes);
+    assert.equal(saved.type, 'image/png');
+    assert.equal(await media.get('missing.png'), null);
+    await assert.rejects(
+      media.put('bad.svg', bytes, {
+        httpMetadata: { contentType: 'image/svg+xml' },
+      }),
+    );
+    await assert.rejects(
+      media.put('large.png', Buffer.alloc(5242881), {
+        httpMetadata: { contentType: 'image/png' },
+      }),
+    );
     assert.equal((await request('admin/content')).status, 401);
     let res = await request('login', 'POST', {
       username: 'admin',

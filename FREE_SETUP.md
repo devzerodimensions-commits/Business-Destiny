@@ -1,45 +1,35 @@
-# Free hosting: Business Destiny
+# Free hosting with Render + Neon
 
-The GitHub configuration now uses **Render Free + Supabase Free**. The website and admin panel share one Render URL; admin is at `/admin`.
+The website and admin panel share one Render Free web service. Neon stores content, login sessions, enquiries and small image uploads. Supabase is not required.
 
-## 1. Create a free Supabase project
+## 1. Neon
+Open https://console.neon.tech and select your project (create a Free project if you only created an account). Click Connect and copy the PostgreSQL connection string for the database owner role. Copy only the URL starting postgresql://, without psql or surrounding quotes. Keep the password and TLS parameters included. Direct or pooled Neon URLs are supported.
 
-Open https://supabase.com/dashboard and create a project on the **Free** plan. Save the database password you choose. Wait for the project to finish provisioning.
+Keep this secret private; do not post it on GitHub or in chat.
 
-You do not need to run SQL or create a storage bucket manually. The Node server creates its private database tables and website-image bucket on first startup.
-
-## 2. Collect these three connection settings
-
-| Render environment variable | Where to get it in Supabase |
-| --- | --- |
-| `DATABASE_URL` | Click **Connect**, choose **Session pooler**, and copy the URI. Replace the password placeholder with your database password. URL-encode special characters in that password. Use the pooler's port **5432**. |
-| `SUPABASE_URL` | Your project's API URL, such as `https://your-project.supabase.co`. |
-| `SUPABASE_SERVICE_ROLE_KEY` | Project settings → API Keys → legacy **service_role** key, or a new backend secret key. Never use the public/anon key here. |
-
-Enter these values directly in Render's environment settings. Do not post them on GitHub or in a public message.
-
-The database connection checks the TLS certificate. If Supabase's connection fails certificate verification, download the project's CA certificate from its database settings and add the complete certificate as the optional Render environment variable `DATABASE_CA_CERT`. Do not disable certificate verification.
-
-## 3. Open the updated Render Blueprint
-
+## 2. Render
+For a new deployment, open:
 https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fdevzerodimensions-commits%2FBusiness-Destiny
 
-If you still have the old paid setup open, cancel it and reopen this link so Render reads the latest `main` branch. If you already created a Blueprint, sync its latest configuration instead of creating a duplicate service.
+If a Blueprint already exists, sync the latest main branch rather than creating a duplicate. Cancel any old paid deployment form first. Confirm Free, no disk, and STORAGE_BACKEND=neon.
 
-Confirm the web service says **Free**, with **no persistent disk**. The Blueprint sets the remaining platform settings automatically.
+Paste your Neon URL into DATABASE_URL. Enter ADMIN_USERNAME, ADMIN_SALT and ADMIN_PASSWORD_HASH from the private local .render.env file. Never commit that file. Supabase settings are not needed.
 
-Besides the three Supabase values, enter `ADMIN_USERNAME`, `ADMIN_SALT` and `ADMIN_PASSWORD_HASH` from the private `.render.env` file on your computer. These retain the initial admin account already provided to you. Never commit this file. A password changed only in your localhost database does not automatically transfer to a fresh hosted database.
+For an existing web service, use Environment, set these values, and save/redeploy. Keep REQUIRE_PERSISTENT_STORAGE=1, HOST=0.0.0.0, and TRUST_PROXY=1.
 
-## 4. Deploy
+## 3. Verify deployment
+The server creates its private business_destiny schema automatically. Wait for the build and health check to pass. Open the assigned website URL, then /admin. Change the initial password under Account settings. Publish a small edit, upload an image, and verify both remain after a service restart.
 
-Deploy and wait for the build and health check to succeed. The resulting `onrender.com` address opens the website. Append `/admin` for the admin login. Change the initial password under Account settings after first login.
-
-Your current homepage content is included. Saved admin edits and image uploads will go to Supabase, so they survive Render restarts. The local SQLite database and uploaded local files are not automatically copied to Supabase.
+The repository's default homepage is included. Localhost database edits, password changes and uploaded local files do not transfer automatically.
 
 ## Free-plan limits
+Render Free sleeps after 15 minutes without traffic, delaying the next visit. Neon Free has database and compute quotas. Uploaded images are stored as base64 database records (roughly one-third overhead): compress images and watch database usage. This is intended for a small website, not a large media library. Each upload is limited to 5 MB. Bundled assets do not consume Neon storage.
 
-- Render Free sleeps after 15 minutes without traffic; the next visit can take about a minute to load.
-- Supabase Free has storage and usage limits and can pause projects after a week of inactivity.
-- Stay on the free plans and within their quotas. Providers can still request account verification; this configuration cannot guarantee that a provider will never request a card.
+Stay on Free plans. No paid disk is configured. Provider account verification may still apply.
 
-Official references: https://render.com/docs/free · https://supabase.com/pricing · https://supabase.com/docs/guides/database/connecting-to-postgres
+Official references:
+- https://neon.com/docs/connect/connection-pooling
+- https://neon.com/pricing
+- https://render.com/docs/free
+
+Optional Supabase support remains available with STORAGE_BACKEND=supabase and its storage URL/server key. Local development retains SQLite.
