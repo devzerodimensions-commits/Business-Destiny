@@ -16,6 +16,7 @@ import {
   Plus,
 } from 'lucide-react';
 import initial from '@/content/default.json';
+import Chakra from './chakra';
 import { BlogCards, ContentRoute, SiteFooter } from './cms-public';
 import { BusinessMilestones, ConsultationPreparation } from './home-extras';
 
@@ -222,24 +223,12 @@ export default function Home() {
                           <span>{c.heroNote}</span>
                         </div>
                       </div>
-                      <div className="hero-art industrial-hero-art">
-                        <img
-                          className="industrial-factory-image"
-                          src={s.image}
-                          alt={s.imageAlt}
+                      <div className="hero-art industrial-hero-art chakra-hero">
+                        <Chakra
+                          accent={c.theme.accent}
+                          highlight={c.theme.sky}
+                          fallback={c.brand.logo}
                         />
-                        <img
-                          className="industrial-founder-image"
-                          src={c.sections.find((s) => s.id === 'about')?.image}
-                          alt={c.founder.name}
-                        />
-                        <div className="art-tag">
-                          <span className="mini-star">✦</span>
-                          <div>
-                            {c.artTag.title}
-                            <small>{c.artTag.subtitle}</small>
-                          </div>
-                        </div>
                         <div className="art-caption">{c.artTag.caption}</div>
                       </div>
                     </div>

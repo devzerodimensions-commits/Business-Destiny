@@ -3662,3 +3662,31 @@ select:focus {
     font-size: 10px;
   }
 }
+/* Industrial copy with the interactive gold chakra restored. */
+.industrial-hero-art.chakra-hero {
+  background: transparent;
+  border: 0;
+  overflow: visible;
+  height: 570px;
+}
+.chakra-hero .art-caption {
+  top: 14px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  pointer-events: none;
+}
+.chakra-hero .chakra-scene {
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 600px) {
+  .industrial-hero-art.chakra-hero {
+    height: 410px;
+  }
+  .chakra-hero .art-caption {
+    top: 8px;
+    left: 0;
+    right: 0;
+  }
+}
