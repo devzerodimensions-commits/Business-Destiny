@@ -2,14 +2,14 @@
   "brand": {
     "name": "Business Destiny",
     "descriptor": "ASTROLOGY • VASTU • BUSINESS",
-    "logo": "/media/logo.png",
-    "strapline": "Ancient wisdom for modern enterprise",
+    "logo": "/media/business-destiny-hd.png",
+    "strapline": "Decode your destiny through Astrology & Vastu",
     "availability": "Personal consultations"
   },
   "theme": {
-    "background": "#080b0e",
-    "accent": "#ff772d",
-    "sky": "#35c4ed",
+    "background": "#061426",
+    "accent": "#d6a442",
+    "sky": "#f1d58e",
     "roundness": 12,
     "layout": "standard"
   },
@@ -42,8 +42,8 @@
   },
   "heroNote": "Personalised guidance. Confidential conversations.",
   "artTag": {
-    "title": "Ancient insight",
-    "subtitle": "For modern ambitions",
+    "title": "The Navagraha chakra",
+    "subtitle": "Align · Plan · Grow · Prosper",
     "caption": "TIMING  /  DIRECTION  /  POSSIBILITY"
   },
   "founder": {
@@ -105,8 +105,8 @@
     {
       "visible": true,
       "body": "",
-      "image": "/media/astrologer.png",
-      "imageAlt": "Symbolic 3D-rendered astrologer sculpture holding a celestial astrolabe",
+      "image": "/media/business-destiny-hd.png",
+      "imageAlt": "Interactive gold 3D astrology chakra with zodiac signs and planetary orbits",
       "items": [],
       "highlight": "Cosmically aligned.",
       "description": "Ancient wisdom. A sharper business perspective. Navigate your next move with personalised astrology and Vastu guidance for your enterprise.",
@@ -179,8 +179,8 @@
     {
       "visible": true,
       "body": "Every enterprise has a story. Tejas brings Vedic Astrology, KP Astrology, Vastu and Numerology together to explore yours—with a focus on the decisions that matter to business owners, manufacturers and entrepreneurs.",
-      "image": "/media/logo.png",
-      "imageAlt": "Business Destiny zodiac emblem",
+      "image": "/media/business-destiny-hd.png",
+      "imageAlt": "Business Destiny — Astrology, Vastu and strategic remedies",
       "items": [
         {
           "title": "Vedic Astrology"

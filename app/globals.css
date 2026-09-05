@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 :root {
-  --bg: #080b0e;
-  --accent: #ff772d;
-  --sky: #35c4ed;
+  --bg: #061426;
+  --accent: #d6a442;
+  --sky: #f1d58e;
   --radius: 12px;
-  --background: #080b0e;
+  --background: #061426;
   --foreground: #f7f8f8;
-  --primary: #ff772d;
-  --primary-foreground: #080b0e;
+  --primary: #d6a442;
+  --primary-foreground: #061426;
   --muted: #151c23;
   --muted-foreground: #9da7b1;
   --input: #34404a;
   --border: #24303a;
-  --ring: #35c4ed;
+  --ring: #f1d58e;
   --font-sans: 'DM Sans', sans-serif;
   color-scheme: dark;
 }
@@ -348,7 +348,7 @@ svg {
 }
 .industries {
   border-block: 1px solid #ffffff13;
-  background: #0c1015;
+  background: #081c32;
 }
 .industry-strip {
   padding: 26px 0;
@@ -409,14 +409,14 @@ svg {
   border: 1px solid #ffffff13;
   border-radius: var(--radius);
   padding: 31px;
-  background: linear-gradient(130deg, #101820, #0b1015);
+  background: linear-gradient(130deg, #102b44, #091c30);
   transition:
     transform 0.25s,
     border-color 0.25s;
 }
 .service-card:hover {
   transform: translateY(-5px);
-  border-color: #35c4ed70;
+  border-color: #f1d58e70;
 }
 .card-top {
   display: flex;
@@ -450,7 +450,7 @@ svg {
   color: var(--accent);
 }
 .about {
-  background: #0c1116;
+  background: #0a1d33;
   border-block: 1px solid #ffffff0b;
 }
 .about-grid {
@@ -561,7 +561,7 @@ svg {
   font-size: 14px;
 }
 .pricing {
-  background: #0c1117;
+  background: #0a1d33;
 }
 .pricing-grid {
   display: grid;
@@ -577,7 +577,7 @@ svg {
   border-radius: var(--radius);
   display: flex;
   flex-direction: column;
-  background: #0c131b;
+  background: #0b2038;
 }
 .price-card.featured {
   border-color: var(--accent);
@@ -677,7 +677,7 @@ svg {
   line-height: 1.9;
 }
 .contact {
-  background: radial-gradient(ellipse at top left, #112533 0%, #0b1117 65%);
+  background: radial-gradient(ellipse at top left, #152e47 0%, #081b30 65%);
   border-block: 1px solid #2a3f4f;
 }
 .contact-grid {
@@ -715,7 +715,7 @@ textarea,
 select {
   display: block;
   width: 100%;
-  background: #0a1017;
+  background: #07192d;
   border: 1px solid #2d3a47;
   border-radius: 6px;
   color: #eef6fc;
@@ -833,7 +833,7 @@ select:focus {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background: radial-gradient(ellipse at top, #122936, #080b0e 65%);
+  background: radial-gradient(ellipse at top, #122936, #061426 65%);
   padding: 25px;
 }
 .login-card {
@@ -1454,3 +1454,13 @@ select:focus {
 .section-heading .eyebrow {
   font-size: 12px;
 }
+/* HD logo identity: navy, metallic gold and white. */
+.header{max-width:none;width:100%;padding:12px max(40px,calc((100% - 1290px)/2));height:150px;background:#fff;color:#082543;border-bottom:3px solid var(--accent)}
+.header .brand img{width:185px;height:123px;object-fit:contain;border-radius:0;clip-path:none}
+.header .brand>span{display:none}.header .nav a{color:#17344d;font-weight:600;font-size:14px}.header .nav a:hover{color:#9c7027}.header .button{background:#082543;color:#f1d58e;border-color:#082543}.header .button:hover{background:#103654}
+.hero{background:radial-gradient(ellipse at 80% 45%,#17385985,transparent 55%),linear-gradient(110deg,#061426,#0b223c)}
+.hero-grid{min-height:640px;grid-template-columns:1fr 1.03fr}.hero-art{height:600px}.hero h1{font-size:clamp(49px,5.2vw,75px)}.hero-copy .eyebrow{color:#e6c77d}.hero-foot{color:#b6c1cd}.hero .button,.price-card.featured .button,.enquiry .button{background:linear-gradient(120deg,#e8c776,var(--accent));border-color:var(--accent);color:#08213a}.hero-art .art-tag{bottom:98px;left:16px;background:#0a2034d9;border-color:#d6a44245}.hero-art .art-caption{color:#c8ad72;bottom:20px}.mini-star{color:#e4c378}
+.chakra-scene{position:relative;width:100%;height:100%;isolation:isolate}.chakra-glow{position:absolute;inset:12% 3%;border-radius:50%;background:radial-gradient(circle,#d4ab3d1c 0%,#1c4b7025 50%,transparent 70%);pointer-events:none}.chakra-canvas{position:absolute;inset:0 0 28px}.chakra-canvas canvas{display:block;width:100%;height:100%;touch-action:pan-y;cursor:grab}.chakra-canvas canvas:active{cursor:grabbing}.chakra-canvas canvas:focus-visible{outline:1px solid var(--sky);outline-offset:-8px;border-radius:30px}.chakra-controls{position:absolute;bottom:57px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:15px;z-index:2;color:#c9b88c;font-size:9px;letter-spacing:1.4px}.chakra-controls button{background:#0a1d30;border:1px solid #ab884448;padding:5px 10px;border-radius:20px;font-size:10px;letter-spacing:.3px;color:#f1d58e}.chakra-fallback{position:absolute;inset:15%;height:65%;width:70%;object-fit:contain;border-radius:10px;background:white}
+.about-visual{background:white;border-color:#d6a44255;min-height:380px;padding:24px}.about-visual img{width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:0;clip-path:none;animation:none}.about-visual>span{display:none}.footer .brand img{width:165px;height:110px;object-fit:contain;clip-path:none;border-radius:6px;background:white}.footer .brand>span{display:none}.login-card>img{width:200px;border-radius:6px;clip-path:none;background:white}.admin-header .brand img{width:115px;height:78px;clip-path:none;border-radius:4px}.admin-header .brand>span{font-size:20px}.service-card:hover{border-color:#d6a44288}.price-card.featured{background:linear-gradient(150deg,#40362445,#0b2038 60%)}
+@media(max-width:1100px){.header{padding-inline:32px}.hero h1{font-size:58px}.hero-art{height:550px}.header .header-cta{display:inline-flex}.nav{gap:20px}.header .brand img{width:155px;height:104px}.header{height:130px}}
+@media(max-width:760px){.header{height:116px;padding:8px 20px}.header .brand img{width:145px;height:96px}.header .header-cta{display:none}.header .nav.open{top:149px;background:#fff;border-color:#d6a442}.hero-grid{grid-template-columns:1fr;min-height:0}.hero h1{font-size:clamp(44px,9vw,65px)}.hero-art{height:445px;width:100%;margin-top:0}.hero-copy{padding-top:40px}.hero-art .art-tag{left:0;bottom:88px;font-size:12px;padding:9px 13px}.chakra-controls{bottom:48px;font-size:8px;letter-spacing:.7px;gap:8px}.chakra-controls button{font-size:10px}.hero-art .art-caption{bottom:18px}.about-visual{min-height:260px;padding:18px}.footer .brand img{width:175px;height:117px}}

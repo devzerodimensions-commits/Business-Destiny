@@ -3,10 +3,12 @@ import { DatabaseSync } from 'node:sqlite';
 import { mkdir, readFile, writeFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isIP } from 'node:net';
 import { handleAPI } from './api.mjs';
 const root = fileURLToPath(new URL('..', import.meta.url));
-await mkdir(path.join(root, 'data/media'), { recursive: true });
-const sql = new DatabaseSync(path.join(root, 'data/business-destiny.sqlite'));
+const dataDir = path.resolve(process.env.DATA_DIR || path.join(root, 'data'));
+await mkdir(path.join(dataDir, 'media'), { recursive: true });
+const sql = new DatabaseSync(path.join(dataDir, 'business-destiny.sqlite'));
 sql.exec('PRAGMA journal_mode=WAL');
 sql.exec('CREATE TABLE IF NOT EXISTS local_migrations (name TEXT PRIMARY KEY)');
 const { readdir } = await import('node:fs/promises');
@@ -62,9 +64,9 @@ const env = {
   },
   MEDIA: {
     async put(key, bytes, options) {
-      await writeFile(path.join(root, 'data/media', key), bytes);
+      await writeFile(path.join(dataDir, 'media', key), bytes);
       await writeFile(
-        path.join(root, 'data/media', key + '.json'),
+        path.join(dataDir, 'media', key + '.json'),
         JSON.stringify(options),
       );
     },
@@ -93,7 +95,12 @@ const mime = {
 };
 const server = http.createServer(async (req, res) => {
   try {
-    const url = new URL(req.url || '/', `http://${req.headers.host}`);
+    const publicOrigin =
+      process.env.PUBLIC_ORIGIN || process.env.RENDER_EXTERNAL_URL;
+    const url = new URL(
+      req.url || '/',
+      publicOrigin || `http://${req.headers.host}`,
+    );
     if (
       /(?:^|\/)(?:\.env[^/]*|\.dev\.vars|\.credentials\.txt|\.git|data)(?:\/|$)/i.test(
         decodeURIComponent(url.pathname),
@@ -109,7 +116,17 @@ const server = http.createServer(async (req, res) => {
       const headers = new Headers();
       for (const [k, v] of Object.entries(req.headers))
         if (v) headers.set(k, Array.isArray(v) ? v.join(',') : v);
-      headers.set('x-local-address', req.socket.remoteAddress || 'local');
+      headers.delete('cf-connecting-ip');
+      const forwarded = String(req.headers['x-forwarded-for'] || '')
+        .split(',')
+        .at(-1)
+        ?.trim();
+      headers.set(
+        'x-local-address',
+        process.env.TRUST_PROXY === '1' && forwarded && isIP(forwarded)
+          ? forwarded
+          : req.socket.remoteAddress || 'local',
+      );
       const request = new Request(url, {
         method: req.method,
         headers,
@@ -124,7 +141,7 @@ const server = http.createServer(async (req, res) => {
     }
     if (/^\/media\/[a-f0-9-]+\.(png|jpg|webp)$/.test(url.pathname)) {
       try {
-        const file = path.join(root, 'data', url.pathname);
+        const file = path.join(dataDir, 'media', path.basename(url.pathname));
         const bytes = await readFile(file);
         res.setHeader('Content-Type', mime[path.extname(file)]);
         res.end(bytes);
@@ -165,6 +182,9 @@ const server = http.createServer(async (req, res) => {
   }
 });
 const port = Number(process.env.PORT || 3000);
-server.listen(port, '127.0.0.1', () =>
-  console.log(`Business Destiny ready: http://127.0.0.1:${port}`),
+const host = process.env.HOST || '127.0.0.1';
+server.listen(port, host, () =>
+  console.log(
+    `Business Destiny ready: ${process.env.RENDER_EXTERNAL_URL || `http://${host}:${port}`}`,
+  ),
 );

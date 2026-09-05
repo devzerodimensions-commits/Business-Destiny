@@ -40,11 +40,11 @@ Consultation enquiries appear under **Consultation enquiries**. No email notific
 
 ## Content and assets
 
-The brand display name is provisionally “Business Destiny”, based on the workspace name; the supplied logo filename says “Business Density”. The name is editable in the admin.
+The supplied Business_Destiny_HD_Logo.pdf is the current brand reference; its embedded HD logo is preserved in public/media/business-destiny-hd.png.
 
-Content is adapted from the supplied Industrial Astrology PDF. Black, sky-blue and orange follow the user's request over the PDF's gold recommendation. The homepage structure and indicative package starting points were informed by https://sohinisastri.com and https://vaselvedic.com. Competitor credentials, testimonials and claims were not copied. The ₹1,100 and ₹11,000 prices are draft examples for owner confirmation, explicitly labelled indicative on the page.
+Content is adapted from the supplied Industrial Astrology PDF. The latest logo update sets the local site palette to navy, gold and white. The homepage structure and indicative package starting points were informed by https://sohinisastri.com and https://vaselvedic.com. Competitor credentials, testimonials and claims were not copied. The ₹1,100 and ₹11,000 prices are draft examples for owner confirmation, explicitly labelled indicative on the page.
 
-The hero is original AI-generated, 3D-rendered sculpture artwork with subtle animation; it is not a live WebGL/GLB model or a photograph of Tejas Parikh. Replace it through the editor if desired. A founder portrait, verified biography/credentials, final prices and real contact details remain owner inputs. No unverified testimonials are published.
+The hero now uses a live Three.js astrology chakra with gold zodiac rings, a central Sun, eight planetary markers, drag-to-rotate controls and a pause option. It respects reduced-motion preferences and falls back to the supplied logo if WebGL is unavailable.
 
 ## Verification
 
@@ -65,3 +65,18 @@ Only the homepage and admin are implemented in this phase. Additional public pag
 
 
 The app lint overrides allow native links/images for the shared standalone React and hosted frontend, dynamic JSON types inside the schema-validated editor, and ARIA live-region status elements.
+
+The latest logo and 3D chakra revision is available on localhost for review; the previously published private website has not been redeployed.
+
+## GitHub and Render
+
+`render.yaml` defines a Node web service and a persistent 1 GB disk. This is a **paid** Render configuration; review the Render checkout estimate before creating it. The disk is needed for CMS edits, admin credentials, enquiries and uploaded images to survive restarts and deployments. Use only one instance with this SQLite configuration.
+
+1. Push the source to a GitHub repository. A private repository is recommended; never upload `.env`, `.dev.vars`, `.credentials.txt`, `.render.env` or the `data` directory. They are ignored by Git.
+2. In Render, connect that GitHub repository through **New → Blueprint**. Render reads `render.yaml`.
+3. Set `ADMIN_USERNAME`, `ADMIN_SALT` and `ADMIN_PASSWORD_HASH` from the private local `.render.env` file. Do not put these values in the repository. These initialise the account; later password changes persist on the disk.
+4. Review the service/disk costs, then deploy. The live admin address is the assigned Render URL followed by `/admin`.
+
+Render supplies `PORT` and `RENDER_EXTERNAL_URL`. The server binds to `0.0.0.0`, uses the external HTTPS origin for cookies and request validation, and stores data under `DATA_DIR`. For a custom domain, set `PUBLIC_ORIGIN` to its exact HTTPS origin. Enable `TRUST_PROXY=1` only behind a trusted reverse proxy, as in this Blueprint.
+
+A GitHub Actions workflow runs type checks, API tests and the Node build for pushes and pull requests. The existing localhost database is not automatically copied to Render; a fresh Render service starts with the current default homepage content.

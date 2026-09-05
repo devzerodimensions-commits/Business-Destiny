@@ -16,6 +16,7 @@ import {
   Plus,
 } from 'lucide-react';
 import initial from '@/content/default.json';
+import Chakra from './chakra';
 
 export type Item = {
   title: string;
@@ -179,8 +180,11 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="hero-art">
-                    <div className="orbit-ring" />
-                    <img className="sage" src={s.image} alt={s.imageAlt} />
+                    <Chakra
+                      accent={c.theme.accent}
+                      highlight={c.theme.sky}
+                      fallback={c.brand.logo}
+                    />
                     <div className="art-tag">
                       <span className="mini-star">✦</span>
                       <div>
