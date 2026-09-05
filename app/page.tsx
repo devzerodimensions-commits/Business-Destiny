@@ -28,6 +28,8 @@ export type Item = {
   price?: string;
   duration?: string;
   features?: string;
+  image?: string;
+  imageAlt?: string;
 };
 export type Section = {
   id: string;
@@ -274,12 +276,20 @@ export default function Home() {
                   ) : s.id === 'consultation-preparation' ? (
                     <ConsultationPreparation
                       s={s}
-                      buttonLabel={c.labels.book}
+                      buttonLabel={c.labels.discuss}
                       onSelect={(service) =>
                         setSelectedService(
                           c.sections
-                            .find((s) => s.id === 'services')
-                            ?.items.some((i) => i.title === service)
+                            .filter((s) =>
+                              ['services', 'consultation-preparation'].includes(
+                                s.id,
+                              ),
+                            )
+                            .some((s) =>
+                              s.items.some(
+                                (i) => (i.subtitle || i.title) === service,
+                              ),
+                            )
                             ? service
                             : '',
                         )
@@ -535,6 +545,21 @@ function Enquiry({
           onChange={(e) => onServiceChange(e.target.value)}
         >
           <option value="">{c.form.servicePlaceholder}</option>
+          {c.sections
+            .find((s) => s.id === 'consultation-preparation')
+            ?.items.filter(
+              (i) =>
+                !c.sections
+                  .filter((s) => ['services', 'pricing'].includes(s.id))
+                  .some((s) =>
+                    s.items.some((x) => x.title === (i.subtitle || i.title)),
+                  ),
+            )
+            .map((i) => (
+              <option key={i.subtitle || i.title}>
+                {i.subtitle || i.title}
+              </option>
+            ))}
           {c.sections
             .find((s) => s.id === 'pricing')
             ?.items.map((i) => (

@@ -39,13 +39,15 @@ test('Homepage additions upgrade once and preserve later admin choices', () => {
 });
 test('Consultation guide replaces the old section once and retains visibility', () => {
   const old = structuredClone(defaults);
-  old.homepageRevision = 1;
+  old.homepageRevision = 2;
   const section = old.sections.find((s) => s.id === 'consultation-preparation');
   section.title = 'Bring your questions.';
   section.visible = false;
   const updated = upgradeContent(old);
   const guide = updated.sections.find((s) => s.id === section.id);
-  assert.equal(guide.title, 'What would you like');
+  assert.equal(guide.title, 'Four perspectives.');
+  assert.equal(guide.items.length, 4);
+  assert.ok(guide.items.every((item) => item.image && item.imageAlt));
   assert.equal(guide.visible, false);
   guide.title = 'Owner edited heading';
   assert.equal(

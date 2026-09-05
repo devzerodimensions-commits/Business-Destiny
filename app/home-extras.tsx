@@ -1,12 +1,5 @@
 import { useState } from 'react';
-import {
-  ArrowUpRight,
-  ArrowRight,
-  Compass,
-  Flag,
-  Layers,
-  Check,
-} from 'lucide-react';
+import { ArrowUpRight, ArrowRight, Compass, Check } from 'lucide-react';
 import type { Section } from './page';
 export function BusinessMilestones({
   s,
@@ -89,71 +82,48 @@ export function ConsultationPreparation({
   buttonLabel: string;
   onSelect: (service: string) => void;
 }) {
-  const [active, setActive] = useState(0);
-  const choice = s.items[Math.min(active, s.items.length - 1)];
-  const icons = [Flag, Layers, Compass];
   return (
-    <div className="wrap consultation-guide">
-      <div className="guide-heading">
+    <div className="practice-section">
+      <div className="practice-heading wrap">
         <div className="eyebrow">{s.eyebrow}</div>
         <h2>
           {s.title} <em>{s.highlight}</em>
         </h2>
-        <p>{s.description}</p>
+        {s.description && <p>{s.description}</p>}
       </div>
-      <div className="guide-layout">
-        <div className="guide-options" aria-label="Choose your concern">
-          {s.items.map((item, i) => {
-            const Icon = icons[i % icons.length];
-            return (
-              <button
-                key={i}
-                aria-pressed={active === i}
-                onClick={() => setActive(i)}
-              >
-                <span className="guide-icon">
-                  <Icon size={24} />
-                </span>
-                <span>{item.title}</span>
-                <span className="guide-radio">
-                  {active === i && <Check size={13} />}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-        <div className="guide-result" aria-live="polite">
-          {choice ? (
-            <>
-              <span className="eyebrow">{choice.title}</span>
-              <h3>{choice.subtitle}</h3>
-              <p>{choice.description}</p>
-              <ul>
-                {choice.features
-                  ?.split('\n')
-                  .filter(Boolean)
-                  .map((f, i) => (
-                    <li key={i}>
-                      <Check size={15} />
-                      {f}
-                    </li>
-                  ))}
-              </ul>
-              <a
-                className="button"
-                href="#contact"
-                onClick={() => onSelect(choice.subtitle || '')}
-              >
-                {buttonLabel}
-                <ArrowUpRight size={17} />
-              </a>
-            </>
-          ) : (
-            <p>{s.description}</p>
-          )}
-        </div>
+      <div className="practice-columns">
+        {s.items.map((item, i) => (
+          <article className="practice-panel" key={i}>
+            {item.image && (
+              <img
+                className="practice-image"
+                src={item.image}
+                alt={item.imageAlt || item.title}
+                loading="lazy"
+                width="220"
+                height="220"
+              />
+            )}
+            <h3>{item.title}</h3>
+            <div className="practice-ornament" aria-hidden="true">
+              <span />
+              <i>✧</i>
+              <span />
+            </div>
+            <p>{item.description}</p>
+            <a
+              href="#contact"
+              onClick={() => onSelect(item.subtitle || item.title)}
+              className="practice-link"
+            >
+              <span aria-hidden="true">✦</span>
+              {buttonLabel}
+              <ArrowUpRight size={15} />
+            </a>
+          </article>
+        ))}
       </div>
-      <p className="guide-note">{s.body}</p>
+      {s.body && <p className="practice-note wrap">{s.body}</p>}
     </div>
   );
 }

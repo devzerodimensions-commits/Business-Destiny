@@ -312,34 +312,44 @@
     },
     {
       "visible": true,
-      "body": "This guide helps you choose a service. Your consultation will focus on your specific questions.",
+      "body": "",
       "image": "",
       "imageAlt": "",
-      "highlight": "help with?",
+      "highlight": "Your questions at the centre.",
       "items": [
         {
-          "title": "I have a business decision to make",
+          "title": "Astrology",
           "subtitle": "Business astrology",
-          "description": "Explore questions about business direction and timing through a traditional astrological consultation.",
-          "features": "Starting or reviewing a business\nConsidering an important decision\nUnderstanding traditional timing guidance"
+          "description": "Explore business direction, important decisions and questions about timing through Vedic and KP astrology. A focused conversation, shaped around your circumstances.",
+          "image": "/media/service-astrology.png",
+          "imageAlt": "Gold zodiac wheel on a midnight blue background"
         },
         {
-          "title": "I want advice about my workspace",
+          "title": "Vastu",
           "subtitle": "Industrial & office Vastu",
-          "description": "Discuss the layout of your office, shop or industrial premises through a Vastu consultation.",
-          "features": "Planning a new office or premises\nReviewing your existing layout\nPreparing for a move or expansion"
+          "description": "Look at your office, shop or industrial space through the principles of Vastu. Discuss layout, orientation and the questions that come with a new or existing workspace.",
+          "image": "/media/service-vastu.png",
+          "imageAlt": "Gold architectural floor plan inside a directional compass"
         },
         {
-          "title": "I am considering a business partner",
-          "subtitle": "Partnership compatibility",
-          "description": "Bring your partnership questions for a focused discussion using traditional astrological interpretation.",
-          "features": "Considering a new collaboration\nExploring working relationships\nDiscussing expectations before a commitment"
+          "title": "Numerology",
+          "subtitle": "Business numerology",
+          "description": "Explore the traditional interpretations of names, dates and numbers. Bring your business naming or personal questions for a numerology consultation.",
+          "image": "/media/service-numerology.png",
+          "imageAlt": "Golden numerals arranged in a circular celestial design"
+        },
+        {
+          "title": "Palmistry",
+          "subtitle": "Palmistry",
+          "description": "Discover how palm lines and hand features are interpreted in traditional palmistry. Use the session to explore your questions and reflect on the interpretation.",
+          "image": "/media/service-palmistry.png",
+          "imageAlt": "An open palm illustrated with traditional palmistry lines"
         }
       ],
       "id": "consultation-preparation",
-      "eyebrow": "FIND THE RIGHT CONSULTATION",
-      "title": "What would you like",
-      "description": "Choose the situation closest to yours. We’ll show you a service to explore."
+      "eyebrow": "EXPLORE OUR TRADITIONAL PRACTICES",
+      "title": "Four perspectives.",
+      "description": "Discover the consultation that speaks to your business, your space or your personal questions."
     },
     {
       "visible": true,
@@ -478,5 +488,5 @@
       "body": "A little preparation helps you make the most of a consultation. Start by describing your business, the decision you face and what you hope to understand.\n\n1. What is the main question I want to explore? Choose one priority instead of trying to cover every business challenge.\n\n2. What information should I prepare? Ask about dates, background details, floor plans or other material relevant to your consultation.\n\n3. What constraints matter? Be clear about your budget, deadlines and existing commitments.\n\n4. How should I interpret the guidance? Ask the consultant to explain the traditional framework, its uncertainty and the limits of the discussion.\n\n5. What should I do afterwards? Record your questions and take time to consider any suggestions alongside practical research and professional advice.\n\nYou remain responsible for your decisions. A consultation is a space for discussion and reflection, not a guarantee of an outcome."
     }
   ],
-  "homepageRevision": 2
+  "homepageRevision": 3
 }

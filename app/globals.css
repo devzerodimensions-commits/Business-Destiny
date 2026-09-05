@@ -3244,3 +3244,226 @@ select:focus {
     height: 35px;
   }
 }
+/* Image-led traditional practice columns. */
+.consultation-preparation:has(.practice-section) {
+  padding: 0 !important;
+  background: #fffaf4;
+}
+.practice-section {
+  color: #21344a;
+}
+.practice-heading {
+  text-align: center;
+  padding-top: 58px;
+  padding-bottom: 42px;
+}
+.practice-heading .eyebrow {
+  color: #9b6d26;
+}
+.practice-heading h2 {
+  color: #21344a;
+  font-size: clamp(30px, 3vw, 43px);
+  line-height: 1.25;
+  margin: 16px 0;
+}
+.practice-heading h2 em {
+  color: #a57835;
+  font-style: normal;
+}
+.practice-heading p {
+  color: #617082;
+  font-size: 15px;
+  max-width: 730px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+.practice-columns {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid #d5b88e;
+  border-bottom: 1px solid #d5b88e;
+}
+.practice-panel {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: #fff;
+  text-align: center;
+  padding: 52px 32px 44px;
+  border-right: 1px solid #d5b88e;
+  min-width: 0;
+}
+.practice-panel:nth-child(even) {
+  background: #fcf7f1;
+}
+.practice-panel:last-child {
+  border-right: 0;
+}
+.practice-image {
+  width: 205px;
+  height: 205px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 0 0 6px #c39b5110;
+  transition: transform 0.3s;
+}
+.practice-panel:hover .practice-image {
+  transform: translateY(-5px);
+}
+.practice-panel h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 31px;
+  font-weight: 400;
+  color: #a27131;
+  letter-spacing: -0.015em;
+  margin: 31px 0 0;
+}
+.practice-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #947441;
+  width: 185px;
+  margin: 7px 0 15px;
+}
+.practice-ornament span {
+  height: 1px;
+  background: #b39670;
+  flex: 1;
+  position: relative;
+}
+.practice-ornament span:first-child:before,
+.practice-ornament span:last-child:after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: #a38355;
+  position: absolute;
+  top: -2px;
+  transform: rotate(45deg);
+}
+.practice-ornament span:first-child:before {
+  left: 0;
+}
+.practice-ornament span:last-child:after {
+  right: 0;
+}
+.practice-ornament i {
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-style: normal;
+  line-height: 1;
+}
+.practice-panel > p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #425366;
+  max-width: 340px;
+  margin: 0 0 35px;
+}
+.practice-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #946623;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: auto;
+  padding: 10px 0;
+  border-bottom: 1px solid transparent;
+}
+.practice-link:hover {
+  color: #684313;
+  border-color: #a57835;
+}
+.practice-link:focus-visible {
+  outline: 2px solid #946623;
+  outline-offset: 5px;
+}
+.practice-note {
+  font-size: 13px;
+  color: #637084;
+  padding-top: 20px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+@media (min-width: 1700px) {
+  .practice-panel {
+    padding: 60px 36px 52px;
+  }
+  .practice-image {
+    width: 220px;
+    height: 220px;
+  }
+  .practice-panel > p {
+    font-size: 16px;
+  }
+  .practice-panel h3 {
+    font-size: 34px;
+  }
+}
+@media (max-width: 1050px) {
+  .practice-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .practice-panel {
+    border-bottom: 1px solid #d5b88e;
+  }
+  .practice-panel:nth-child(2n) {
+    border-right: 0;
+  }
+  .practice-panel:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+  .practice-panel {
+    padding: 38px 28px;
+  }
+  .practice-image {
+    width: 180px;
+    height: 180px;
+  }
+}
+@media (max-width: 550px) {
+  .practice-columns {
+    grid-template-columns: 1fr;
+  }
+  .practice-panel {
+    border-right: 0;
+    padding: 36px 25px;
+  }
+  .practice-panel:nth-last-child(2) {
+    border-bottom: 1px solid #d5b88e;
+  }
+  .practice-heading {
+    padding-top: 38px;
+    padding-bottom: 28px;
+  }
+  .practice-heading h2 {
+    font-size: 30px;
+  }
+  .practice-image {
+    width: 180px;
+    height: 180px;
+  }
+  .practice-panel > p {
+    margin-bottom: 20px;
+  }
+  .practice-panel h3 {
+    margin-top: 25px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .practice-image {
+    transition: none;
+  }
+  .practice-panel:hover .practice-image {
+    transform: none;
+  }
+}
+.practice-heading .eyebrow {
+  justify-content: center;
+}

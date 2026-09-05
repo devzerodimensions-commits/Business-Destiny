@@ -28,7 +28,7 @@ export function upgradeContent(content) {
       }
     }
   }
-  if ((content.homepageRevision ?? 0) < 2 && Array.isArray(sections)) {
+  if ((content.homepageRevision ?? 0) < 3 && Array.isArray(sections)) {
     sections = sections.map((s) =>
       s.id === 'consultation-preparation'
         ? {
@@ -41,7 +41,7 @@ export function upgradeContent(content) {
   return {
     ...content,
     sections,
-    homepageRevision: Math.max(content.homepageRevision ?? 0, 2),
+    homepageRevision: Math.max(content.homepageRevision ?? 0, 3),
     pages: content.pages ?? [],
     posts: content.posts ?? structuredClone(defaults.posts),
     media: content.media ?? [],
