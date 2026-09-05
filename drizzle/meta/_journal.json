@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1788593104444,
+      "tag": "0000_plain_black_crow",
+      "breakpoints": true
+    }
+  ]
+}
