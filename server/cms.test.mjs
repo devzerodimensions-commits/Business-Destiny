@@ -6,6 +6,37 @@ import { handleAPI } from './api.mjs';
 const fail = (message) => {
   throw Error(message);
 };
+test('Homepage additions upgrade once and preserve later admin choices', () => {
+  const old = structuredClone(defaults);
+  delete old.homepageRevision;
+  old.sections = old.sections.filter(
+    (s) => !['business-milestones', 'consultation-preparation'].includes(s.id),
+  );
+  old.sections.find((s) => s.id === 'about').image =
+    '/media/business-destiny-hd.png';
+  const next = upgradeContent(old);
+  assert.equal(next.sections.length, old.sections.length + 2);
+  assert.equal(
+    next.sections.find((s) => s.id === 'about').image,
+    '/media/tejas-parikh-portrait.png',
+  );
+  assert.equal(
+    old.sections.find((s) => s.id === 'about').image,
+    '/media/business-destiny-hd.png',
+  );
+  next.sections.find((s) => s.id === 'business-milestones').visible = false;
+  next.sections.find((s) => s.id === 'about').image = '/media/owner-photo.png';
+  const again = upgradeContent(next);
+  assert.equal(again.sections.length, next.sections.length);
+  assert.equal(
+    again.sections.find((s) => s.id === 'business-milestones').visible,
+    false,
+  );
+  assert.equal(
+    again.sections.find((s) => s.id === 'about').image,
+    '/media/owner-photo.png',
+  );
+});
 test('Existing content upgrades without overwriting edits; public API excludes drafts and media inventory', async () => {
   const old = structuredClone(defaults);
   delete old.posts;

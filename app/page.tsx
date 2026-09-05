@@ -18,6 +18,7 @@ import {
 import initial from '@/content/default.json';
 import Chakra from './chakra';
 import { BlogCards, ContentRoute, SiteFooter } from './cms-public';
+import { BusinessMilestones, ConsultationPreparation } from './home-extras';
 
 export type Item = {
   title: string;
@@ -265,6 +266,13 @@ export default function Home() {
                         })}
                       </div>
                     </div>
+                  ) : s.id === 'business-milestones' ? (
+                    <BusinessMilestones s={s} buttonLabel={c.labels.discuss} />
+                  ) : s.id === 'consultation-preparation' ? (
+                    <ConsultationPreparation
+                      s={s}
+                      buttonLabel={c.labels.book}
+                    />
                   ) : s.id === 'about' ? (
                     <div className="wrap about-grid">
                       <div className="about-visual">

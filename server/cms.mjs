@@ -1,8 +1,37 @@
 import defaults from '../content/default.json' with { type: 'json' };
 // Extend older saved websites without overwriting their existing content.
 export function upgradeContent(content) {
+  let sections = content.sections;
+  if (!content.homepageRevision && Array.isArray(sections)) {
+    sections = sections.map((s) =>
+      s.id === 'about' &&
+      (!s.image || s.image === '/media/business-destiny-hd.png')
+        ? {
+            ...s,
+            image: '/media/tejas-parikh-portrait.png',
+            imageAlt:
+              'Tejas Parikh, Business Destiny founder and astrology consultant',
+          }
+        : s,
+    );
+    for (const [id, before] of [
+      ['business-milestones', 'about'],
+      ['consultation-preparation', 'pricing'],
+    ]) {
+      if (!sections.some((s) => s.id === id) && sections.length < 30) {
+        const index = sections.findIndex((s) => s.id === before);
+        sections.splice(
+          index < 0 ? sections.length : index,
+          0,
+          structuredClone(defaults.sections.find((s) => s.id === id)),
+        );
+      }
+    }
+  }
   return {
     ...content,
+    sections,
+    homepageRevision: content.homepageRevision ?? 1,
     pages: content.pages ?? [],
     posts: content.posts ?? structuredClone(defaults.posts),
     media: content.media ?? [],

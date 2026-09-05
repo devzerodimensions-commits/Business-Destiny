@@ -849,7 +849,12 @@ function ObjectEditor({
     return (
       <div className="object-editor">
         {Object.entries(value)
-          .filter(([k]) => k !== 'id' && !(path === 'fields' && k === 'name'))
+          .filter(
+            ([k]) =>
+              k !== 'id' &&
+              k !== 'homepageRevision' &&
+              !(path === 'fields' && k === 'name'),
+          )
           .map(([key, val]) =>
             typeof val === 'object' && val !== null ? (
               <details

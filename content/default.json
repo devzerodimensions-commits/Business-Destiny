@@ -224,9 +224,40 @@
     },
     {
       "visible": true,
+      "body": "Bring your plans, your priorities and your practical constraints. We begin with your business.",
+      "image": "",
+      "imageAlt": "",
+      "highlight": "One thoughtful approach.",
+      "items": [
+        {
+          "title": "Starting something new",
+          "subtitle": "01 / THE BEGINNING",
+          "description": "A new venture brings both possibility and questions. Make space to reflect before you take your next step.",
+          "features": "Business direction & priorities\nLaunch timing through a traditional lens\nQuestions about your first workspace"
+        },
+        {
+          "title": "Building what comes next",
+          "subtitle": "02 / THE NEXT CHAPTER",
+          "description": "A growing business brings new people, spaces and responsibilities. Focus the discussion on what is changing.",
+          "features": "Expansion & relocation questions\nPartnerships and working relationships\nVastu considerations for your premises"
+        },
+        {
+          "title": "Finding a fresh perspective",
+          "subtitle": "03 / A NEW DIRECTION",
+          "description": "When you are at a crossroads, step back and put your questions in context before deciding what comes next.",
+          "features": "Reviewing your current priorities\nExploring a change of direction\nBalancing traditional guidance with practical plans"
+        }
+      ],
+      "id": "business-milestones",
+      "eyebrow": "GUIDANCE FOR YOUR NEXT CHAPTER",
+      "title": "Different chapters.",
+      "description": "Your questions evolve as your business grows. Explore a consultation around the decision in front of you."
+    },
+    {
+      "visible": true,
       "body": "Every enterprise has a story. Tejas brings Vedic Astrology, KP Astrology, Vastu and Numerology together to explore yours—with a focus on the decisions that matter to business owners, manufacturers and entrepreneurs.",
-      "image": "/media/business-destiny-hd.png",
-      "imageAlt": "Business Destiny — Astrology, Vastu and strategic remedies",
+      "image": "/media/tejas-parikh-portrait.png",
+      "imageAlt": "Tejas Parikh, Business Destiny founder and astrology consultant",
       "items": [
         {
           "title": "Vedic Astrology"
@@ -278,6 +309,34 @@
       "eyebrow": "FROM QUESTIONS TO CLARITY",
       "id": "process",
       "title": "A thoughtful process."
+    },
+    {
+      "visible": true,
+      "body": "Not sure what to prepare? Tell us which consultation interests you and we will help you get started.",
+      "image": "",
+      "imageAlt": "",
+      "highlight": "Make room for perspective.",
+      "items": [
+        {
+          "title": "Your business story",
+          "subtitle": "CONTEXT",
+          "description": "Share what you do, where you are today and the decision you are considering."
+        },
+        {
+          "title": "The details that matter",
+          "subtitle": "PREPARATION",
+          "description": "Have relevant dates or a floor plan ready, depending on the consultation you choose."
+        },
+        {
+          "title": "A clear priority",
+          "subtitle": "DIRECTION",
+          "description": "Choose the question you most want to explore, and note any budget or timing constraints."
+        }
+      ],
+      "id": "consultation-preparation",
+      "eyebrow": "A CONVERSATION WITH PURPOSE",
+      "title": "Bring your questions.",
+      "description": "A little preparation helps us focus on what matters to you. Here is a useful place to start."
     },
     {
       "visible": true,
@@ -415,5 +474,6 @@
       "imageAlt": "Business Destiny consultation emblem",
       "body": "A little preparation helps you make the most of a consultation. Start by describing your business, the decision you face and what you hope to understand.\n\n1. What is the main question I want to explore? Choose one priority instead of trying to cover every business challenge.\n\n2. What information should I prepare? Ask about dates, background details, floor plans or other material relevant to your consultation.\n\n3. What constraints matter? Be clear about your budget, deadlines and existing commitments.\n\n4. How should I interpret the guidance? Ask the consultant to explain the traditional framework, its uncertainty and the limits of the discussion.\n\n5. What should I do afterwards? Record your questions and take time to consider any suggestions alongside practical research and professional advice.\n\nYou remain responsible for your decisions. A consultation is a space for discussion and reflection, not a guarantee of an outcome."
     }
-  ]
+  ],
+  "homepageRevision": 1
 }
