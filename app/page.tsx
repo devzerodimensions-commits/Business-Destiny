@@ -93,20 +93,22 @@ export default function Home() {
   const [preview, setPreview] = useState(false);
   const [error, setError] = useState('');
   useEffect(() => {
-    setRoute(location.pathname.replace(/\/$/, '') || '');
+    const loadedRoute = location.pathname.replace(/\/$/, '') || '';
     if (new URLSearchParams(location.search).has('preview')) {
       api('admin/content')
         .then((x) => {
           setC(x.draft);
           setPreview(true);
         })
-        .catch(() => setError('Sign in to preview unpublished changes.'));
+        .catch(() => setError('Sign in to preview unpublished changes.'))
+        .finally(() => setRoute(loadedRoute));
     } else {
       api('content')
         .then(setC)
         .catch(() =>
           setError('Live content is unavailable. Showing the saved homepage.'),
-        );
+        )
+        .finally(() => setRoute(loadedRoute));
     }
   }, []);
   return (
