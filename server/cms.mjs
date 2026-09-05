@@ -28,10 +28,20 @@ export function upgradeContent(content) {
       }
     }
   }
+  if ((content.homepageRevision ?? 0) < 2 && Array.isArray(sections)) {
+    sections = sections.map((s) =>
+      s.id === 'consultation-preparation'
+        ? {
+            ...structuredClone(defaults.sections.find((d) => d.id === s.id)),
+            visible: s.visible,
+          }
+        : s,
+    );
+  }
   return {
     ...content,
     sections,
-    homepageRevision: content.homepageRevision ?? 1,
+    homepageRevision: Math.max(content.homepageRevision ?? 0, 2),
     pages: content.pages ?? [],
     posts: content.posts ?? structuredClone(defaults.posts),
     media: content.media ?? [],

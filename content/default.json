@@ -312,31 +312,34 @@
     },
     {
       "visible": true,
-      "body": "Not sure what to prepare? Tell us which consultation interests you and we will help you get started.",
+      "body": "This guide helps you choose a service. Your consultation will focus on your specific questions.",
       "image": "",
       "imageAlt": "",
-      "highlight": "Make room for perspective.",
+      "highlight": "help with?",
       "items": [
         {
-          "title": "Your business story",
-          "subtitle": "CONTEXT",
-          "description": "Share what you do, where you are today and the decision you are considering."
+          "title": "I have a business decision to make",
+          "subtitle": "Business astrology",
+          "description": "Explore questions about business direction and timing through a traditional astrological consultation.",
+          "features": "Starting or reviewing a business\nConsidering an important decision\nUnderstanding traditional timing guidance"
         },
         {
-          "title": "The details that matter",
-          "subtitle": "PREPARATION",
-          "description": "Have relevant dates or a floor plan ready, depending on the consultation you choose."
+          "title": "I want advice about my workspace",
+          "subtitle": "Industrial & office Vastu",
+          "description": "Discuss the layout of your office, shop or industrial premises through a Vastu consultation.",
+          "features": "Planning a new office or premises\nReviewing your existing layout\nPreparing for a move or expansion"
         },
         {
-          "title": "A clear priority",
-          "subtitle": "DIRECTION",
-          "description": "Choose the question you most want to explore, and note any budget or timing constraints."
+          "title": "I am considering a business partner",
+          "subtitle": "Partnership compatibility",
+          "description": "Bring your partnership questions for a focused discussion using traditional astrological interpretation.",
+          "features": "Considering a new collaboration\nExploring working relationships\nDiscussing expectations before a commitment"
         }
       ],
       "id": "consultation-preparation",
-      "eyebrow": "A CONVERSATION WITH PURPOSE",
-      "title": "Bring your questions.",
-      "description": "A little preparation helps us focus on what matters to you. Here is a useful place to start."
+      "eyebrow": "FIND THE RIGHT CONSULTATION",
+      "title": "What would you like",
+      "description": "Choose the situation closest to yours. We’ll show you a service to explore."
     },
     {
       "visible": true,
@@ -475,5 +478,5 @@
       "body": "A little preparation helps you make the most of a consultation. Start by describing your business, the decision you face and what you hope to understand.\n\n1. What is the main question I want to explore? Choose one priority instead of trying to cover every business challenge.\n\n2. What information should I prepare? Ask about dates, background details, floor plans or other material relevant to your consultation.\n\n3. What constraints matter? Be clear about your budget, deadlines and existing commitments.\n\n4. How should I interpret the guidance? Ask the consultant to explain the traditional framework, its uncertainty and the limits of the discussion.\n\n5. What should I do afterwards? Record your questions and take time to consider any suggestions alongside practical research and professional advice.\n\nYou remain responsible for your decisions. A consultation is a space for discussion and reflection, not a guarantee of an outcome."
     }
   ],
-  "homepageRevision": 1
+  "homepageRevision": 2
 }

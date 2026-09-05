@@ -37,6 +37,22 @@ test('Homepage additions upgrade once and preserve later admin choices', () => {
     '/media/owner-photo.png',
   );
 });
+test('Consultation guide replaces the old section once and retains visibility', () => {
+  const old = structuredClone(defaults);
+  old.homepageRevision = 1;
+  const section = old.sections.find((s) => s.id === 'consultation-preparation');
+  section.title = 'Bring your questions.';
+  section.visible = false;
+  const updated = upgradeContent(old);
+  const guide = updated.sections.find((s) => s.id === section.id);
+  assert.equal(guide.title, 'What would you like');
+  assert.equal(guide.visible, false);
+  guide.title = 'Owner edited heading';
+  assert.equal(
+    upgradeContent(updated).sections.find((s) => s.id === section.id).title,
+    'Owner edited heading',
+  );
+});
 test('Existing content upgrades without overwriting edits; public API excludes drafts and media inventory', async () => {
   const old = structuredClone(defaults);
   delete old.posts;

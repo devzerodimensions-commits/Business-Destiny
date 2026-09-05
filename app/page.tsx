@@ -89,6 +89,7 @@ const icons = [
 export default function Home() {
   const [c, setC] = useState<Content>(initial);
   const [menu, setMenu] = useState(false);
+  const [selectedService, setSelectedService] = useState('');
   const [route, setRoute] = useState('');
   const [preview, setPreview] = useState(false);
   const [error, setError] = useState('');
@@ -274,6 +275,15 @@ export default function Home() {
                     <ConsultationPreparation
                       s={s}
                       buttonLabel={c.labels.book}
+                      onSelect={(service) =>
+                        setSelectedService(
+                          c.sections
+                            .find((s) => s.id === 'services')
+                            ?.items.some((i) => i.title === service)
+                            ? service
+                            : '',
+                        )
+                      }
                     />
                   ) : s.id === 'about' ? (
                     <div className="wrap about-grid">
@@ -417,7 +427,11 @@ export default function Home() {
                           </a>
                         )}
                       </div>
-                      <Enquiry c={c} />
+                      <Enquiry
+                        c={c}
+                        selectedService={selectedService}
+                        onServiceChange={setSelectedService}
+                      />
                     </div>
                   ) : (
                     <div className="wrap">
@@ -464,7 +478,15 @@ function Heading({ s }: { s: Content['sections'][number] }) {
     </div>
   );
 }
-function Enquiry({ c }: { c: Content }) {
+function Enquiry({
+  c,
+  selectedService,
+  onServiceChange,
+}: {
+  c: Content;
+  selectedService: string;
+  onServiceChange: (s: string) => void;
+}) {
   const [state, setState] = useState('');
   const [busy, setBusy] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -481,6 +503,7 @@ function Enquiry({ c }: { c: Content }) {
       setSuccess(true);
       setState(c.form.success);
       form.reset();
+      onServiceChange('');
     } catch (e) {
       setState((e as Error).message);
     } finally {
@@ -506,7 +529,11 @@ function Enquiry({ c }: { c: Content }) {
       </div>
       <label>
         {c.form.serviceLabel}
-        <select name="service">
+        <select
+          name="service"
+          value={selectedService}
+          onChange={(e) => onServiceChange(e.target.value)}
+        >
           <option value="">{c.form.servicePlaceholder}</option>
           {c.sections
             .find((s) => s.id === 'pricing')

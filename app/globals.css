@@ -3050,3 +3050,197 @@ select:focus {
     object-position: 40% top;
   }
 }
+/* A clear concern-to-consultation guide. */
+.consultation-guide {
+  background: #fbf6eb;
+  border: 1px solid #e7d7b6;
+  border-radius: 14px;
+  padding: 44px !important;
+  color: #26394f;
+}
+.guide-heading {
+  max-width: 800px;
+  margin-bottom: 30px;
+}
+.guide-heading .eyebrow {
+  color: #8e6624;
+}
+.guide-heading h2 {
+  font-size: clamp(32px, 3.5vw, 48px);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  margin: 15px 0;
+  color: #1c3047;
+}
+.guide-heading h2 em {
+  font-style: normal;
+  color: #986b22;
+}
+.guide-heading p {
+  color: #627184;
+  line-height: 1.7;
+  font-size: 16px;
+}
+.guide-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 32px;
+  align-items: start;
+}
+.guide-options {
+  display: grid;
+  gap: 14px;
+}
+.guide-options button {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  text-align: left;
+  min-height: 100px;
+  background: #fff;
+  border: 1px solid #dce0e3;
+  border-radius: 8px;
+  padding: 20px;
+  color: #344357;
+  font: inherit;
+  font-size: 17px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.guide-options button[aria-pressed='true'] {
+  background: #fff8e9;
+  border: 2px solid #b58736;
+  padding: 19px;
+  color: #785416;
+}
+.guide-options button:hover {
+  border-color: #b58736;
+}
+.guide-options button:focus-visible {
+  outline: 3px solid #477daf;
+  outline-offset: 3px;
+}
+.guide-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 9px;
+  background: #f8f1e1;
+  color: #a1762d;
+}
+.guide-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #c2b18d;
+  border-radius: 50%;
+  margin-left: auto;
+}
+.guide-options button[aria-pressed='true'] .guide-radio {
+  color: white;
+  background: #a77728;
+  border-color: #a77728;
+}
+.guide-result {
+  border: 1px solid #dfd1b4;
+  border-radius: 10px;
+  background: #fff;
+  padding: 30px;
+  min-height: 328px;
+  box-shadow: 0 8px 28px #26394f05;
+}
+.guide-result .eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #8b692b;
+}
+.guide-result h3 {
+  font-size: 28px;
+  color: #20364e;
+  line-height: 1.2;
+  margin: 16px 0;
+}
+.guide-result p {
+  color: #647185;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.guide-result ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 13px;
+  margin: 22px 0 26px;
+}
+.guide-result li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #4a5c71;
+}
+.guide-result li svg {
+  color: #a77828;
+  flex-shrink: 0;
+}
+.guide-result .button {
+  color: white;
+  background: #a7792e;
+  border-color: #a7792e;
+  font-size: 14px;
+}
+.guide-note {
+  padding-top: 23px;
+  margin-top: 25px !important;
+  margin-bottom: 0 !important;
+  border-top: 1px solid #e4d8c0;
+  color: #738092;
+  font-size: 12px;
+  line-height: 1.7;
+}
+@media (max-width: 800px) {
+  .guide-layout {
+    grid-template-columns: 1fr;
+  }
+  .consultation-guide {
+    padding: 28px !important;
+  }
+  .guide-options button {
+    min-height: 80px;
+  }
+  .guide-result {
+    min-height: 0;
+  }
+}
+@media (max-width: 480px) {
+  .consultation-guide {
+    padding: 24px 19px !important;
+  }
+  .guide-heading h2 {
+    font-size: 32px;
+  }
+  .guide-options button {
+    padding: 15px;
+    font-size: 15px;
+    gap: 12px;
+  }
+  .guide-options button[aria-pressed='true'] {
+    padding: 14px;
+  }
+  .guide-result {
+    padding: 23px;
+  }
+  .guide-result h3 {
+    font-size: 25px;
+  }
+  .guide-icon {
+    width: 35px;
+    height: 35px;
+  }
+}

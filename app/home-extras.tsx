@@ -83,43 +83,77 @@ export function BusinessMilestones({
 export function ConsultationPreparation({
   s,
   buttonLabel,
+  onSelect,
 }: {
   s: Section;
   buttonLabel: string;
+  onSelect: (service: string) => void;
 }) {
+  const [active, setActive] = useState(0);
+  const choice = s.items[Math.min(active, s.items.length - 1)];
   const icons = [Flag, Layers, Compass];
   return (
-    <div className="wrap preparation-wrap">
-      <div className="preparation-title">
+    <div className="wrap consultation-guide">
+      <div className="guide-heading">
         <div className="eyebrow">{s.eyebrow}</div>
         <h2>
           {s.title} <em>{s.highlight}</em>
         </h2>
         <p>{s.description}</p>
       </div>
-      <div className="preparation-cards">
-        {s.items.map((item, i) => {
-          const Icon = icons[i % icons.length];
-          return (
-            <article key={i}>
-              <div className="preparation-card-top">
-                <Icon size={28} strokeWidth={1.2} />
-                <span>0{i + 1}</span>
-              </div>
-              <div className="eyebrow">{item.subtitle}</div>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </article>
-          );
-        })}
+      <div className="guide-layout">
+        <div className="guide-options" aria-label="Choose your concern">
+          {s.items.map((item, i) => {
+            const Icon = icons[i % icons.length];
+            return (
+              <button
+                key={i}
+                aria-pressed={active === i}
+                onClick={() => setActive(i)}
+              >
+                <span className="guide-icon">
+                  <Icon size={24} />
+                </span>
+                <span>{item.title}</span>
+                <span className="guide-radio">
+                  {active === i && <Check size={13} />}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+        <div className="guide-result" aria-live="polite">
+          {choice ? (
+            <>
+              <span className="eyebrow">{choice.title}</span>
+              <h3>{choice.subtitle}</h3>
+              <p>{choice.description}</p>
+              <ul>
+                {choice.features
+                  ?.split('\n')
+                  .filter(Boolean)
+                  .map((f, i) => (
+                    <li key={i}>
+                      <Check size={15} />
+                      {f}
+                    </li>
+                  ))}
+              </ul>
+              <a
+                className="button"
+                href="#contact"
+                onClick={() => onSelect(choice.subtitle || '')}
+              >
+                {buttonLabel}
+                <ArrowUpRight size={17} />
+              </a>
+            </>
+          ) : (
+            <p>{s.description}</p>
+          )}
+        </div>
       </div>
-      <div className="preparation-bottom">
-        <p>{s.body}</p>
-        <a href="#contact" className="button outline">
-          {buttonLabel}
-          <ArrowUpRight size={17} />
-        </a>
-      </div>
+      <p className="guide-note">{s.body}</p>
     </div>
   );
 }
