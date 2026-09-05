@@ -78,3 +78,11 @@ Run node --test server/*.test.mjs to check both SQLite and PostgreSQL backends, 
 
 For an existing Render service, update/sync its Blueprint after pushing. Confirm that the plan is Free and there is no disk before deploying. Data already held in a previous local or paid deployment is not automatically migrated. The current default homepage is used on a new database.
 
+
+## Pages, posts and media
+
+The light admin panel includes Pages, Posts / Blog and Media modules. Pages support text, image-and-text, cards and call-to-action sections; sections can be hidden, reordered or removed. Each page has a unique `/pages/slug` URL and an Add to header menu action. Posts have `/blog/slug` URLs and the homepage displays the three newest published posts. Blog settings control the homepage heading and visibility.
+
+Save draft before opening a page/post preview. Mark an entry for publication, then use Publish changes to update the public website. Entries left as drafts are filtered out of the public content API. Publication applies the whole website draft. Existing saved homepage data is extended with the new modules without replacing owner edits.
+
+Media uploads can be saved in a reusable library; copy a library URL into an image field. Removing a library entry does not delete the underlying file or break existing uses. Footer columns, links and contact text are editable under Contact & footer. The three starter posts are editable under Posts / Blog.

@@ -1,4 +1,5 @@
 import defaults from '../content/default.json' with { type: 'json' };
+import { upgradeContent, publicContent, validateCMS } from './cms.mjs';
 const encoder = new TextEncoder();
 export async function hash(value) {
   return Array.from(
@@ -141,6 +142,8 @@ async function credentials(env) {
 }
 function validContent(c) {
   if (!c || typeof c !== 'object') fail('Invalid homepage content.');
+  c = upgradeContent(c);
+  validateCMS(c, fail);
   for (const k of Object.keys(defaults))
     if (!(k in c)) fail('Missing homepage setting: ' + k);
   for (const k of [
@@ -223,7 +226,11 @@ function validContent(c) {
       (n) =>
         typeof n.label !== 'string' ||
         typeof n.target !== 'string' ||
-        !ids.has(n.target),
+        !(
+          ids.has(n.target) ||
+          n.target === '/blog' ||
+          c.pages.some((p) => '/pages/' + p.slug === n.target)
+        ),
     )
   )
     fail('Navigation must link to existing sections.');
@@ -272,7 +279,7 @@ export async function handleAPI(req, env) {
         'SELECT value FROM content WHERE id=?',
         'published',
       );
-      return json(row ? JSON.parse(row.value) : defaults);
+      return json(publicContent(row ? JSON.parse(row.value) : defaults));
     }
     if (path === 'login' && method === 'POST') {
       await rate(req, env.DB, 'login', 20);
@@ -359,7 +366,9 @@ export async function handleAPI(req, env) {
         'SELECT value FROM content WHERE id=?',
         'draft',
       );
-      return json({ draft: row ? JSON.parse(row.value) : defaults });
+      return json({
+        draft: upgradeContent(row ? JSON.parse(row.value) : defaults),
+      });
     }
     if (path === 'admin/content' && method === 'PUT') {
       const input = await readJson(req),

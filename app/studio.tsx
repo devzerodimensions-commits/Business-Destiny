@@ -30,6 +30,7 @@ import { Tabs, TabsContent } from '@/components/ui/tabs';
 import { Checkbox } from '@/components/ui/checkbox';
 import initial from '@/content/default.json';
 import { api, type Content } from './page';
+import { PagesEditor, PostsEditor, MediaLibrary } from './cms-editor';
 export default function Admin() {
   const [authorized, setAuthorized] = useState(false),
     [checking, setChecking] = useState(true),
@@ -89,6 +90,8 @@ export default function Admin() {
   }
   const menu = [
     { title: 'Home', view: 'home', icon: LayoutDashboard },
+    { title: 'Pages', view: 'pages', icon: Layers },
+    { title: 'Posts / Blog', view: 'posts', icon: BriefcaseBusiness },
     { title: 'Home sections', view: 'content', icon: Layers },
     { title: 'Header menu', view: 'settings', group: 'navigation', icon: Menu },
     {
@@ -121,7 +124,7 @@ export default function Admin() {
       group: 'theme',
       icon: Palette,
     },
-    { title: 'Images', view: 'media', icon: ImagePlus },
+    { title: 'Media', view: 'media', icon: ImagePlus },
     {
       title: 'Contact & footer',
       view: 'settings',
@@ -132,17 +135,21 @@ export default function Admin() {
     { title: 'Account settings', view: 'security', icon: ShieldCheck },
   ];
   const title =
-    tab === 'home'
-      ? 'Home'
-      : tab === 'content'
-        ? 'Home sections'
-        : tab === 'media'
-          ? 'Website images'
-          : tab === 'settings'
-            ? menu.find((m) => m.group === settings)?.title
-            : tab === 'enquiries'
-              ? 'Consultation enquiries'
-              : 'Account settings';
+    tab === 'pages'
+      ? 'Pages'
+      : tab === 'posts'
+        ? 'Posts / Blog'
+        : tab === 'home'
+          ? 'Home'
+          : tab === 'content'
+            ? 'Home sections'
+            : tab === 'media'
+              ? 'Website images'
+              : tab === 'settings'
+                ? menu.find((m) => m.group === settings)?.title
+                : tab === 'enquiries'
+                  ? 'Consultation enquiries'
+                  : 'Account settings';
   const groups: Record<string, string[]> = {
     navigation: ['navigation'],
     brand: ['brand', 'founder'],
@@ -183,8 +190,8 @@ export default function Admin() {
       setDirty(false);
       setStatus(
         publish
-          ? 'Homepage published successfully.'
-          : 'Draft saved. Your live homepage has not changed.',
+          ? 'Website published successfully.'
+          : 'Draft saved. Your live website has not changed.',
       );
     } catch (e) {
       setStatus((e as Error).message);
@@ -506,8 +513,23 @@ export default function Admin() {
                 />
               </div>
             </TabsContent>
+            <TabsContent value="pages">
+              <PagesEditor
+                data={data}
+                onChange={update}
+                Editor={ObjectEditor}
+              />
+            </TabsContent>
+            <TabsContent value="posts">
+              <PostsEditor
+                data={data}
+                onChange={update}
+                Editor={ObjectEditor}
+              />
+            </TabsContent>
             <TabsContent value="media">
               <div className="editor-panel">
+                <MediaLibrary data={data} onChange={update} />
                 <h2>Website images</h2>
                 <p>
                   Replace an image or upload a PNG, JPEG or WebP file under 5
@@ -628,10 +650,23 @@ export default function Admin() {
                   {section < 0 ? (
                     <ObjectEditor
                       value={Object.fromEntries(
-                        Object.entries(data).filter(([k]) => k !== 'sections'),
+                        Object.entries(data).filter(
+                          ([k]) =>
+                            ![
+                              'sections',
+                              'pages',
+                              'posts',
+                              'media',
+                              'blog',
+                            ].includes(k),
+                        ),
                       )}
                       onChange={(v) =>
-                        update({ ...v, sections: data.sections } as Content)
+                        update({
+                          ...data,
+                          ...v,
+                          sections: data.sections,
+                        } as Content)
                       }
                     />
                   ) : (

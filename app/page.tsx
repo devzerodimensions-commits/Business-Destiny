@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import initial from '@/content/default.json';
 import Chakra from './chakra';
+import { BlogCards, ContentRoute, SiteFooter } from './cms-public';
 
 export type Item = {
   title: string;
@@ -39,8 +40,31 @@ export type Section = {
   imageAlt: string;
   items: Item[];
 };
-export type Content = Omit<typeof initial, 'sections'> & {
+export type PageSection = {
+  id: string;
+  type: 'text' | 'image' | 'cards' | 'cta';
+  visible: boolean;
+  title: string;
+  description: string;
+  body: string;
+  image: string;
+  imageAlt: string;
+  buttonLabel: string;
+  buttonUrl: string;
+  items: { title: string; description: string }[];
+};
+export type CMSPage = {
+  id: string;
+  slug: string;
+  title: string;
+  published: boolean;
+  sections: PageSection[];
+};
+export type MediaRecord = { id: string; name: string; image: string };
+export type Content = Omit<typeof initial, 'sections' | 'pages' | 'media'> & {
   sections: Section[];
+  pages: CMSPage[];
+  media: MediaRecord[];
 };
 export async function api(path: string, init?: RequestInit) {
   const headers = new Headers(init?.headers);
@@ -64,9 +88,11 @@ const icons = [
 export default function Home() {
   const [c, setC] = useState<Content>(initial);
   const [menu, setMenu] = useState(false);
+  const [route, setRoute] = useState('');
   const [preview, setPreview] = useState(false);
   const [error, setError] = useState('');
   useEffect(() => {
+    setRoute(location.pathname.replace(/\/$/, '') || '');
     if (new URLSearchParams(location.search).has('preview')) {
       api('admin/content')
         .then((x) => {
@@ -111,7 +137,7 @@ export default function Home() {
         </span>
       </div>
       <header className="header wrap">
-        <a href="#hero" className="brand">
+        <a href="/" className="brand">
           <img src={c.brand.logo} alt="Business Destiny logo" />
           <span>
             {c.brand.name}
@@ -120,20 +146,25 @@ export default function Home() {
         </a>
         <nav className={menu ? 'nav open' : 'nav'} aria-label="Main navigation">
           {c.navigation
-            .filter((n) =>
-              c.sections.some((s) => s.id === n.target && s.visible),
+            .filter(
+              (n) =>
+                c.sections.some((s) => s.id === n.target && s.visible) ||
+                n.target === '/blog' ||
+                c.pages.some(
+                  (p) => '/pages/' + p.slug === n.target && p.published,
+                ),
             )
             .map((n) => (
               <a
                 key={n.target}
-                href={'#' + n.target}
+                href={n.target.startsWith('/') ? n.target : '/#' + n.target}
                 onClick={() => setMenu(false)}
               >
                 {n.label}
               </a>
             ))}
         </nav>
-        <a className="button small header-cta" href="#contact">
+        <a className="button small header-cta" href="/#contact">
           {c.labels.book}
           <ArrowUpRight size={16} />
         </a>
@@ -147,276 +178,265 @@ export default function Home() {
         </button>
       </header>
       <main id="main">
-        {c.sections
-          .filter((s) => s.visible)
-          .map((s) => (
-            <section id={s.id} key={s.id} className={'section ' + s.id}>
-              {s.id === 'hero' ? (
-                <div className="hero-grid wrap">
-                  <div className="hero-copy">
-                    <div className="eyebrow">
-                      <span className="line" />
-                      {s.eyebrow}
-                    </div>
-                    <h1>
-                      {s.title}
-                      <br />
-                      <em>{s.highlight}</em>
-                    </h1>
-                    <p className="hero-description">{s.description}</p>
-                    <div className="actions">
-                      <a className="button" href="#contact">
-                        {c.labels.book}
-                        <ArrowUpRight size={19} />
-                      </a>
-                      <a className="textlink" href="#services">
-                        {c.labels.explore}
-                        <ArrowRight size={17} />
-                      </a>
-                    </div>
-                    <div className="hero-foot">
-                      <ShieldCheck size={21} />
-                      <span>{c.heroNote}</span>
-                    </div>
-                  </div>
-                  <div className="hero-art">
-                    <Chakra
-                      accent={c.theme.accent}
-                      highlight={c.theme.sky}
-                      fallback={c.brand.logo}
-                    />
-                    <div className="art-tag">
-                      <span className="mini-star">✦</span>
-                      <div>
-                        {c.artTag.title}
-                        <small>{c.artTag.subtitle}</small>
-                      </div>
-                    </div>
-                    <div className="art-caption">{c.artTag.caption}</div>
-                  </div>
-                </div>
-              ) : s.id === 'industries' ? (
-                <div className="industry-strip wrap">
-                  <span className="eyebrow">{s.title}</span>
-                  <div>
-                    {s.items.map((i, j) => (
-                      <span key={j}>
-                        {i.title}
-                        <span className="sky">✦</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ) : s.id === 'services' ? (
-                <div className="wrap">
-                  <Heading s={s} />
-                  <div className="service-grid">
-                    {s.items.map((i, j) => {
-                      const Icon = icons[j % icons.length];
-                      return (
-                        <a href="#contact" className="service-card" key={j}>
-                          <div className="card-top">
-                            <Icon size={29} strokeWidth={1.25} />
-                            <span>0{j + 1}</span>
-                          </div>
-                          <h3>{i.title}</h3>
-                          <p>{i.description}</p>
-                          <span className="service-link">
-                            {c.labels.discuss}
-                            <ArrowUpRight size={18} />
-                          </span>
-                        </a>
-                      );
-                    })}
-                  </div>
-                </div>
-              ) : s.id === 'about' ? (
-                <div className="wrap about-grid">
-                  <div className="about-visual">
-                    <img src={s.image} alt={s.imageAlt} />
-                    <span>
-                      {c.brand.name}
-                      <small>{c.brand.descriptor}</small>
-                    </span>
-                  </div>
-                  <div>
-                    <Heading s={s} />
-                    <p>{s.body}</p>
-                    <div className="expertise">
-                      {s.items.map((i, j) => (
-                        <span key={j}>
-                          <Check size={15} />
-                          {i.title}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="signature">
-                      <h3>{c.founder.name}</h3>
-                      <span>{c.founder.role}</span>
-                    </div>
-                    <a href="#contact" className="textlink">
-                      {c.labels.meet}
-                      <ArrowUpRight size={18} />
-                    </a>
-                  </div>
-                </div>
-              ) : s.id === 'process' ? (
-                <div className="wrap">
-                  <Heading s={s} />
-                  <div className="process-grid">
-                    {s.items.map((i, j) => (
-                      <div className="process-step" key={j}>
-                        <span className="step">0{j + 1}</span>
-                        <h3>{i.title}</h3>
-                        <p>{i.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : s.id === 'pricing' ? (
-                <div className="wrap">
-                  <Heading s={s} />
-                  <div className="pricing-grid">
-                    {s.items.map((i, j) => (
-                      <article
-                        className={
-                          'price-card ' + (i.featured ? 'featured' : '')
-                        }
-                        key={j}
-                      >
-                        {i.featured && (
-                          <span className="recommended">
-                            {c.labels.recommended}
-                          </span>
-                        )}
-                        <span className="eyebrow">{i.subtitle}</span>
-                        <h3>{i.title}</h3>
-                        <div className="price">
-                          {i.price}
-                          <small>{i.duration}</small>
+        {route ? (
+          <ContentRoute c={c} path={route} preview={preview} />
+        ) : (
+          <>
+            {c.sections
+              .filter((s) => s.visible)
+              .map((s) => (
+                <section id={s.id} key={s.id} className={'section ' + s.id}>
+                  {s.id === 'hero' ? (
+                    <div className="hero-grid wrap">
+                      <div className="hero-copy">
+                        <div className="eyebrow">
+                          <span className="line" />
+                          {s.eyebrow}
                         </div>
-                        <p>{i.description}</p>
-                        <ul>
-                          {i.features?.split('\n').map((f) => (
-                            <li key={f}>
-                              <Check size={16} />
-                              {f}
-                            </li>
-                          ))}
-                        </ul>
-                        <a
-                          className={i.featured ? 'button' : 'button outline'}
-                          href="#contact"
-                        >
-                          {c.labels.choose}
-                          <ArrowUpRight size={17} />
-                        </a>
-                      </article>
-                    ))}
-                  </div>
-                  <p className="pricing-note">{s.body}</p>
-                </div>
-              ) : s.id === 'faq' ? (
-                <div className="wrap faq-grid">
-                  <Heading s={s} />
-                  <div className="faqs">
-                    {s.items.map((i, j) => (
-                      <details key={j}>
-                        <summary>
-                          {i.title}
-                          <Plus size={19} />
-                        </summary>
-                        <p>{i.description}</p>
-                      </details>
-                    ))}
-                  </div>
-                </div>
-              ) : s.id === 'contact' ? (
-                <div className="wrap contact-grid">
-                  <div>
-                    <Heading s={s} />
-                    <div className="contact-note">
-                      <ShieldCheck />
-                      <p>{s.body}</p>
+                        <h1>
+                          {s.title}
+                          <br />
+                          <em>{s.highlight}</em>
+                        </h1>
+                        <p className="hero-description">{s.description}</p>
+                        <div className="actions">
+                          <a className="button" href="#contact">
+                            {c.labels.book}
+                            <ArrowUpRight size={19} />
+                          </a>
+                          <a className="textlink" href="#services">
+                            {c.labels.explore}
+                            <ArrowRight size={17} />
+                          </a>
+                        </div>
+                        <div className="hero-foot">
+                          <ShieldCheck size={21} />
+                          <span>{c.heroNote}</span>
+                        </div>
+                      </div>
+                      <div className="hero-art">
+                        <Chakra
+                          accent={c.theme.accent}
+                          highlight={c.theme.sky}
+                          fallback={c.brand.logo}
+                        />
+                        <div className="art-tag">
+                          <span className="mini-star">✦</span>
+                          <div>
+                            {c.artTag.title}
+                            <small>{c.artTag.subtitle}</small>
+                          </div>
+                        </div>
+                        <div className="art-caption">{c.artTag.caption}</div>
+                      </div>
                     </div>
-                    {c.contact.email && (
-                      <a
-                        className="textlink"
-                        href={'mailto:' + c.contact.email}
-                      >
-                        {c.contact.email}
-                        <ArrowUpRight size={16} />
-                      </a>
-                    )}
-                    {c.contact.phone && (
-                      <p>
-                        <a href={'tel:' + c.contact.phone}>{c.contact.phone}</a>
-                      </p>
-                    )}
-                    {c.contact.whatsapp && (
-                      <a
-                        className="textlink"
-                        href={
-                          'https://wa.me/' +
-                          c.contact.whatsapp.replace(/\D/g, '')
-                        }
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {c.labels.whatsapp}
-                        <ArrowUpRight size={16} />
-                      </a>
-                    )}
-                  </div>
-                  <Enquiry c={c} />
-                </div>
-              ) : (
-                <div className="wrap">
-                  <Heading s={s} />
-                  {s.image && (
-                    <img
-                      className="custom-image"
-                      src={s.image}
-                      alt={s.imageAlt}
-                    />
+                  ) : s.id === 'industries' ? (
+                    <div className="industry-strip wrap">
+                      <span className="eyebrow">{s.title}</span>
+                      <div>
+                        {s.items.map((i, j) => (
+                          <span key={j}>
+                            {i.title}
+                            <span className="sky">✦</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ) : s.id === 'services' ? (
+                    <div className="wrap">
+                      <Heading s={s} />
+                      <div className="service-grid">
+                        {s.items.map((i, j) => {
+                          const Icon = icons[j % icons.length];
+                          return (
+                            <a href="#contact" className="service-card" key={j}>
+                              <div className="card-top">
+                                <Icon size={29} strokeWidth={1.25} />
+                                <span>0{j + 1}</span>
+                              </div>
+                              <h3>{i.title}</h3>
+                              <p>{i.description}</p>
+                              <span className="service-link">
+                                {c.labels.discuss}
+                                <ArrowUpRight size={18} />
+                              </span>
+                            </a>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ) : s.id === 'about' ? (
+                    <div className="wrap about-grid">
+                      <div className="about-visual">
+                        <img src={s.image} alt={s.imageAlt} />
+                        <span>
+                          {c.brand.name}
+                          <small>{c.brand.descriptor}</small>
+                        </span>
+                      </div>
+                      <div>
+                        <Heading s={s} />
+                        <p>{s.body}</p>
+                        <div className="expertise">
+                          {s.items.map((i, j) => (
+                            <span key={j}>
+                              <Check size={15} />
+                              {i.title}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="signature">
+                          <h3>{c.founder.name}</h3>
+                          <span>{c.founder.role}</span>
+                        </div>
+                        <a href="#contact" className="textlink">
+                          {c.labels.meet}
+                          <ArrowUpRight size={18} />
+                        </a>
+                      </div>
+                    </div>
+                  ) : s.id === 'process' ? (
+                    <div className="wrap">
+                      <Heading s={s} />
+                      <div className="process-grid">
+                        {s.items.map((i, j) => (
+                          <div className="process-step" key={j}>
+                            <span className="step">0{j + 1}</span>
+                            <h3>{i.title}</h3>
+                            <p>{i.description}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : s.id === 'pricing' ? (
+                    <div className="wrap">
+                      <Heading s={s} />
+                      <div className="pricing-grid">
+                        {s.items.map((i, j) => (
+                          <article
+                            className={
+                              'price-card ' + (i.featured ? 'featured' : '')
+                            }
+                            key={j}
+                          >
+                            {i.featured && (
+                              <span className="recommended">
+                                {c.labels.recommended}
+                              </span>
+                            )}
+                            <span className="eyebrow">{i.subtitle}</span>
+                            <h3>{i.title}</h3>
+                            <div className="price">
+                              {i.price}
+                              <small>{i.duration}</small>
+                            </div>
+                            <p>{i.description}</p>
+                            <ul>
+                              {i.features?.split('\n').map((f) => (
+                                <li key={f}>
+                                  <Check size={16} />
+                                  {f}
+                                </li>
+                              ))}
+                            </ul>
+                            <a
+                              className={
+                                i.featured ? 'button' : 'button outline'
+                              }
+                              href="#contact"
+                            >
+                              {c.labels.choose}
+                              <ArrowUpRight size={17} />
+                            </a>
+                          </article>
+                        ))}
+                      </div>
+                      <p className="pricing-note">{s.body}</p>
+                    </div>
+                  ) : s.id === 'faq' ? (
+                    <div className="wrap faq-grid">
+                      <Heading s={s} />
+                      <div className="faqs">
+                        {s.items.map((i, j) => (
+                          <details key={j}>
+                            <summary>
+                              {i.title}
+                              <Plus size={19} />
+                            </summary>
+                            <p>{i.description}</p>
+                          </details>
+                        ))}
+                      </div>
+                    </div>
+                  ) : s.id === 'contact' ? (
+                    <div className="wrap contact-grid">
+                      <div>
+                        <Heading s={s} />
+                        <div className="contact-note">
+                          <ShieldCheck />
+                          <p>{s.body}</p>
+                        </div>
+                        {c.contact.email && (
+                          <a
+                            className="textlink"
+                            href={'mailto:' + c.contact.email}
+                          >
+                            {c.contact.email}
+                            <ArrowUpRight size={16} />
+                          </a>
+                        )}
+                        {c.contact.phone && (
+                          <p>
+                            <a href={'tel:' + c.contact.phone}>
+                              {c.contact.phone}
+                            </a>
+                          </p>
+                        )}
+                        {c.contact.whatsapp && (
+                          <a
+                            className="textlink"
+                            href={
+                              'https://wa.me/' +
+                              c.contact.whatsapp.replace(/\D/g, '')
+                            }
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {c.labels.whatsapp}
+                            <ArrowUpRight size={16} />
+                          </a>
+                        )}
+                      </div>
+                      <Enquiry c={c} />
+                    </div>
+                  ) : (
+                    <div className="wrap">
+                      <Heading s={s} />
+                      {s.image && (
+                        <img
+                          className="custom-image"
+                          src={s.image}
+                          alt={s.imageAlt}
+                        />
+                      )}
+                      <p>{s.body}</p>
+                      <div className="service-grid">
+                        {s.items.map((i, j) => (
+                          <article className="service-card" key={j}>
+                            <h3>{i.title}</h3>
+                            <p>{i.description}</p>
+                          </article>
+                        ))}
+                      </div>
+                    </div>
                   )}
-                  <p>{s.body}</p>
-                  <div className="service-grid">
-                    {s.items.map((i, j) => (
-                      <article className="service-card" key={j}>
-                        <h3>{i.title}</h3>
-                        <p>{i.description}</p>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </section>
-          ))}
+                </section>
+              ))}
+            <BlogCards c={c} preview={preview} />
+          </>
+        )}
       </main>
-      <footer className="footer wrap">
-        <div className="footer-top">
-          <a className="brand" href="#hero">
-            <img src={c.brand.logo} alt="" />
-            <span>
-              {c.brand.name}
-              <small>{c.brand.descriptor}</small>
-            </span>
-          </a>
-          <p>{c.footer.tagline}</p>
-          <a className="textlink" href="#contact">
-            {c.labels.book}
-            <ArrowUpRight size={17} />
-          </a>
-        </div>
-        <div className="footer-bottom">
-          <span>
-            © {new Date().getFullYear()} {c.brand.name}. {c.footer.rights}
-          </span>
-          <span>{c.footer.note}</span>
-          <a href="/admin">Admin login</a>
-        </div>
-      </footer>
+      <SiteFooter c={c} />
     </div>
   );
 }

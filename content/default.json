@@ -59,7 +59,53 @@
   "footer": {
     "tagline": "Align your space. Understand your timing. Shape your next chapter.",
     "rights": "All rights reserved.",
-    "note": "Traditional guidance. Thoughtful decisions."
+    "note": "Traditional guidance. Thoughtful decisions.",
+    "columns": [
+      {
+        "title": "Explore",
+        "links": [
+          {
+            "label": "Home",
+            "href": "/"
+          },
+          {
+            "label": "Our expertise",
+            "href": "/#services"
+          },
+          {
+            "label": "About the founder",
+            "href": "/#about"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          }
+        ]
+      },
+      {
+        "title": "Consultations",
+        "links": [
+          {
+            "label": "Business astrology",
+            "href": "/#services"
+          },
+          {
+            "label": "Vastu consultation",
+            "href": "/#services"
+          },
+          {
+            "label": "Plans & pricing",
+            "href": "/#pricing"
+          },
+          {
+            "label": "Book a consultation",
+            "href": "/#contact"
+          }
+        ]
+      }
+    ],
+    "contactTitle": "Let’s start a conversation",
+    "contactText": "Tell us about your business, your space and the questions you would like to explore."
   },
   "form": {
     "fields": [
@@ -317,6 +363,57 @@
       "eyebrow": "YOUR NEXT CHAPTER STARTS HERE",
       "id": "contact",
       "title": "Let’s talk about"
+    }
+  ],
+  "pages": [],
+  "media": [],
+  "blog": {
+    "visible": true,
+    "eyebrow": "THE BUSINESS DESTINY JOURNAL",
+    "title": "Ideas for a more thoughtful business.",
+    "description": "Explore business astrology, purposeful spaces and the questions behind important decisions.",
+    "linkLabel": "Read article",
+    "allLabel": "View all articles"
+  },
+  "posts": [
+    {
+      "id": "business-timing",
+      "slug": "business-astrology-and-important-decisions",
+      "title": "Business astrology: a thoughtful approach to important decisions",
+      "excerpt": "How to prepare for a consultation and bring practical questions to a conversation about timing.",
+      "category": "Business astrology",
+      "author": "Business Destiny",
+      "date": "2026-09-05",
+      "published": true,
+      "image": "/media/business-destiny-hd.png",
+      "imageAlt": "Business Destiny astrology and Vastu emblem",
+      "body": "Every business decision has a practical context: available resources, customer demand, people and timing. Some founders also turn to astrology as a traditional framework for reflection.\n\nBegin with a clear question. Are you considering a launch, a partnership or a change of direction? Bring relevant dates and explain the decision you are facing. Specific questions make a consultation more focused.\n\nKeep your business plan at the centre of the conversation. Review budgets, research your market and discuss commitments with the appropriate professionals. Astrology should not be treated as evidence of future profit or a substitute for financial or legal advice.\n\nA useful consultation leaves you with questions to consider and a clearer understanding of the traditional interpretation. Take time to reflect before making a commitment."
+    },
+    {
+      "id": "workplace-vastu",
+      "slug": "preparing-your-workspace-for-a-vastu-consultation",
+      "title": "Preparing your workspace for a Vastu consultation",
+      "excerpt": "A simple checklist of floor plans, photographs and everyday observations to bring to your session.",
+      "category": "Vastu",
+      "author": "Business Destiny",
+      "date": "2026-09-05",
+      "published": true,
+      "image": "/media/business-destiny-hd.png",
+      "imageAlt": "Business Destiny Vastu consultation emblem",
+      "body": "A workspace should support the people who use it. Before a Vastu consultation, gather a floor plan, the orientation of the building and recent photographs of the entrance and main work areas.\n\nWrite down what already works and what feels difficult. Consider circulation, privacy, noise, storage, light and the needs of your team. These observations give the consultant useful context.\n\nAsk which suggestions are easy to try and which involve structural work. Any building changes should be reviewed by qualified professionals and comply with applicable requirements.\n\nVastu is a traditional approach to spatial arrangement. It does not establish that a particular layout will increase revenue. Evaluate any changes alongside comfort, accessibility, safety and your budget."
+    },
+    {
+      "id": "consultation-preparation",
+      "slug": "questions-to-ask-before-your-business-consultation",
+      "title": "Five questions to bring to your business consultation",
+      "excerpt": "Make your session more useful by defining your priorities, constraints and next steps in advance.",
+      "category": "Consultation guide",
+      "author": "Business Destiny",
+      "date": "2026-09-05",
+      "published": true,
+      "image": "/media/business-destiny-hd.png",
+      "imageAlt": "Business Destiny consultation emblem",
+      "body": "A little preparation helps you make the most of a consultation. Start by describing your business, the decision you face and what you hope to understand.\n\n1. What is the main question I want to explore? Choose one priority instead of trying to cover every business challenge.\n\n2. What information should I prepare? Ask about dates, background details, floor plans or other material relevant to your consultation.\n\n3. What constraints matter? Be clear about your budget, deadlines and existing commitments.\n\n4. How should I interpret the guidance? Ask the consultant to explain the traditional framework, its uncertainty and the limits of the discussion.\n\n5. What should I do afterwards? Record your questions and take time to consider any suggestions alongside practical research and professional advice.\n\nYou remain responsible for your decisions. A consultation is a space for discussion and reflection, not a guarantee of an outcome."
     }
   ]
 }
