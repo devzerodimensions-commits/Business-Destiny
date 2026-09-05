@@ -116,7 +116,7 @@ async function rate(req, db, kind, maximum) {
   await run(db, 'DELETE FROM limits WHERE expires < ?', now);
   await run(
     db,
-    'INSERT INTO limits (id,count,expires) VALUES (?,1,?) ON CONFLICT(id) DO UPDATE SET count=count+1',
+    'INSERT INTO limits (id,count,expires) VALUES (?,1,?) ON CONFLICT(id) DO UPDATE SET count=limits.count+1',
     key,
     now + 3600000,
   );

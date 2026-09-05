@@ -1,16 +1,12 @@
-# Starter + persistent disk is a paid configuration. Review cost before applying.
+# Free Render compute. Supabase Free provides durable database and image storage.
 services:
   - type: web
     name: business-destiny
     runtime: node
-    plan: starter
+    plan: free
     buildCommand: npm ci --include=dev && npm run build:node
     startCommand: npm run start:node
     healthCheckPath: /api/content
-    disk:
-      name: business-destiny-data
-      mountPath: /var/data/business-destiny
-      sizeGB: 1
     envVars:
       - key: NODE_VERSION
         value: 24.19.0
@@ -20,8 +16,16 @@ services:
         value: 0.0.0.0
       - key: TRUST_PROXY
         value: "1"
-      - key: DATA_DIR
-        value: /var/data/business-destiny
+      - key: STORAGE_BACKEND
+        value: supabase
+      - key: REQUIRE_PERSISTENT_STORAGE
+        value: "1"
+      - key: DATABASE_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
       - key: ADMIN_USERNAME
         sync: false
       - key: ADMIN_SALT

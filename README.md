@@ -68,15 +68,12 @@ The app lint overrides allow native links/images for the shared standalone React
 
 The latest logo and 3D chakra revision is available on localhost for review; the previously published private website has not been redeployed.
 
-## GitHub and Render
+## Free GitHub + Render + Supabase deployment
 
-`render.yaml` defines a Node web service and a persistent 1 GB disk. This is a **paid** Render configuration; review the Render checkout estimate before creating it. The disk is needed for CMS edits, admin credentials, enquiries and uploaded images to survive restarts and deployments. Use only one instance with this SQLite configuration.
+The default render.yaml now uses Render's Free web service, with no paid disk. Supabase Free stores the database and uploaded website images. See [FREE_SETUP.md](FREE_SETUP.md) for the setup steps. Do not deploy until the Supabase environment variables are configured; the server deliberately refuses an ephemeral-database fallback.
 
-1. Push the source to a GitHub repository. A private repository is recommended; never upload `.env`, `.dev.vars`, `.credentials.txt`, `.render.env` or the `data` directory. They are ignored by Git.
-2. In Render, connect that GitHub repository through **New → Blueprint**. Render reads `render.yaml`.
-3. Set `ADMIN_USERNAME`, `ADMIN_SALT` and `ADMIN_PASSWORD_HASH` from the private local `.render.env` file. Do not put these values in the repository. These initialise the account; later password changes persist on the disk.
-4. Review the service/disk costs, then deploy. The live admin address is the assigned Render URL followed by `/admin`.
+Local development continues to use SQLite and files in data/. Render uses Postgres in the private business_destiny schema and a public Supabase bucket named business-destiny containing only website images. Database content, enquiries, sessions, and password hashes are not exposed via the browser or Supabase's public API. Only the Node backend holds the database connection and server key.
 
-Render supplies `PORT` and `RENDER_EXTERNAL_URL`. The server binds to `0.0.0.0`, uses the external HTTPS origin for cookies and request validation, and stores data under `DATA_DIR`. For a custom domain, set `PUBLIC_ORIGIN` to its exact HTTPS origin. Enable `TRUST_PROXY=1` only behind a trusted reverse proxy, as in this Blueprint.
+Run node --test server/*.test.mjs to check both SQLite and PostgreSQL backends, publication transactions, private-schema permissions and the mocked Supabase Storage integration. A live Supabase connection still needs verification after the owner's project is connected.
 
-A GitHub Actions workflow runs type checks, API tests and the Node build for pushes and pull requests. The existing localhost database is not automatically copied to Render; a fresh Render service starts with the current default homepage content.
+For an existing Render service, update/sync its Blueprint after pushing. Confirm that the plan is Free and there is no disk before deploying. Data already held in a previous local or paid deployment is not automatically migrated. The current default homepage is used on a new database.

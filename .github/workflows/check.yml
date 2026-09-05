@@ -13,5 +13,5 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx tsc --noEmit
-      - run: node --test server/api.test.mjs
+      - run: node --test server/*.test.mjs
       - run: npm run build:node
