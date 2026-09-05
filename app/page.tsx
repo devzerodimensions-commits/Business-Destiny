@@ -16,7 +16,6 @@ import {
   Plus,
 } from 'lucide-react';
 import initial from '@/content/default.json';
-import Chakra from './chakra';
 import { BlogCards, ContentRoute, SiteFooter } from './cms-public';
 import { BusinessMilestones, ConsultationPreparation } from './home-extras';
 
@@ -205,6 +204,9 @@ export default function Home() {
                           <em>{s.highlight}</em>
                         </h1>
                         <p className="hero-description">{s.description}</p>
+                        {s.body && (
+                          <p className="industrial-hero-topics">{s.body}</p>
+                        )}
                         <div className="actions">
                           <a className="button" href="#contact">
                             {c.labels.book}
@@ -220,11 +222,16 @@ export default function Home() {
                           <span>{c.heroNote}</span>
                         </div>
                       </div>
-                      <div className="hero-art">
-                        <Chakra
-                          accent={c.theme.accent}
-                          highlight={c.theme.sky}
-                          fallback={c.brand.logo}
+                      <div className="hero-art industrial-hero-art">
+                        <img
+                          className="industrial-factory-image"
+                          src={s.image}
+                          alt={s.imageAlt}
+                        />
+                        <img
+                          className="industrial-founder-image"
+                          src={c.sections.find((s) => s.id === 'about')?.image}
+                          alt={c.founder.name}
                         />
                         <div className="art-tag">
                           <span className="mini-star">✦</span>
@@ -235,6 +242,29 @@ export default function Home() {
                         </div>
                         <div className="art-caption">{c.artTag.caption}</div>
                       </div>
+                    </div>
+                  ) : s.id === 'industrial-questions' ||
+                    s.id === 'industrial-scenarios' ? (
+                    <div className="wrap industrial-editorial">
+                      <Heading s={s} />
+                      <div className="industrial-topic-grid">
+                        {s.items.map((item, i) => (
+                          <article key={i}>
+                            <span className="industrial-topic-number">
+                              {String(i + 1).padStart(2, '0')}
+                            </span>
+                            <h3>{item.title}</h3>
+                            <p>{item.description}</p>
+                            <a className="textlink" href="#contact">
+                              {c.labels.discuss}
+                              <ArrowUpRight size={15} />
+                            </a>
+                          </article>
+                        ))}
+                      </div>
+                      {s.body && (
+                        <p className="industrial-context-note">{s.body}</p>
+                      )}
                     </div>
                   ) : s.id === 'industries' ? (
                     <div className="industry-strip wrap">

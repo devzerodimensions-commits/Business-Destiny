@@ -238,10 +238,18 @@ function validContent(c) {
     fail('Invalid enquiry fields.');
   for (const f of c.form.fields)
     if (
-      !['name', 'email', 'phone', 'company', 'city', 'industry'].includes(
-        f.name,
-      ) ||
-      !['text', 'email', 'tel'].includes(f.type) ||
+      ![
+        'name',
+        'email',
+        'phone',
+        'company',
+        'city',
+        'industry',
+        'birthDate',
+        'birthTime',
+        'birthPlace',
+      ].includes(f.name) ||
+      !['text', 'email', 'tel', 'date', 'time'].includes(f.type) ||
       typeof f.label !== 'string' ||
       typeof f.placeholder !== 'string' ||
       typeof f.required !== 'boolean'
@@ -319,6 +327,9 @@ export async function handleAPI(req, env) {
         'company',
         'city',
         'industry',
+        'birthDate',
+        'birthTime',
+        'birthPlace',
         'service',
         'question',
         'consent',

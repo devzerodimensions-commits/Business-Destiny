@@ -1,10 +1,10 @@
 {
   "brand": {
     "name": "Business Destiny",
-    "descriptor": "ASTROLOGY • VASTU • BUSINESS",
+    "descriptor": "INDUSTRIAL & BUSINESS ASTROLOGY",
     "logo": "/media/business-destiny-hd.png",
-    "strapline": "Decode your destiny through Astrology & Vastu",
-    "availability": "Personal consultations"
+    "strapline": "Traditional astrological insight for industry, manufacturing & business",
+    "availability": "Consultations for business owners"
   },
   "theme": {
     "background": "#061426",
@@ -32,19 +32,19 @@
     }
   ],
   "labels": {
-    "book": "Book a consultation",
-    "explore": "Explore our expertise",
+    "book": "Book industrial consultation",
+    "explore": "Explore industrial services",
     "discuss": "Explore this service",
     "meet": "Start a conversation",
     "recommended": "SIGNATURE CONSULTATION",
     "choose": "Enquire now",
     "whatsapp": "Chat on WhatsApp"
   },
-  "heroNote": "Personalised guidance. Confidential conversations.",
+  "heroNote": "Vedic Astrology · KP Astrology · Vastu · Numerology",
   "artTag": {
-    "title": "The Navagraha chakra",
-    "subtitle": "Align · Plan · Grow · Prosper",
-    "caption": "TIMING  /  DIRECTION  /  POSSIBILITY"
+    "title": "Tejas Parikh",
+    "subtitle": "Industrial & Business Astrology Consultant",
+    "caption": "Timing · Compatibility · Direction"
   },
   "founder": {
     "name": "Tejas Parikh",
@@ -57,9 +57,9 @@
   },
   "heroCaption": "",
   "footer": {
-    "tagline": "Align your space. Understand your timing. Shape your next chapter.",
+    "tagline": "Industrial questions. Traditional insight. A considered next step.",
     "rights": "All rights reserved.",
-    "note": "Traditional guidance. Thoughtful decisions.",
+    "note": "Traditional interpretive guidance, not a guarantee of business results.",
     "columns": [
       {
         "title": "Explore",
@@ -83,19 +83,19 @@
         ]
       },
       {
-        "title": "Consultations",
+        "title": "Industrial consultations",
         "links": [
           {
-            "label": "Business astrology",
+            "label": "Factory Vastu",
             "href": "/#services"
           },
           {
-            "label": "Vastu consultation",
+            "label": "Expansion & machinery",
             "href": "/#services"
           },
           {
-            "label": "Plans & pricing",
-            "href": "/#pricing"
+            "label": "Our methodology",
+            "href": "/#consultation-preparation"
           },
           {
             "label": "Book a consultation",
@@ -105,7 +105,7 @@
       }
     ],
     "contactTitle": "Let’s start a conversation",
-    "contactText": "Tell us about your business, your space and the questions you would like to explore."
+    "contactText": "Tell us about your factory, enterprise or planned project."
   },
   "form": {
     "fields": [
@@ -136,13 +136,48 @@
         "type": "text",
         "required": false,
         "placeholder": "Company name"
+      },
+      {
+        "name": "industry",
+        "label": "Industry",
+        "type": "text",
+        "placeholder": "e.g. Engineering or packaging",
+        "required": false
+      },
+      {
+        "name": "city",
+        "label": "City",
+        "type": "text",
+        "placeholder": "Your city",
+        "required": false
+      },
+      {
+        "name": "birthDate",
+        "label": "Birth date (optional)",
+        "type": "date",
+        "placeholder": "",
+        "required": false
+      },
+      {
+        "name": "birthTime",
+        "label": "Birth time (optional)",
+        "type": "time",
+        "placeholder": "",
+        "required": false
+      },
+      {
+        "name": "birthPlace",
+        "label": "Birth place (optional)",
+        "type": "text",
+        "placeholder": "City and country",
+        "required": false
       }
     ],
     "serviceLabel": "What can we help with?",
     "servicePlaceholder": "Select a consultation",
-    "questionLabel": "Your business question",
-    "questionPlaceholder": "Tell us a little about your goals…",
-    "consent": "I agree to be contacted about this consultation enquiry.",
+    "questionLabel": "Main industrial or business question",
+    "questionPlaceholder": "Tell us about your company, your project and the decision you want to explore.",
+    "consent": "I agree to my submitted details being used to respond to this consultation enquiry.",
     "submit": "Request a consultation",
     "sending": "Sending your enquiry…",
     "success": "Thank you. Your enquiry has been received. The consultant will contact you to discuss availability."
@@ -150,15 +185,15 @@
   "sections": [
     {
       "visible": true,
-      "body": "",
-      "image": "/media/business-destiny-hd.png",
-      "imageAlt": "Interactive gold 3D astrology chakra with zodiac signs and planetary orbits",
+      "body": "Factory setup · Expansion · Machinery · Partnerships · Vastu · Product launches",
+      "image": "/media/industrial-factory.png",
+      "imageAlt": "Illustrative modern manufacturing facility",
       "items": [],
-      "highlight": "Cosmically aligned.",
-      "description": "Ancient wisdom. A sharper business perspective. Navigate your next move with personalised astrology and Vastu guidance for your enterprise.",
-      "eyebrow": "BUSINESS ASTROLOGY & VASTU CONSULTANCY",
+      "highlight": "For industrial decisions.",
+      "description": "Vedic Astrology, KP Astrology, Vastu and Numerology for manufacturers, entrepreneurs and industrial business owners. Explore your questions about setup, expansion, partnerships and project timing.",
+      "eyebrow": "INDUSTRIAL ASTROLOGY / BUSINESS DESTINY",
       "id": "hero",
-      "title": "Your vision."
+      "title": "A deeper perspective."
     },
     {
       "visible": true,
@@ -167,13 +202,37 @@
       "imageAlt": "",
       "items": [
         {
-          "title": "Manufacturing"
+          "title": "Engineering"
         },
         {
-          "title": "Entrepreneurs"
+          "title": "Steel & metal"
         },
         {
-          "title": "Real estate"
+          "title": "Chemicals"
+        },
+        {
+          "title": "Pharmaceuticals"
+        },
+        {
+          "title": "Food manufacturing"
+        },
+        {
+          "title": "Packaging"
+        },
+        {
+          "title": "Textiles"
+        },
+        {
+          "title": "Plastics"
+        },
+        {
+          "title": "Construction"
+        },
+        {
+          "title": "Automobile"
+        },
+        {
+          "title": "Export businesses"
         },
         {
           "title": "Startups & SMEs"
@@ -183,7 +242,7 @@
       "description": "",
       "eyebrow": "",
       "id": "industries",
-      "title": "GUIDANCE FOR AMBITIOUS ENTERPRISES"
+      "title": "INDUSTRIES WE SERVE"
     },
     {
       "visible": true,
@@ -192,35 +251,59 @@
       "imageAlt": "",
       "items": [
         {
-          "title": "Business astrology",
-          "description": "Understand business cycles, explore your strengths, and bring a fresh perspective to your next strategic move."
+          "title": "Industrial business astrology",
+          "description": "Traditional chart analysis focused on your business context, priorities and questions."
         },
         {
-          "title": "Industrial & office Vastu",
-          "description": "A considered study of your workspace—from entrances and office layouts to machinery and production zones."
+          "title": "Factory Vastu",
+          "description": "Review factory entrances, production zones, machinery placement and office layout through Vastu."
         },
         {
           "title": "Business setup & expansion",
-          "description": "Explore timing for a new factory, additional capacity, a new location, or the next chapter of your enterprise."
+          "description": "Discuss a new factory, additional capacity, relocation or entry into a new market."
         },
         {
-          "title": "Partnership compatibility",
-          "description": "Bring clarity to the dynamics between founders, directors, and business partners through chart analysis."
+          "title": "Partnership analysis",
+          "description": "Explore traditional compatibility interpretations for promoters, directors and business partners."
         },
         {
           "title": "Machinery & project Muhurat",
-          "description": "Identify traditional auspicious windows for machinery installation, factory inauguration, and project launches."
+          "description": "Discuss traditional timing considerations for machinery installation, inaugurations and project commencement."
         },
         {
           "title": "Business numerology",
-          "description": "Explore the numerological significance of your company name, brand identity, and new product names."
+          "description": "Explore interpretations of company, brand and product names alongside important business numbers."
+        },
+        {
+          "title": "Investment & cash-flow questions",
+          "description": "Reflect on timing questions alongside your budget and financial analysis; this is not investment advice."
+        },
+        {
+          "title": "Product launch timing",
+          "description": "Bring your launch schedule and commercial constraints for a focused timing discussion."
+        },
+        {
+          "title": "Export & international business",
+          "description": "Explore questions about overseas plans while considering market research and practical requirements."
+        },
+        {
+          "title": "Key management questions",
+          "description": "Discuss working relationships using a traditional framework; hiring decisions should rest on skills and fair assessment."
+        },
+        {
+          "title": "Industrial property selection",
+          "description": "Discuss orientation and spatial considerations alongside due diligence and professional property advice."
+        },
+        {
+          "title": "Business review consultation",
+          "description": "A focused discussion about your current direction, commitments and questions."
         }
       ],
-      "highlight": "deeper insight.",
-      "description": "From your first venture to your next expansion, explore guidance shaped around your business.",
-      "eyebrow": "A CLEARER WAY FORWARD",
+      "highlight": "Your next decision.",
+      "description": "Choose a consultation around a specific project, business question or industrial space.",
+      "eyebrow": "SPECIALISED INDUSTRIAL CONSULTATIONS",
       "id": "services",
-      "title": "Big decisions deserve"
+      "title": "Your enterprise."
     },
     {
       "visible": true,
@@ -255,7 +338,69 @@
     },
     {
       "visible": true,
-      "body": "Every enterprise has a story. Tejas brings Vedic Astrology, KP Astrology, Vastu and Numerology together to explore yours—with a focus on the decisions that matter to business owners, manufacturers and entrepreneurs.",
+      "body": "Astrological guidance does not diagnose machinery faults, resolve legal disputes or establish financial outcomes. Use qualified technical, legal and financial advice for those decisions.",
+      "image": "",
+      "imageAlt": "",
+      "items": [
+        {
+          "title": "A new factory",
+          "description": "What questions should I explore before setting up a new unit?"
+        },
+        {
+          "title": "Expansion & relocation",
+          "description": "How can I frame a timing discussion around capacity or a move?"
+        },
+        {
+          "title": "Production & machinery",
+          "description": "What business timing questions sit alongside the technical issues my team is investigating?"
+        },
+        {
+          "title": "Partnerships & people",
+          "description": "What questions do I have about expectations and working relationships?"
+        },
+        {
+          "title": "Payments & cash flow",
+          "description": "What commitments and timing concerns should I bring to the conversation?"
+        },
+        {
+          "title": "Exports & product launches",
+          "description": "How do my launch or overseas plans fit my current priorities?"
+        }
+      ],
+      "highlight": "decision agenda?",
+      "description": "Frame the consultation around a real question, with operational facts and practical constraints alongside the traditional interpretation.",
+      "eyebrow": "BUSINESS QUESTIONS WE EXPLORE",
+      "id": "industrial-questions",
+      "title": "What is on your"
+    },
+    {
+      "visible": true,
+      "body": "",
+      "image": "",
+      "imageAlt": "",
+      "items": [
+        {
+          "title": "Manufacturing unit expansion",
+          "description": "A founder brings a proposed expansion schedule, company background and practical constraints to discuss traditional timing interpretations."
+        },
+        {
+          "title": "Partnership restructuring",
+          "description": "Business partners outline their roles and questions before a traditional compatibility discussion, alongside independent legal advice."
+        },
+        {
+          "title": "Factory Vastu review",
+          "description": "An owner brings a floor plan and observations about daily operations for a spatial review. Technical changes remain subject to professional assessment."
+        }
+      ],
+      "highlight": "A practical starting point.",
+      "description": "Examples of consultation topics, not client case studies or claims of results.",
+      "eyebrow": "ILLUSTRATIVE CONSULTATION SCENARIOS",
+      "id": "industrial-scenarios",
+      "title": "A focused question."
+    },
+    {
+      "visible": true,
+      "body": "Tejas Parikh brings Vedic Astrology, KP Astrology, Vastu and Numerology into a focused discussion of industrial and business questions. Each consultation starts with your enterprise: the people, premises, plans and decisions that matter to you.",
       "image": "/media/tejas-parikh-portrait.png",
       "imageAlt": "Tejas Parikh, Business Destiny founder and astrology consultant",
       "items": [
@@ -270,16 +415,13 @@
         },
         {
           "title": "Numerology"
-        },
-        {
-          "title": "Palmistry"
         }
       ],
-      "highlight": "A business-first approach.",
-      "description": "Meet Tejas Parikh, Industrial & Business Astrology Consultant.",
-      "eyebrow": "ROOTED IN WISDOM. FOCUSED ON YOU.",
+      "highlight": "An industrial focus.",
+      "description": "Industrial & Business Astrology Consultant",
+      "eyebrow": "MEET YOUR CONSULTANT",
       "id": "about",
-      "title": "Traditional knowledge."
+      "title": "Tejas Parikh."
     },
     {
       "visible": true,
@@ -288,68 +430,72 @@
       "imageAlt": "",
       "items": [
         {
-          "title": "Share your direction",
-          "description": "Tell us about your business, your goals, and the decision on your mind."
+          "title": "Share your details",
+          "description": "Provide relevant birth details, company background and your main business question."
         },
         {
-          "title": "Explore the details",
-          "description": "Share relevant birth details, business information, or a property layout privately."
+          "title": "Chart analysis",
+          "description": "Relevant charts are considered using Vedic and KP astrology."
         },
         {
-          "title": "Connect the insights",
-          "description": "Your consultation brings chart analysis and business context into one conversation."
+          "title": "Business & Vastu study",
+          "description": "Discuss the business context and, where relevant, your site plan or workspace."
         },
         {
-          "title": "Plan your next step",
-          "description": "Discuss observations, timing considerations, and questions to take forward."
+          "title": "Review the observations",
+          "description": "Explore the traditional interpretations, timing considerations and their limitations."
+        },
+        {
+          "title": "Consultation & next steps",
+          "description": "Ask questions and discuss the observations alongside your practical plans."
         }
       ],
-      "highlight": "Personal to your business.",
-      "description": "A focused conversation starts with understanding your context.",
-      "eyebrow": "FROM QUESTIONS TO CLARITY",
+      "highlight": "to a focused discussion.",
+      "description": "A structured process built around the question you want to explore.",
+      "eyebrow": "HOW YOUR CONSULTATION WORKS",
       "id": "process",
-      "title": "A thoughtful process."
+      "title": "From business details"
     },
     {
       "visible": true,
       "body": "",
       "image": "",
       "imageAlt": "",
-      "highlight": "Your questions at the centre.",
+      "highlight": "One business context.",
       "items": [
         {
-          "title": "Astrology",
-          "subtitle": "Business astrology",
-          "description": "Explore business direction, important decisions and questions about timing through Vedic and KP astrology. A focused conversation, shaped around your circumstances.",
+          "title": "Vedic Astrology",
+          "subtitle": "Industrial business astrology",
+          "description": "Traditional horoscope interpretation to discuss questions about business direction, timing and your circumstances.",
           "image": "/media/service-astrology.png",
-          "imageAlt": "Gold zodiac wheel on a midnight blue background"
+          "imageAlt": "Gold zodiac wheel representing Vedic astrology"
         },
         {
-          "title": "Vastu",
-          "subtitle": "Industrial & office Vastu",
-          "description": "Look at your office, shop or industrial space through the principles of Vastu. Discuss layout, orientation and the questions that come with a new or existing workspace.",
+          "title": "KP Astrology",
+          "subtitle": "Industrial business astrology",
+          "description": "A detailed astrological framework used to explore focused questions about a project or business decision.",
+          "image": "/media/service-astrology.png",
+          "imageAlt": "Astrological wheel representing KP chart analysis"
+        },
+        {
+          "title": "Factory Vastu",
+          "subtitle": "Factory Vastu",
+          "description": "A traditional perspective on factory orientation, entrances, work zones and spatial arrangement.",
           "image": "/media/service-vastu.png",
-          "imageAlt": "Gold architectural floor plan inside a directional compass"
+          "imageAlt": "Illustrative industrial layout and directional compass"
         },
         {
           "title": "Numerology",
           "subtitle": "Business numerology",
-          "description": "Explore the traditional interpretations of names, dates and numbers. Bring your business naming or personal questions for a numerology consultation.",
+          "description": "Traditional interpretations of company names, brand names, dates and numbers in your business context.",
           "image": "/media/service-numerology.png",
-          "imageAlt": "Golden numerals arranged in a circular celestial design"
-        },
-        {
-          "title": "Palmistry",
-          "subtitle": "Palmistry",
-          "description": "Discover how palm lines and hand features are interpreted in traditional palmistry. Use the session to explore your questions and reflect on the interpretation.",
-          "image": "/media/service-palmistry.png",
-          "imageAlt": "An open palm illustrated with traditional palmistry lines"
+          "imageAlt": "Golden numerals representing numerology"
         }
       ],
       "id": "consultation-preparation",
-      "eyebrow": "EXPLORE OUR TRADITIONAL PRACTICES",
-      "title": "Four perspectives.",
-      "description": "Discover the consultation that speaks to your business, your space or your personal questions."
+      "eyebrow": "OUR METHODOLOGY",
+      "title": "Four disciplines.",
+      "description": "Traditional frameworks used to explore your questions. The approach depends on the scope of your consultation."
     },
     {
       "visible": true,
@@ -430,11 +576,11 @@
       "image": "",
       "imageAlt": "",
       "items": [],
-      "highlight": "your next move.",
-      "description": "A new venture. A bigger vision. A question that needs clarity. Tell us what’s on your mind.",
-      "eyebrow": "YOUR NEXT CHAPTER STARTS HERE",
+      "highlight": "astrology consultation.",
+      "description": "Tell us about your company and the decision you are considering. We will contact you to discuss the scope and availability.",
+      "eyebrow": "LET’S DISCUSS YOUR ENTERPRISE",
       "id": "contact",
-      "title": "Let’s talk about"
+      "title": "Book your industrial"
     }
   ],
   "pages": [],
@@ -488,5 +634,5 @@
       "body": "A little preparation helps you make the most of a consultation. Start by describing your business, the decision you face and what you hope to understand.\n\n1. What is the main question I want to explore? Choose one priority instead of trying to cover every business challenge.\n\n2. What information should I prepare? Ask about dates, background details, floor plans or other material relevant to your consultation.\n\n3. What constraints matter? Be clear about your budget, deadlines and existing commitments.\n\n4. How should I interpret the guidance? Ask the consultant to explain the traditional framework, its uncertainty and the limits of the discussion.\n\n5. What should I do afterwards? Record your questions and take time to consider any suggestions alongside practical research and professional advice.\n\nYou remain responsible for your decisions. A consultation is a space for discussion and reflection, not a guarantee of an outcome."
     }
   ],
-  "homepageRevision": 3
+  "homepageRevision": 4
 }

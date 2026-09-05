@@ -45,7 +45,7 @@ test('Consultation guide replaces the old section once and retains visibility', 
   section.visible = false;
   const updated = upgradeContent(old);
   const guide = updated.sections.find((s) => s.id === section.id);
-  assert.equal(guide.title, 'Four perspectives.');
+  assert.equal(guide.title, 'Four disciplines.');
   assert.equal(guide.items.length, 4);
   assert.ok(guide.items.every((item) => item.image && item.imageAlt));
   assert.equal(guide.visible, false);

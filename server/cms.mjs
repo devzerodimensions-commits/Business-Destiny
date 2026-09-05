@@ -38,15 +38,81 @@ export function upgradeContent(content) {
         : s,
     );
   }
+  let updated = content;
+  if ((content.homepageRevision ?? 0) < 4 && Array.isArray(sections)) {
+    const replaced = [
+      'hero',
+      'industries',
+      'services',
+      'about',
+      'process',
+      'consultation-preparation',
+      'contact',
+    ];
+    sections = sections.map((s) =>
+      replaced.includes(s.id)
+        ? {
+            ...structuredClone(defaults.sections.find((d) => d.id === s.id)),
+            visible: s.visible,
+            ...(s.id === 'about'
+              ? { image: s.image, imageAlt: s.imageAlt }
+              : {}),
+          }
+        : s,
+    );
+    for (const id of ['industrial-questions', 'industrial-scenarios'])
+      if (!sections.some((s) => s.id === id) && sections.length < 30) {
+        const index = sections.findIndex((s) => s.id === 'about');
+        sections.splice(
+          index < 0 ? sections.length : index,
+          0,
+          structuredClone(defaults.sections.find((s) => s.id === id)),
+        );
+      }
+    updated = {
+      ...content,
+      brand: {
+        ...content.brand,
+        descriptor: defaults.brand.descriptor,
+        strapline: defaults.brand.strapline,
+        availability: defaults.brand.availability,
+      },
+      heroNote: defaults.heroNote,
+      artTag: defaults.artTag,
+      labels: {
+        ...content.labels,
+        book: defaults.labels.book,
+        explore: defaults.labels.explore,
+      },
+      footer: {
+        ...content.footer,
+        tagline: defaults.footer.tagline,
+        note: defaults.footer.note,
+        contactText: defaults.footer.contactText,
+      },
+      form: {
+        ...content.form,
+        fields: [
+          ...(content.form?.fields || []),
+          ...defaults.form.fields.filter(
+            (f) => !content.form?.fields?.some((x) => x.name === f.name),
+          ),
+        ],
+        questionLabel: defaults.form.questionLabel,
+        questionPlaceholder: defaults.form.questionPlaceholder,
+        consent: defaults.form.consent,
+      },
+    };
+  }
   return {
-    ...content,
+    ...updated,
     sections,
-    homepageRevision: Math.max(content.homepageRevision ?? 0, 3),
+    homepageRevision: Math.max(content.homepageRevision ?? 0, 4),
     pages: content.pages ?? [],
     posts: content.posts ?? structuredClone(defaults.posts),
     media: content.media ?? [],
     blog: { ...defaults.blog, ...content.blog },
-    footer: { ...defaults.footer, ...content.footer },
+    footer: { ...defaults.footer, ...updated.footer },
   };
 }
 export function publicContent(content) {
