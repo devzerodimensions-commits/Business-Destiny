@@ -259,9 +259,9 @@ export function HomeSectionEditor({
                   />
                   <button
                     className="button outline small"
-                    onClick={() => navigate('settings', 'theme')}
+                    onClick={() => navigate('settings', 'chakra')}
                   >
-                    Edit chakra colours
+                    Edit 3D model & effects
                   </button>
                 </details>
               )}

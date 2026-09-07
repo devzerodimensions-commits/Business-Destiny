@@ -131,3 +131,20 @@ test('CMS rejects duplicate slugs, unsupported sections and unsafe links', () =>
   ];
   assert.throws(() => validateCMS(c, fail), /Invalid page section/);
 });
+
+test('Chakra settings upgrade old content, preserve edits and reject unsafe ranges', () => {
+  const old = structuredClone(defaults);
+  delete old.chakra;
+  const upgraded = upgradeContent(old);
+  assert.deepEqual(upgraded.chakra, defaults.chakra);
+  upgraded.chakra.speed = 2.4;
+  upgraded.chakra.autoRotate = false;
+  assert.equal(upgradeContent(upgraded).chakra.speed, 2.4);
+  assert.equal(upgradeContent(upgraded).chakra.autoRotate, false);
+  validateCMS(upgraded, fail);
+  upgraded.chakra.scale = 99;
+  assert.throws(() => validateCMS(upgraded, fail), /chakra scale/);
+  upgraded.chakra.scale = 1;
+  upgraded.chakra.surface = 'invalid';
+  assert.throws(() => validateCMS(upgraded, fail), /chakra colour/);
+});

@@ -31,6 +31,7 @@ import initial from '@/content/default.json';
 import { api, type Content } from './page';
 import { PagesEditor, PostsEditor, MediaLibrary } from './cms-editor';
 import { HomeSectionEditor } from './section-editor';
+import { AppearanceEditor } from './appearance-editor';
 export default function Admin() {
   const [authorized, setAuthorized] = useState(false),
     [checking, setChecking] = useState(true),
@@ -123,6 +124,12 @@ export default function Admin() {
       view: 'settings',
       group: 'theme',
       icon: Palette,
+    },
+    {
+      title: '3D model & effects',
+      view: 'settings',
+      group: 'chakra',
+      icon: Globe,
     },
     { title: 'Media', view: 'media', icon: ImagePlus },
     {
@@ -497,21 +504,30 @@ export default function Admin() {
               </div>
             </TabsContent>
             <TabsContent value="settings">
-              <div className="editor-panel">
-                <h2>{title}</h2>
-                <p>
-                  Save a draft to preview your changes, or publish to update the
-                  website.
-                </p>
-                <ObjectEditor
-                  value={Object.fromEntries(
-                    Object.entries(data).filter(([k]) =>
-                      groups[settings].includes(k),
-                    ),
-                  )}
-                  onChange={(v) => update({ ...data, ...v })}
+              {['theme', 'chakra'].includes(settings) ? (
+                <AppearanceEditor
+                  data={data}
+                  onChange={update}
+                  modelOnly={settings === 'chakra'}
+                  Editor={ObjectEditor}
                 />
-              </div>
+              ) : (
+                <div className="editor-panel">
+                  <h2>{title}</h2>
+                  <p>
+                    Save a draft to preview your changes, or publish to update
+                    the website.
+                  </p>
+                  <ObjectEditor
+                    value={Object.fromEntries(
+                      Object.entries(data).filter(([k]) =>
+                        groups[settings].includes(k),
+                      ),
+                    )}
+                    onChange={(v) => update({ ...data, ...v })}
+                  />
+                </div>
+              )}
             </TabsContent>
             <TabsContent value="pages">
               <PagesEditor
@@ -726,7 +742,7 @@ function ObjectEditor({
               <details
                 className="editor-group"
                 key={key}
-                open={key === 'items'}
+                open={key === 'items' || key === 'theme'}
               >
                 <summary>{label(key)}</summary>
                 <ObjectEditor

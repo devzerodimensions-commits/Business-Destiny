@@ -193,7 +193,12 @@ export default function Home() {
               .map((s) => (
                 <section id={s.id} key={s.id} className={'section ' + s.id}>
                   {s.id === 'hero' ? (
-                    <div className="hero-grid wrap">
+                    <div
+                      className={
+                        'hero-grid wrap' +
+                        (c.chakra.mode === 'none' ? ' hero-without-visual' : '')
+                      }
+                    >
                       <div className="hero-copy">
                         <div className="eyebrow">
                           <span className="line" />
@@ -223,14 +228,33 @@ export default function Home() {
                           <span>{c.heroNote}</span>
                         </div>
                       </div>
-                      <div className="hero-art industrial-hero-art chakra-hero">
-                        <Chakra
-                          accent={c.theme.accent}
-                          highlight={c.theme.sky}
-                          fallback={c.brand.logo}
-                        />
-                        <div className="art-caption">{c.artTag.caption}</div>
-                      </div>
+                      {c.chakra.mode !== 'none' && (
+                        <div className="hero-art industrial-hero-art chakra-hero">
+                          {c.chakra.mode === 'image' ? (
+                            <img
+                              className="hero-custom-visual"
+                              src={s.image || c.brand.logo}
+                              alt={s.imageAlt || c.brand.name}
+                            />
+                          ) : (
+                            <Chakra
+                              accent={
+                                c.chakra.useThemeColours
+                                  ? c.theme.accent
+                                  : c.chakra.accent
+                              }
+                              highlight={
+                                c.chakra.useThemeColours
+                                  ? c.theme.sky
+                                  : c.chakra.highlight
+                              }
+                              fallback={c.brand.logo}
+                              settings={c.chakra}
+                            />
+                          )}
+                          <div className="art-caption">{c.artTag.caption}</div>
+                        </div>
+                      )}
                     </div>
                   ) : s.id === 'industrial-questions' ||
                     s.id === 'industrial-scenarios' ? (

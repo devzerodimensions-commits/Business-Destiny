@@ -24,6 +24,17 @@ export function PagesEditor({ data, onChange, Editor }: EditorProps) {
     onChange({
       ...data,
       pages: data.pages.map((p) => (p.id === next.id ? next : p)),
+      footer: {
+        ...data.footer,
+        columns: data.footer.columns.map((col) => ({
+          ...col,
+          links: col.links.map((link) =>
+            page && link.href === '/pages/' + page.slug
+              ? { ...link, href: '/pages/' + next.slug }
+              : link,
+          ),
+        })),
+      },
       navigation: data.navigation.map((n) =>
         page && n.target === '/pages/' + page.slug
           ? { ...n, target: '/pages/' + next.slug }
@@ -103,6 +114,33 @@ export function PagesEditor({ data, onChange, Editor }: EditorProps) {
             >
               Add to header menu
             </button>
+            <button
+              className="button outline small"
+              disabled={
+                data.footer.columns.some((col) =>
+                  col.links.some((l) => l.href === '/pages/' + page.slug),
+                ) ||
+                (data.footer.columns.length >= 4 &&
+                  data.footer.columns.every((col) => col.links.length >= 15))
+              }
+              onClick={() => {
+                const columns = structuredClone(data.footer.columns);
+                const col = columns.find((c) => c.links.length < 15);
+                if (col)
+                  col.links.push({
+                    label: page.title,
+                    href: '/pages/' + page.slug,
+                  });
+                else
+                  columns.push({
+                    title: 'Pages',
+                    links: [{ label: page.title, href: '/pages/' + page.slug }],
+                  });
+                onChange({ ...data, footer: { ...data.footer, columns } });
+              }}
+            >
+              Add to footer menu
+            </button>
             <a
               className="textlink"
               href={'/pages/' + page.slug + '?preview=1'}
@@ -122,6 +160,15 @@ export function PagesEditor({ data, onChange, Editor }: EditorProps) {
                   onChange({
                     ...data,
                     pages: data.pages.filter((p) => p.id !== page.id),
+                    footer: {
+                      ...data.footer,
+                      columns: data.footer.columns.map((col) => ({
+                        ...col,
+                        links: col.links.filter(
+                          (l) => l.href !== '/pages/' + page.slug,
+                        ),
+                      })),
+                    },
                     navigation: data.navigation.filter(
                       (n) => n.target !== '/pages/' + page.slug,
                     ),

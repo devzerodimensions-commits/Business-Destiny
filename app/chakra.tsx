@@ -1,16 +1,32 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import type { Material, Group, CanvasTexture } from 'three';
+import defaults from '@/content/default.json';
+export type ChakraSettings = typeof defaults.chakra;
 
 export default function Chakra({
   accent,
   highlight,
   fallback,
+  settings = defaults.chakra,
 }: {
   accent: string;
   highlight: string;
   fallback: string;
+  settings?: ChakraSettings;
 }) {
+  const {
+    mode,
+    autoRotate,
+    speed,
+    direction,
+    floating,
+    glow,
+    interactive,
+    scale,
+    tilt,
+    surface,
+  } = settings;
   const host = useRef<HTMLDivElement>(null);
   const paused = useRef(false);
   const [isPaused, setPaused] = useState(false);
@@ -39,13 +55,16 @@ export default function Chakra({
       renderer.domElement.tabIndex = 0;
       renderer.domElement.setAttribute(
         'aria-label',
-        'Interactive 3D astrology chakra. Drag to rotate; use arrow keys when focused.',
+        interactive
+          ? 'Interactive 3D astrology chakra. Drag to rotate; use arrow keys when focused.'
+          : '3D astrology chakra',
       );
       node.appendChild(renderer.domElement);
       const scene = new T.Scene();
       const camera = new T.PerspectiveCamera(39, 1, 0.1, 100);
       camera.position.set(0, 0, 10.5);
       const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enabled = interactive;
       controls.enableZoom = false;
       controls.enablePan = false;
       controls.enableDamping = true;
@@ -76,12 +95,13 @@ export default function Chakra({
         roughness: 0.28,
       });
       const navy = new T.MeshStandardMaterial({
-        color: 0x082746,
+        color: surface,
         metalness: 0.72,
         roughness: 0.32,
       });
       const root = new T.Group();
-      root.rotation.set(0.22, -0.25, 0);
+      root.rotation.set(0.22, (-tilt * Math.PI) / 180, 0);
+      root.scale.setScalar(scale);
       scene.add(root);
       const wheel = new T.Group();
       root.add(wheel);
@@ -251,11 +271,15 @@ export default function Chakra({
       orbit.rotation.set(0.8, 0.34, -0.35);
       const orbitB = ring(2.69, 0.009, paleGold, gimbal);
       orbitB.rotation.set(-0.6, 0.22, 0.7);
+      wheel.visible = mode !== 'orrery';
       const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-      paused.current = reduced.matches;
-      setPaused(reduced.matches);
-      let visible = true, dirty = true;
-      controls.addEventListener('change', () => { dirty = true; });
+      paused.current = reduced.matches || !autoRotate;
+      setPaused(paused.current);
+      let visible = true,
+        dirty = true;
+      controls.addEventListener('change', () => {
+        dirty = true;
+      });
       const intersection = new IntersectionObserver((entries) => {
         visible = entries[0].isIntersecting;
       });
@@ -274,19 +298,22 @@ export default function Chakra({
         time = 0;
       const animate = (now: number) => {
         raf = requestAnimationFrame(animate);
-        if(now-last<1000/24)return;
+        if (now - last < 1000 / 24) return;
         const delta = Math.min((now - last) / 1000, 0.05);
         last = now;
         if (!visible) return;
         if (!paused.current) {
-          time += delta;
+          time += delta * speed * (direction === 'clockwise' ? -1 : 1);
           wheel.rotation.z = time * 0.025;
           gimbal.rotation.z = -time * 0.04;
           inner.rotation.z = -time * 0.018;
-          root.position.y = Math.sin(time * 0.6) * 0.06;
+          root.position.y = floating ? Math.sin(time * 0.6) * 0.06 : 0;
         }
         controls.update();
-        if(!paused.current||dirty){renderer.render(scene, camera);dirty=false;}
+        if (!paused.current || dirty) {
+          renderer.render(scene, camera);
+          dirty = false;
+        }
       };
       raf = requestAnimationFrame(animate);
       node.dataset.ready = 'true';
@@ -296,6 +323,7 @@ export default function Chakra({
       };
       renderer.domElement.addEventListener('webglcontextlost', lost);
       cleanup = () => {
+        delete node.dataset.ready;
         cancelAnimationFrame(raf);
         resize.disconnect();
         intersection.disconnect();
@@ -322,10 +350,27 @@ export default function Chakra({
       cancelled = true;
       cleanup();
     };
-  }, [accent, highlight]);
+  }, [
+    accent,
+    highlight,
+    mode,
+    autoRotate,
+    speed,
+    direction,
+    floating,
+    interactive,
+    scale,
+    tilt,
+    surface,
+  ]);
   return (
-    <div className="chakra-scene">
-      <div className="chakra-glow" />
+    <div
+      className="chakra-scene"
+      data-model={mode}
+      data-speed={speed}
+      data-floating={floating}
+    >
+      {glow && <div className="chakra-glow" />}
       {failed ? (
         <img
           className="chakra-fallback"
@@ -339,7 +384,9 @@ export default function Chakra({
         <span>
           {failed
             ? 'THE BUSINESS DESTINY EMBLEM'
-            : 'DRAG TO EXPLORE · 3D ASTROLOGY CHAKRA'}
+            : interactive
+              ? 'DRAG TO EXPLORE · 3D ASTROLOGY CHAKRA'
+              : '3D ASTROLOGY CHAKRA'}
         </span>
         {!failed && (
           <button

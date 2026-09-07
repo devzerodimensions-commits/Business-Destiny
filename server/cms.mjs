@@ -107,6 +107,7 @@ export function upgradeContent(content) {
   return {
     ...updated,
     sections,
+    chakra: { ...defaults.chakra, ...content.chakra },
     homepageRevision: Math.max(content.homepageRevision ?? 0, 4),
     pages: content.pages ?? [],
     posts: content.posts ?? structuredClone(defaults.posts),
@@ -125,6 +126,31 @@ export function publicContent(content) {
   };
 }
 export function validateCMS(c, fail) {
+  const chakra = c.chakra;
+  if (
+    !chakra ||
+    !['zodiac', 'orrery', 'image', 'none'].includes(chakra.mode) ||
+    !['clockwise', 'counterclockwise'].includes(chakra.direction)
+  )
+    fail('Choose a valid hero visual.');
+  for (const key of [
+    'autoRotate',
+    'floating',
+    'glow',
+    'interactive',
+    'useThemeColours',
+  ])
+    if (typeof chakra[key] !== 'boolean') fail('Invalid chakra option: ' + key);
+  for (const [key, min, max] of [
+    ['speed', 0, 3],
+    ['scale', 0.6, 1.25],
+    ['tilt', -30, 30],
+  ])
+    if (!Number.isFinite(chakra[key]) || chakra[key] < min || chakra[key] > max)
+      fail('Invalid chakra ' + key);
+  for (const key of ['accent', 'highlight', 'surface'])
+    if (!/^#[0-9a-f]{6}$/i.test(chakra[key]))
+      fail('Choose a valid chakra colour.');
   const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
   for (const key of ['pages', 'posts']) {
     if (!Array.isArray(c[key]) || c[key].length > 100)
