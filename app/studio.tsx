@@ -531,6 +531,7 @@ export default function Admin() {
             </TabsContent>
             <TabsContent value="pages">
               <PagesEditor
+                navigate={navigate}
                 data={data}
                 onChange={update}
                 Editor={ObjectEditor}

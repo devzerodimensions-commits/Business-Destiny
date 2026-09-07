@@ -3953,4 +3953,275 @@ select:focus {
     height: 330px;
   }
 }
-.admin-light .appearance-editor select,.admin-light .appearance-editor select option{color:#22384e;background:#fff}.admin-light .appearance-editor input[type=color]{height:44px;width:100%;padding:4px;cursor:pointer}.admin-light .appearance-editor input[type=range]{height:24px}
+.admin-light .appearance-editor select,
+.admin-light .appearance-editor select option {
+  color: #22384e;
+  background: #fff;
+}
+.admin-light .appearance-editor input[type='color'] {
+  height: 44px;
+  width: 100%;
+  padding: 4px;
+  cursor: pointer;
+}
+.admin-light .appearance-editor input[type='range'] {
+  height: 24px;
+}
+.admin-light .wp-filters {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #dce3eb;
+  margin: 24px 0 18px;
+}
+.admin-light .wp-filters button {
+  padding: 10px 0;
+  color: #346382;
+  border-bottom: 3px solid transparent;
+}
+.admin-light .wp-filters button[aria-pressed='true'] {
+  border-color: #2688c9;
+  color: #182f43;
+  font-weight: 700;
+}
+.admin-light .wp-filters span {
+  color: #728295;
+}
+.admin-light .wp-tools {
+  display: flex;
+  gap: 18px;
+  align-items: end;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.admin-light .wp-tools > div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.admin-light .wp-tools label {
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+}
+.admin-light .wp-tools label:last-child {
+  margin-left: auto;
+}
+.admin-light .wp-tools input,
+.admin-light .wp-tools select,
+.admin-light .wp-quick input,
+.admin-light .wp-quick select {
+  background: white;
+  color: #22384e;
+  border: 1px solid #ccd6e0;
+  border-radius: 4px;
+  padding: 10px;
+  max-width: 100%;
+}
+.admin-light .wp-table-scroll {
+  overflow: auto;
+  border: 1px solid #dce3eb;
+}
+.admin-light .wp-page-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+  min-width: 680px;
+}
+.admin-light .wp-page-table th {
+  background: #f5f7f9;
+  font-weight: 600;
+}
+.admin-light .wp-page-table th,
+.admin-light .wp-page-table td {
+  padding: 16px 14px;
+  border-bottom: 1px solid #e5eaf0;
+  vertical-align: top;
+}
+.admin-light .wp-page-table th:first-child {
+  width: 35px;
+}
+.admin-light .wp-page-table td:nth-child(2) {
+  width: 55%;
+}
+.admin-light .wp-page-table input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+}
+.admin-light .wp-page-table tbody tr:nth-child(even) {
+  background: #fafbfd;
+}
+.admin-light .wp-page-table .row-selected {
+  background: #eff7ff !important;
+}
+.admin-light .wp-page-title {
+  font-size: 15px;
+  font-weight: 650;
+  color: #23729e;
+  text-align: left;
+}
+.admin-light .wp-page-table small {
+  display: block;
+  color: #7a8998;
+  margin-top: 5px;
+}
+.admin-light .wp-row-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  color: #28779f;
+  font-size: 12px;
+}
+.admin-light .wp-danger {
+  color: #b23333;
+}
+.admin-light .wp-badge {
+  border-radius: 4px;
+  background: #eaf0f5;
+  color: #425a6d;
+  padding: 4px 8px;
+  display: inline-block;
+  white-space: nowrap;
+}
+.admin-light .wp-quick {
+  display: grid;
+  gap: 12px;
+  max-width: 500px;
+}
+.admin-light .wp-quick label {
+  display: grid;
+  gap: 5px;
+}
+.admin-light .wp-notice {
+  padding: 12px 16px;
+  background: #edf7f1;
+  border-left: 3px solid #3b976a;
+  color: #24523c;
+}
+.admin-light .cms-document > h2 {
+  margin: 24px 0;
+}
+.admin-light .wp-pages {
+  min-width: 0;
+}
+@media (max-width: 600px) {
+  .admin-light .wp-tools {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .admin-light .wp-tools label:last-child {
+    margin-left: 0;
+  }
+  .admin-light .wp-tools > div {
+    flex-wrap: wrap;
+  }
+}
+.has-block-design h2,
+.has-block-design h3,
+.has-block-design .article-intro,
+.has-block-design .article-body,
+.has-block-design .service-card p {
+  color: inherit;
+}
+.has-block-design .service-grid {
+  grid-template-columns: repeat(var(--block-columns, 3), minmax(0, 1fr));
+}
+.admin-light .block-edit-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.admin-light .block-live-preview {
+  position: sticky;
+  top: 18px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.admin-light .block-preview-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 14px;
+  color: #c9dcef;
+}
+.admin-light .block-live-preview .page-block {
+  width: 100%;
+  margin: 0;
+  padding: 24px;
+  display: block;
+}
+.admin-light .block-live-preview .page-block h2 {
+  font-size: 25px;
+  color: inherit;
+}
+.admin-light .block-live-preview .page-block h3 {
+  color: inherit;
+}
+.admin-light .block-live-preview .page-block p {
+  color: inherit;
+}
+.admin-light .block-live-preview .page-block img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+}
+.admin-light .block-live-preview .service-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(var(--block-columns, 2), minmax(0, 1fr));
+}
+.admin-light .block-live-preview .service-card {
+  padding: 14px;
+  min-width: 0;
+}
+.admin-light .section-style-controls {
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+.admin-light .section-style-controls label {
+  display: grid;
+  gap: 8px;
+}
+.admin-light .section-style-controls select {
+  background: white;
+  color: #22384e;
+  padding: 10px;
+  border: 1px solid #ccd6e0;
+  border-radius: 4px;
+}
+.admin-light .section-style-controls input[type='color'] {
+  height: 42px;
+  padding: 4px;
+  width: 100%;
+}
+.admin-light .section-style-controls input[type='range'] {
+  padding: 0;
+  height: 24px;
+}
+@media (max-width: 1200px) {
+  .admin-light .block-edit-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-light .block-live-preview {
+    position: relative;
+    top: 0;
+  }
+}
+@media (max-width: 600px) {
+  .has-block-design .service-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.admin-light [data-slot='tabs-content'] {
+  min-width: 0;
+  width: 100%;
+}
+.admin-light .wp-table-scroll {
+  max-width: 100%;
+}

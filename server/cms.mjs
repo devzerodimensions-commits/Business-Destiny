@@ -120,7 +120,27 @@ export function publicContent(content) {
   const c = upgradeContent(content);
   return {
     ...c,
-    pages: c.pages.filter((p) => p.published),
+    pages: c.pages.filter((p) => p.published && !p.trashedAt),
+    navigation: c.navigation.filter(
+      (n) =>
+        !c.pages.some(
+          (p) =>
+            (!p.published || p.trashedAt) && n.target === '/pages/' + p.slug,
+        ),
+    ),
+    footer: {
+      ...c.footer,
+      columns: c.footer.columns.map((col) => ({
+        ...col,
+        links: col.links.filter(
+          (l) =>
+            !c.pages.some(
+              (p) =>
+                (!p.published || p.trashedAt) && l.href === '/pages/' + p.slug,
+            ),
+        ),
+      })),
+    },
     posts: c.posts.filter((p) => p.published),
     media: [],
   };
@@ -197,6 +217,13 @@ export function validateCMS(c, fail) {
         )
           fail('Choose a valid post date.');
       } else {
+        for (const field of ['trashedAt', 'updatedAt'])
+          if (
+            item[field] !== undefined &&
+            (typeof item[field] !== 'string' ||
+              !Number.isFinite(Date.parse(item[field])))
+          )
+            fail('Invalid page date.');
         if (!Array.isArray(item.sections) || item.sections.length > 30)
           fail('Use up to 30 sections per page.');
         const sectionIds = new Set();
@@ -210,6 +237,24 @@ export function validateCMS(c, fail) {
           )
             fail('Invalid page section.');
           sectionIds.add(section.id);
+          if (section.design !== undefined) {
+            const d = section.design;
+            if (
+              !d ||
+              !['left', 'center', 'right'].includes(d.align) ||
+              !Number.isFinite(d.padding) ||
+              d.padding < 0 ||
+              d.padding > 100 ||
+              ![1, 2, 3, 4].includes(d.columns)
+            )
+              fail('Invalid section design.');
+            for (const key of ['background', 'text'])
+              if (
+                typeof d[key] !== 'string' ||
+                (d[key] && !/^#[0-9a-f]{6}$/i.test(d[key]))
+              )
+                fail('Invalid section colour.');
+          }
           for (const field of [
             'title',
             'description',

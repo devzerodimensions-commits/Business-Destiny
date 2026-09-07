@@ -1,3 +1,4 @@
+import { PageBlock } from './page-block';
 import { ArrowRight, ArrowUpRight, Mail, Phone } from 'lucide-react';
 import type { Content } from './page';
 export function BlogCards({
@@ -103,7 +104,8 @@ export function ContentRoute({
       </article>
     );
   const page = c.pages.find(
-    (p) => '/pages/' + p.slug === path && (preview || p.published),
+    (p) =>
+      '/pages/' + p.slug === path && !p.trashedAt && (preview || p.published),
   );
   if (page)
     return (
@@ -115,36 +117,7 @@ export function ContentRoute({
         {page.sections
           .filter((s) => s.visible)
           .map((s) => (
-            <section className={'page-block wrap block-' + s.type} key={s.id}>
-              {s.image && (s.type === 'image' || s.type === 'text') && (
-                <img src={s.image} alt={s.imageAlt} />
-              )}
-              <div>
-                <h2>{s.title}</h2>
-                <p className="article-intro">{s.description}</p>
-                <div className="article-body">
-                  {s.body.split(/\n\s*\n/).map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
-                </div>
-                {s.type === 'cards' && (
-                  <div className="service-grid">
-                    {s.items.map((item, i) => (
-                      <article className="service-card" key={i}>
-                        <h3>{item.title}</h3>
-                        <p>{item.description}</p>
-                      </article>
-                    ))}
-                  </div>
-                )}
-                {s.buttonLabel && s.buttonUrl && (
-                  <a className="button" href={s.buttonUrl}>
-                    {s.buttonLabel}
-                    <ArrowUpRight size={18} />
-                  </a>
-                )}
-              </div>
-            </section>
+            <PageBlock key={s.id} section={s} />
           ))}
       </div>
     );

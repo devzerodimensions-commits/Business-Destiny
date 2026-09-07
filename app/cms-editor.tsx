@@ -8,6 +8,8 @@ import {
   ImagePlus,
 } from 'lucide-react';
 import type { Content, CMSPage, PageSection } from './page';
+import { PageList } from './page-list';
+import { PageBlock, SectionDesignEditor } from './page-block';
 type EditorProps = {
   data: Content;
   onChange: (v: Content) => void;
@@ -17,13 +19,20 @@ type EditorProps = {
     path?: string;
   }>;
 };
-export function PagesEditor({ data, onChange, Editor }: EditorProps) {
+export function PagesEditor({
+  data,
+  onChange,
+  Editor,
+  navigate,
+}: EditorProps & { navigate: (view: string, group?: string) => void }) {
   const [selected, setSelected] = useState('');
-  const page = data.pages.find((p) => p.id === selected);
+  const page = data.pages.find((p) => p.id === selected && !p.trashedAt);
   const update = (next: CMSPage) =>
     onChange({
       ...data,
-      pages: data.pages.map((p) => (p.id === next.id ? next : p)),
+      pages: data.pages.map((p) =>
+        p.id === next.id ? { ...next, updatedAt: new Date().toISOString() } : p,
+      ),
       footer: {
         ...data.footer,
         columns: data.footer.columns.map((col) => ({
@@ -63,6 +72,7 @@ export function PagesEditor({ data, onChange, Editor }: EditorProps) {
                   title: 'New page',
                   slug: 'new-page-' + id.slice(0, 8),
                   published: false,
+                  updatedAt: new Date().toISOString(),
                   sections: [],
                 },
               ],
@@ -74,26 +84,23 @@ export function PagesEditor({ data, onChange, Editor }: EditorProps) {
           Add page
         </button>
       </div>
-      <div className="cms-list">
-        {data.pages.map((p) => (
-          <button
-            className={p.id === selected ? 'selected' : ''}
-            key={p.id}
-            onClick={() => setSelected(p.id)}
-          >
-            <strong>{p.title}</strong>
-            <span>
-              /pages/{p.slug} ·{' '}
-              {p.published ? 'Ready to publish' : 'Draft only'}
-            </span>
-          </button>
-        ))}
-        {!data.pages.length && (
-          <p>No extra pages yet. Add your first page to get started.</p>
-        )}
-      </div>
+      {!page && (
+        <PageList
+          data={data}
+          onChange={onChange}
+          onEdit={setSelected}
+          navigate={navigate}
+        />
+      )}
       {page && (
         <div className="cms-document">
+          <button
+            className="button outline small"
+            onClick={() => setSelected('')}
+          >
+            ← All pages
+          </button>
+          <h2>Edit page: {page.title}</h2>
           <ObjectFields page={page} onChange={update} />
           <div className="cms-toolbar">
             <button
@@ -152,33 +159,23 @@ export function PagesEditor({ data, onChange, Editor }: EditorProps) {
             <button
               className="button outline small"
               onClick={() => {
-                if (
-                  confirm(
-                    'Remove this page from the draft? Publish changes to remove it from the live website.',
-                  )
-                ) {
-                  onChange({
-                    ...data,
-                    pages: data.pages.filter((p) => p.id !== page.id),
-                    footer: {
-                      ...data.footer,
-                      columns: data.footer.columns.map((col) => ({
-                        ...col,
-                        links: col.links.filter(
-                          (l) => l.href !== '/pages/' + page.slug,
-                        ),
-                      })),
-                    },
-                    navigation: data.navigation.filter(
-                      (n) => n.target !== '/pages/' + page.slug,
-                    ),
-                  });
-                  setSelected('');
-                }
+                onChange({
+                  ...data,
+                  pages: data.pages.map((p) =>
+                    p.id === page.id
+                      ? {
+                          ...p,
+                          trashedAt: new Date().toISOString(),
+                          published: false,
+                        }
+                      : p,
+                  ),
+                });
+                setSelected('');
               }}
             >
               <Trash2 size={16} />
-              Delete page
+              Move to Trash
             </button>
           </div>
           <h3>Page sections</h3>
@@ -255,6 +252,25 @@ export function PagesEditor({ data, onChange, Editor }: EditorProps) {
                   <MoveDown size={16} />
                 </button>
                 <button
+                  aria-label="Duplicate section"
+                  disabled={page.sections.length >= 30}
+                  onClick={() =>
+                    update({
+                      ...page,
+                      sections: [
+                        ...page.sections.slice(0, i + 1),
+                        {
+                          ...structuredClone(section),
+                          id: crypto.randomUUID(),
+                        },
+                        ...page.sections.slice(i + 1),
+                      ],
+                    })
+                  }
+                >
+                  Duplicate
+                </button>
+                <button
                   aria-label="Delete section"
                   onClick={() => {
                     if (confirm('Remove this section?'))
@@ -269,23 +285,66 @@ export function PagesEditor({ data, onChange, Editor }: EditorProps) {
                   <Trash2 size={16} />
                 </button>
               </div>
-              <Editor
-                value={Object.fromEntries(
-                  Object.entries(section).filter(
-                    ([k]) =>
-                      k !== 'type' &&
-                      (section.type === 'cards' || k !== 'items'),
-                  ),
-                )}
-                onChange={(v) =>
-                  update({
-                    ...page,
-                    sections: page.sections.map((s) =>
-                      s.id === section.id ? ({ ...s, ...v } as PageSection) : s,
-                    ),
-                  })
-                }
-              />
+              <div className="block-edit-grid">
+                <div>
+                  <h3>Content</h3>
+                  <Editor
+                    value={Object.fromEntries(
+                      Object.entries(section).filter(
+                        ([k]) =>
+                          k !== 'type' &&
+                          k !== 'design' &&
+                          (section.type === 'cards' || k !== 'items'),
+                      ),
+                    )}
+                    onChange={(v) =>
+                      update({
+                        ...page,
+                        sections: page.sections.map((s) =>
+                          s.id === section.id
+                            ? ({ ...s, ...v } as PageSection)
+                            : s,
+                        ),
+                      })
+                    }
+                  />
+                  <SectionDesignEditor
+                    section={section}
+                    onChange={(next) =>
+                      update({
+                        ...page,
+                        sections: page.sections.map((s) =>
+                          s.id === next.id ? next : s,
+                        ),
+                      })
+                    }
+                  />
+                </div>
+                <div
+                  className="block-live-preview"
+                  style={{
+                    background: data.theme.background,
+                    color: '#e8f3ff',
+                  }}
+                >
+                  <span className="block-preview-label">
+                    LIVE SECTION PREVIEW
+                    {!section.visible ? ' · HIDDEN ON WEBSITE' : ''}
+                  </span>
+                  <div
+                    className="site"
+                    style={
+                      {
+                        '--accent': data.theme.accent,
+                        '--sky': data.theme.sky,
+                        '--bg': data.theme.background,
+                      } as React.CSSProperties
+                    }
+                  >
+                    <PageBlock section={section} preview />
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
           <p className="cms-hint">

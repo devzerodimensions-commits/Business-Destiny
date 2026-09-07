@@ -44,6 +44,13 @@ export type Section = {
   items: Item[];
 };
 export type PageSection = {
+  design?: {
+    background: string;
+    text: string;
+    align: string;
+    padding: number;
+    columns: number;
+  };
   id: string;
   type: 'text' | 'image' | 'cards' | 'cta';
   visible: boolean;
@@ -57,6 +64,8 @@ export type PageSection = {
   items: { title: string; description: string }[];
 };
 export type CMSPage = {
+  trashedAt?: string;
+  updatedAt?: string;
   id: string;
   slug: string;
   title: string;

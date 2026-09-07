@@ -148,3 +148,54 @@ test('Chakra settings upgrade old content, preserve edits and reject unsafe rang
   upgraded.chakra.surface = 'invalid';
   assert.throws(() => validateCMS(upgraded, fail), /chakra colour/);
 });
+
+test('Trashed pages stay in admin content but are excluded from public pages and menus', () => {
+  const c = structuredClone(defaults);
+  const page = {
+    id: 'trash-test',
+    slug: 'test-page',
+    title: 'Test page',
+    published: true,
+    sections: [],
+    trashedAt: new Date().toISOString(),
+  };
+  c.pages.push(page);
+  c.navigation.push({ label: 'Test page', target: '/pages/test-page' });
+  c.footer.columns[0].links.push({
+    label: 'Test page',
+    href: '/pages/test-page',
+  });
+  validateCMS(c, fail);
+  const pub = publicContent(c);
+  assert.ok(!pub.pages.some((p) => p.id === page.id));
+  assert.ok(!pub.navigation.some((n) => n.target === '/pages/test-page'));
+  assert.ok(
+    !pub.footer.columns[0].links.some((l) => l.href === '/pages/test-page'),
+  );
+  assert.ok(c.pages.some((p) => p.id === page.id));
+  delete page.trashedAt;
+  assert.ok(publicContent(c).pages.some((p) => p.id === page.id));
+  page.sections.push({
+    id: 'block',
+    type: 'text',
+    visible: true,
+    title: 'Title',
+    description: '',
+    body: '',
+    image: '',
+    imageAlt: '',
+    buttonLabel: '',
+    buttonUrl: '',
+    items: [],
+    design: {
+      background: '#ffffff',
+      text: '#123456',
+      align: 'center',
+      padding: 20,
+      columns: 2,
+    },
+  });
+  validateCMS(c, fail);
+  page.sections[0].design.padding = -1;
+  assert.throws(() => validateCMS(c, fail), /section design/);
+});
