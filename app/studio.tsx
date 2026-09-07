@@ -4,7 +4,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   MoveUp,
-  MoveDown,
   Plus,
   Trash2,
   LogOut,
@@ -31,6 +30,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import initial from '@/content/default.json';
 import { api, type Content } from './page';
 import { PagesEditor, PostsEditor, MediaLibrary } from './cms-editor';
+import { HomeSectionEditor } from './section-editor';
 export default function Admin() {
   const [authorized, setAuthorized] = useState(false),
     [checking, setChecking] = useState(true),
@@ -539,148 +539,14 @@ export default function Admin() {
               </div>
             </TabsContent>
             <TabsContent value="content">
-              <div className="editor-grid">
-                <aside className="editor-sidebar">
-                  <button
-                    className={section === -1 ? 'selected' : ''}
-                    onClick={() => setSection(-1)}
-                  >
-                    Brand, colours & settings
-                  </button>
-                  <div className="eyebrow">HOMEPAGE SECTIONS</div>
-                  {data.sections.map((s, i) => (
-                    <div className="section-row" key={s.id}>
-                      <button
-                        className={section === i ? 'selected' : ''}
-                        onClick={() => setSection(i)}
-                      >
-                        {i + 1}.{' '}
-                        {s.id.startsWith('custom-') ? s.title : label(s.id)}
-                        {!s.visible && ' (hidden)'}
-                      </button>
-                      <button
-                        className="iconbutton"
-                        title="Move up"
-                        disabled={i === 0}
-                        onClick={() => {
-                          const arr = [...data.sections];
-                          [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]];
-                          update({ ...data, sections: arr });
-                          setSection(i - 1);
-                        }}
-                      >
-                        <MoveUp size={14} />
-                      </button>
-                      <button
-                        className="iconbutton"
-                        title="Move down"
-                        disabled={i === data.sections.length - 1}
-                        onClick={() => {
-                          const arr = [...data.sections];
-                          [arr[i + 1], arr[i]] = [arr[i], arr[i + 1]];
-                          update({ ...data, sections: arr });
-                          setSection(i + 1);
-                        }}
-                      >
-                        <MoveDown size={14} />
-                      </button>
-                    </div>
-                  ))}
-                  <button
-                    onClick={() => {
-                      update({
-                        ...data,
-                        sections: [
-                          ...data.sections,
-                          {
-                            id: 'custom-' + Date.now(),
-                            visible: true,
-                            eyebrow: 'YOUR SECTION',
-                            title: 'New section',
-                            highlight: '',
-                            description: 'Write an introduction.',
-                            body: '',
-                            image: '',
-                            imageAlt: '',
-                            items: [],
-                          },
-                        ],
-                      });
-                      setSection(data.sections.length);
-                    }}
-                  >
-                    <Plus size={15} />
-                    Add custom section
-                  </button>
-                </aside>
-                <div className="editor-panel">
-                  <h2>
-                    {section < 0
-                      ? 'Brand & website settings'
-                      : data.sections[section]?.id + ' section'}
-                  </h2>
-                  <p>
-                    Save a draft to preview. Publish changes to update the
-                    homepage.
-                  </p>
-                  {section >= 0 &&
-                    data.sections[section]?.id.startsWith('custom-') && (
-                      <button
-                        className="button outline small"
-                        onClick={() => {
-                          if (
-                            window.confirm(
-                              'Remove this custom section from the draft?',
-                            )
-                          ) {
-                            update({
-                              ...data,
-                              sections: data.sections.filter(
-                                (_, i) => i !== section,
-                              ),
-                            });
-                            setSection(-1);
-                          }
-                        }}
-                      >
-                        <Trash2 size={16} />
-                        Remove section
-                      </button>
-                    )}
-                  {section < 0 ? (
-                    <ObjectEditor
-                      value={Object.fromEntries(
-                        Object.entries(data).filter(
-                          ([k]) =>
-                            ![
-                              'sections',
-                              'pages',
-                              'posts',
-                              'media',
-                              'blog',
-                            ].includes(k),
-                        ),
-                      )}
-                      onChange={(v) =>
-                        update({
-                          ...data,
-                          ...v,
-                          sections: data.sections,
-                        } as Content)
-                      }
-                    />
-                  ) : (
-                    <ObjectEditor
-                      value={data.sections[section]}
-                      onChange={(v) => {
-                        const arr = [...data.sections];
-                        arr[section] = v;
-                        update({ ...data, sections: arr });
-                      }}
-                    />
-                  )}
-                </div>
-              </div>
+              <HomeSectionEditor
+                data={data}
+                onChange={update}
+                selected={section}
+                onSelect={setSection}
+                Editor={ObjectEditor}
+                navigate={navigate}
+              />
             </TabsContent>
             <TabsContent value="enquiries">
               <div className="editor-panel">
@@ -797,7 +663,9 @@ function ObjectEditor({
         {value.map((item, i) => (
           <div className="array-item" key={i}>
             <div className="array-tools">
-              <span>Item {i + 1}</span>
+              <span>
+                {i + 1}. {item?.title || item?.label || item?.name || 'Item'}
+              </span>
               <button
                 aria-label="Move item up"
                 disabled={i === 0}
@@ -834,9 +702,7 @@ function ObjectEditor({
               ...value,
               value[0] !== undefined
                 ? JSON.parse(JSON.stringify(value[0]))
-                : path === 'navigation'
-                  ? { label: 'New link', target: 'contact' }
-                  : { title: 'New item', description: 'Describe this item.' },
+                : newArrayItem(path),
             ])
           }
         >
@@ -853,7 +719,7 @@ function ObjectEditor({
             ([k]) =>
               k !== 'id' &&
               k !== 'homepageRevision' &&
-              !(path === 'fields' && k === 'name'),
+              !(path.endsWith('fields') && k === 'name'),
           )
           .map(([key, val]) =>
             typeof val === 'object' && val !== null ? (
@@ -866,7 +732,7 @@ function ObjectEditor({
                 <ObjectEditor
                   value={val}
                   onChange={(v) => onChange({ ...value, [key]: v })}
-                  path={key}
+                  path={path ? path + '.' + key : key}
                 />
               </details>
             ) : (
@@ -890,6 +756,16 @@ function ObjectEditor({
                           onChange({ ...value, [key]: e.target.value })
                         }
                       />
+                    ) : key === 'layout' ? (
+                      <select
+                        value={String(val)}
+                        onChange={(e) =>
+                          onChange({ ...value, [key]: e.target.value })
+                        }
+                      >
+                        <option value="standard">Standard spacing</option>
+                        <option value="compact">Compact spacing</option>
+                      </select>
                     ) : typeof val === 'number' ? (
                       <input
                         type="number"
@@ -902,6 +778,7 @@ function ObjectEditor({
                       />
                     ) : (
                       <textarea
+                        aria-label={label(key)}
                         rows={String(val).length > 100 ? 3 : 1}
                         value={String(val)}
                         onChange={(e) =>
@@ -1009,5 +886,27 @@ function MediaEditor({
   );
 }
 function label(s: string) {
-  return s.replace(/([A-Z])/g, ' $1').replace(/^./, (v) => v.toUpperCase());
+  return s
+    .replace(/-/g, ' ')
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, (v) => v.toUpperCase());
+}
+
+function newArrayItem(path: string) {
+  const parts = path.split('.');
+  let seed: any = initial;
+  for (const part of parts) {
+    if (part.startsWith('section:'))
+      seed = initial.sections.find((s) => s.id === part.slice(8));
+    else {
+      if (Array.isArray(seed)) seed = seed[0];
+      seed = seed?.[part];
+    }
+  }
+  if (Array.isArray(seed) && seed.length) return structuredClone(seed[0]);
+  if (parts.at(-1) === 'links') return { label: 'New link', href: '#contact' };
+  if (parts.at(-1) === 'columns') return { title: 'New column', links: [] };
+  if (parts.at(-1) === 'navigation')
+    return { label: 'New link', target: 'contact' };
+  return { title: 'New item', description: 'Describe this item.' };
 }
