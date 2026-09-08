@@ -210,7 +210,7 @@ export default function Home() {
           {menu ? <X /> : <Menu />}
         </button>
       </header>
-      <main id="main">
+      <main id="main" className={!route ? 'alternating-home' : undefined}>
         {route === '/thank-you' ? (
           <section className="thank-you wrap">
             <div className="thank-you-icon">

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
 :root {
   --bg: #061426;
   --accent: #d6a442;
@@ -14,7 +14,7 @@
   --input: #34404a;
   --border: #24303a;
   --ring: #f1d58e;
-  --font-sans: 'DM Sans', sans-serif;
+  --font-sans: "DM Sans", sans-serif;
   color-scheme: dark;
 }
 * {
@@ -28,7 +28,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: #f3f5f6;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 16px;
   line-height: 1.7;
 }
@@ -67,7 +67,7 @@ p {
 h1,
 h2,
 h3 {
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   line-height: 1.18;
   margin: 0;
   font-weight: 500;
@@ -138,7 +138,7 @@ svg {
   clip-path: circle(47%);
 }
 .brand > span {
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 23px;
   letter-spacing: -0.7px;
   line-height: 1.3;
@@ -306,7 +306,7 @@ svg {
   box-shadow: 0 0 90px #089fce09;
 }
 .orbit-ring:before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 22px;
   border: 1px dashed #37677b30;
@@ -373,7 +373,7 @@ svg {
   align-items: center;
   gap: 35px;
   color: #cad2d8;
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 17px;
 }
 .sky {
@@ -478,7 +478,7 @@ svg {
   animation: spin 190s linear infinite;
 }
 .about-visual > span {
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 30px;
   margin-top: 20px;
   text-align: center;
@@ -1048,7 +1048,7 @@ select:focus {
 .upload-row small {
   font-size: 12px;
 }
-.editor-field input[type='color'] {
+.editor-field input[type="color"] {
   height: 44px;
   width: 100px;
   padding: 5px;
@@ -2810,7 +2810,7 @@ select:focus {
   margin-left: auto;
   flex-shrink: 0;
 }
-.milestone-choices button[aria-pressed='true'] {
+.milestone-choices button[aria-pressed="true"] {
   color: #f6e7ca;
   background: #d6a44212;
   border-color: #d6a44280;
@@ -3107,7 +3107,7 @@ select:focus {
   line-height: 1.5;
   cursor: pointer;
 }
-.guide-options button[aria-pressed='true'] {
+.guide-options button[aria-pressed="true"] {
   background: #fff8e9;
   border: 2px solid #b58736;
   padding: 19px;
@@ -3142,7 +3142,7 @@ select:focus {
   border-radius: 50%;
   margin-left: auto;
 }
-.guide-options button[aria-pressed='true'] .guide-radio {
+.guide-options button[aria-pressed="true"] .guide-radio {
   color: white;
   background: #a77728;
   border-color: #a77728;
@@ -3230,7 +3230,7 @@ select:focus {
     font-size: 15px;
     gap: 12px;
   }
-  .guide-options button[aria-pressed='true'] {
+  .guide-options button[aria-pressed="true"] {
     padding: 14px;
   }
   .guide-result {
@@ -3312,7 +3312,7 @@ select:focus {
   transform: translateY(-5px);
 }
 .practice-panel h3 {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 31px;
   font-weight: 400;
   color: #a27131;
@@ -3336,7 +3336,7 @@ select:focus {
 }
 .practice-ornament span:first-child:before,
 .practice-ornament span:last-child:after {
-  content: '';
+  content: "";
   width: 5px;
   height: 5px;
   background: #a38355;
@@ -3890,7 +3890,7 @@ select:focus {
   height: 17px;
   margin: 0;
 }
-.appearance-editor input[type='range'] {
+.appearance-editor input[type="range"] {
   width: 100%;
   padding: 0;
 }
@@ -3958,13 +3958,13 @@ select:focus {
   color: #22384e;
   background: #fff;
 }
-.admin-light .appearance-editor input[type='color'] {
+.admin-light .appearance-editor input[type="color"] {
   height: 44px;
   width: 100%;
   padding: 4px;
   cursor: pointer;
 }
-.admin-light .appearance-editor input[type='range'] {
+.admin-light .appearance-editor input[type="range"] {
   height: 24px;
 }
 .admin-light .wp-filters {
@@ -3979,7 +3979,7 @@ select:focus {
   color: #346382;
   border-bottom: 3px solid transparent;
 }
-.admin-light .wp-filters button[aria-pressed='true'] {
+.admin-light .wp-filters button[aria-pressed="true"] {
   border-color: #2688c9;
   color: #182f43;
   font-weight: 700;
@@ -4045,7 +4045,7 @@ select:focus {
 .admin-light .wp-page-table td:nth-child(2) {
   width: 55%;
 }
-.admin-light .wp-page-table input[type='checkbox'] {
+.admin-light .wp-page-table input[type="checkbox"] {
   width: 16px;
   height: 16px;
   padding: 0;
@@ -4195,12 +4195,12 @@ select:focus {
   border: 1px solid #ccd6e0;
   border-radius: 4px;
 }
-.admin-light .section-style-controls input[type='color'] {
+.admin-light .section-style-controls input[type="color"] {
   height: 42px;
   padding: 4px;
   width: 100%;
 }
-.admin-light .section-style-controls input[type='range'] {
+.admin-light .section-style-controls input[type="range"] {
   padding: 0;
   height: 24px;
 }
@@ -4218,7 +4218,7 @@ select:focus {
     grid-template-columns: 1fr;
   }
 }
-.admin-light [data-slot='tabs-content'] {
+.admin-light [data-slot="tabs-content"] {
   min-width: 0;
   width: 100%;
 }
@@ -4271,7 +4271,7 @@ select:focus {
   color: #34465b;
   font-size: 12px;
 }
-.hero-enquiry input:not([type='checkbox']),
+.hero-enquiry input:not([type="checkbox"]),
 .hero-enquiry textarea {
   color: #182c40;
   background: white;
@@ -4366,7 +4366,7 @@ select:focus {
 .hero-enquiry .form-grid label {
   margin-bottom: 0;
 }
-.hero-enquiry input[type='time'] {
+.hero-enquiry input[type="time"] {
   min-width: 0;
 }
 .thank-you .eyebrow {
@@ -4491,4 +4491,193 @@ select:focus {
 }
 .services .service-link svg {
   color: #a77c2c;
+}
+/* Alternate visible homepage sections; hiding or reordering sections preserves the rhythm. */
+#main.alternating-home > section {
+  --section-bg: var(--bg);
+  --section-text: #f4f6f8;
+  --section-muted: #b3c2d0;
+  --section-card: color-mix(in srgb, var(--bg) 88%, white);
+  --section-border: #ffffff24;
+  --section-accent: var(--sky);
+  --section-field: color-mix(in srgb, var(--bg) 94%, white);
+  background: var(--section-bg);
+  color: var(--section-text);
+  border-color: var(--section-border);
+}
+#main.alternating-home > section:nth-of-type(even) {
+  --section-bg: #faf7ef;
+  --section-text: #10263e;
+  --section-muted: #596b7d;
+  --section-card: #fff;
+  --section-border: #dfd7c8;
+  --section-accent: #906721;
+  --section-field: #fff;
+  color-scheme: light;
+}
+#main.alternating-home
+  > section
+  :is(
+    h2,
+    h3,
+    .price,
+    .faqs summary,
+    .signature span,
+    .practice-section,
+    .about-visual > span
+  ) {
+  color: var(--section-text);
+}
+#main.alternating-home
+  > section
+  :is(
+    p,
+    li,
+    .price small,
+    .contact-note p,
+    .practice-note,
+    .service-card p,
+    .hero-foot
+  ) {
+  color: var(--section-muted);
+}
+#main.alternating-home
+  > section
+  :is(
+    h2 em,
+    h3 em,
+    .eyebrow,
+    .textlink,
+    .service-link,
+    .practice-link,
+    .journal-category,
+    .industrial-topic-number,
+    .card-top,
+    .card-top > span,
+    .step,
+    .expertise span svg,
+    .chapter-orbit,
+    .chapter-orbit > span
+  ) {
+  color: var(--section-accent);
+}
+#main.alternating-home > section :is(.eyebrow .line, .practice-ornament span) {
+  background: var(--section-accent);
+}
+#main.alternating-home
+  > section
+  :is(
+    .service-card,
+    .price-card,
+    .milestone-detail,
+    .industrial-topic-grid article,
+    .journal-card,
+    .practice-panel,
+    .practice-panel:nth-child(even)
+  ) {
+  background: var(--section-card);
+  border-color: var(--section-border);
+  color: var(--section-text);
+}
+#main.alternating-home
+  > section
+  :is(.service-card:hover, .price-card.featured) {
+  border-color: var(--section-accent);
+}
+#main.alternating-home > section .price-card.featured {
+  box-shadow: 0 8px 32px #0000000d;
+}
+#main.alternating-home
+  > section
+  :is(
+    .service-link,
+    .price-card ul,
+    .faqs details,
+    .chapter-bottom,
+    .practice-columns,
+    .practice-panel,
+    .practice-image
+  ) {
+  border-color: var(--section-border);
+}
+#main.alternating-home
+  > section
+  :is(.milestone-choices button, .expertise span) {
+  color: var(--section-text);
+  border-color: var(--section-border);
+  background: var(--section-card);
+}
+#main.alternating-home
+  > section
+  .milestone-choices
+  button[aria-pressed="true"] {
+  border-color: var(--section-accent);
+  background: color-mix(
+    in srgb,
+    var(--section-accent) 12%,
+    var(--section-card)
+  );
+}
+#main.alternating-home > section .button.outline {
+  color: var(--section-text);
+  border-color: var(--section-border);
+}
+#main.alternating-home
+  > section
+  :is(.service-link svg, .chapter-content li svg, .price-card li svg) {
+  color: var(--section-accent);
+}
+#main.alternating-home > section .practice-ornament {
+  color: var(--section-accent);
+}
+#main.alternating-home > section .practice-ornament i {
+  border-color: var(--section-accent);
+}
+#main.alternating-home > section .practice-ornament span:before,
+#main.alternating-home > section .practice-ornament span:after {
+  background: var(--section-accent);
+}
+#main.alternating-home > section label {
+  color: var(--section-text);
+}
+#main.alternating-home
+  > section
+  :is(input:not([type="checkbox"]), textarea, select) {
+  background: var(--section-field);
+  border-color: var(--section-border);
+  color: var(--section-text);
+}
+#main.alternating-home .hero-enquiry {
+  --section-text: #10263e;
+  --section-muted: #596b7d;
+  --section-field: #fff;
+  --section-border: #d9dfe4;
+}
+#main.alternating-home .hero-enquiry .error {
+  color: #b42318;
+}
+#main.alternating-home .enquiry .success {
+  color: #27804b;
+}
+#main.alternating-home > .journal-section {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 85px max(24px, calc((100% - 1290px) / 2));
+}
+#main.alternating-home > .industries {
+  color: var(--section-text);
+}
+#main.alternating-home > .industries :is(span, strong) {
+  color: var(--section-accent);
+}
+#main.alternating-home > section .contact-note svg {
+  color: var(--section-accent);
+}
+#main.alternating-home > section .enquiry .error {
+  color: #ffb0a3;
+}
+#main.alternating-home > section:nth-of-type(even) .enquiry .error,
+#main.alternating-home > section .hero-enquiry .error {
+  color: #b42318;
 }
