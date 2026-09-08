@@ -63,13 +63,22 @@ export function AppearanceEditor({
               value={cfg.mode}
               onChange={(e) => patch({ mode: e.target.value })}
             >
+              <option value="palm">
+                Palm illustration & rotating zodiac wheel
+              </option>
               <option value="zodiac">3D zodiac chakra</option>
               <option value="orrery">3D planetary orbits</option>
               <option value="image">Custom image</option>
               <option value="none">No visual</option>
             </select>
           </label>
-          {['zodiac', 'orrery'].includes(cfg.mode) && (
+          {cfg.mode === 'palm' && (
+            <p>
+              The palm stays still while the zodiac wheel rotates behind it.
+              Visitors can pause the animation.
+            </p>
+          )}
+          {['palm', 'zodiac', 'orrery'].includes(cfg.mode) && (
             <>
               {(
                 [
@@ -80,16 +89,18 @@ export function AppearanceEditor({
                   ['glow', 'Background glow'],
                   ['useThemeColours', 'Use website colours'],
                 ] as const
-              ).map(([key, title]) => (
-                <label className="appearance-toggle" key={key}>
-                  <input
-                    type="checkbox"
-                    checked={cfg[key]}
-                    onChange={(e) => patch({ [key]: e.target.checked })}
-                  />
-                  {title}
-                </label>
-              ))}
+              )
+                .filter(([key]) => cfg.mode !== 'palm' || key === 'autoRotate')
+                .map(([key, title]) => (
+                  <label className="appearance-toggle" key={key}>
+                    <input
+                      type="checkbox"
+                      checked={cfg[key]}
+                      onChange={(e) => patch({ [key]: e.target.checked })}
+                    />
+                    {title}
+                  </label>
+                ))}
               <label>
                 Rotation direction
                 <select
@@ -107,21 +118,24 @@ export function AppearanceEditor({
                   ['scale', 'Model size', 0.6, 1.25, 0.05],
                   ['tilt', 'Model tilt', -30, 30, 1],
                 ] as const
-              ).map(([key, title, min, max, step]) => (
-                <label key={key}>
-                  {title}: {cfg[key]}
-                  <input
-                    aria-label={title}
-                    type="range"
-                    min={min}
-                    max={max}
-                    step={step}
-                    value={cfg[key]}
-                    onChange={(e) => patch({ [key]: Number(e.target.value) })}
-                  />
-                </label>
-              ))}
-              {!cfg.useThemeColours &&
+              )
+                .filter(([key]) => cfg.mode !== 'palm' || key !== 'tilt')
+                .map(([key, title, min, max, step]) => (
+                  <label key={key}>
+                    {title}: {cfg[key]}
+                    <input
+                      aria-label={title}
+                      type="range"
+                      min={min}
+                      max={max}
+                      step={step}
+                      value={cfg[key]}
+                      onChange={(e) => patch({ [key]: Number(e.target.value) })}
+                    />
+                  </label>
+                ))}
+              {cfg.mode !== 'palm' &&
+                !cfg.useThemeColours &&
                 (['accent', 'highlight'] as const).map((key) => (
                   <label key={key}>
                     Model {key} colour
@@ -133,15 +147,17 @@ export function AppearanceEditor({
                     />
                   </label>
                 ))}
-              <label>
-                Chakra surface colour
-                <input
-                  aria-label="Chakra surface colour"
-                  type="color"
-                  value={cfg.surface}
-                  onChange={(e) => patch({ surface: e.target.value })}
-                />
-              </label>
+              {cfg.mode !== 'palm' && (
+                <label>
+                  Chakra surface colour
+                  <input
+                    aria-label="Chakra surface colour"
+                    type="color"
+                    value={cfg.surface}
+                    onChange={(e) => patch({ surface: e.target.value })}
+                  />
+                </label>
+              )}
               <p>
                 Visitors who prefer reduced motion will see a paused model. They
                 can start it using the play button.

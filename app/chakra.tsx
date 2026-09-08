@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Material, Group, CanvasTexture } from 'three';
 import defaults from '@/content/default.json';
+import PalmChakra from './palm-chakra';
 export type ChakraSettings = typeof defaults.chakra;
 
 export default function Chakra({
@@ -36,6 +37,7 @@ export default function Chakra({
     let cancelled = false;
     let cleanup = () => {};
     async function mount() {
+      if (mode === 'palm') return;
       const [T, { OrbitControls }, { RoomEnvironment }] = await Promise.all([
         import('three'),
         import('three/addons/controls/OrbitControls.js'),
@@ -369,6 +371,7 @@ export default function Chakra({
     tilt,
     surface,
   ]);
+  if (mode === 'palm') return <PalmChakra settings={settings} />;
   return (
     <div
       className="chakra-scene"

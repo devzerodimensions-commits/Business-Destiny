@@ -636,7 +636,7 @@
   ],
   "homepageRevision": 4,
   "chakra": {
-    "mode": "zodiac",
+    "mode": "palm",
     "autoRotate": true,
     "speed": 1,
     "direction": "clockwise",
@@ -699,5 +699,6 @@
     "title": "Thank you for reaching out.",
     "description": "Your enquiry has been received. Our team will contact you on the number you shared to discuss your consultation.",
     "buttonLabel": "Back to home"
-  }
+  },
+  "palmVisualRevision": 1
 }

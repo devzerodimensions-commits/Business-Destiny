@@ -107,7 +107,12 @@ export function upgradeContent(content) {
   return {
     ...updated,
     sections,
-    chakra: { ...defaults.chakra, ...content.chakra },
+    chakra: {
+      ...defaults.chakra,
+      ...content.chakra,
+      ...(!content.palmVisualRevision ? { mode: 'palm' } : {}),
+    },
+    palmVisualRevision: 1,
     heroEnquiry: {
       ...structuredClone(defaults.heroEnquiry),
       ...content.heroEnquiry,
@@ -154,7 +159,7 @@ export function validateCMS(c, fail) {
   const chakra = c.chakra;
   if (
     !chakra ||
-    !['zodiac', 'orrery', 'image', 'none'].includes(chakra.mode) ||
+    !['palm', 'zodiac', 'orrery', 'image', 'none'].includes(chakra.mode) ||
     !['clockwise', 'counterclockwise'].includes(chakra.direction)
   )
     fail('Choose a valid hero visual.');
