@@ -73,6 +73,7 @@ export function AppearanceEditor({
             <>
               {(
                 [
+                  ['faceOn', 'Front-facing zodiac wheel'],
                   ['autoRotate', 'Animate on page load'],
                   ['interactive', 'Allow visitors to rotate the model'],
                   ['floating', 'Floating motion'],

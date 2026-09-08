@@ -193,7 +193,20 @@ export default function Home() {
         </button>
       </header>
       <main id="main">
-        {route ? (
+        {route === '/thank-you' ? (
+          <section className="thank-you wrap">
+            <div className="thank-you-icon">
+              <Check size={36} />
+            </div>
+            <div className="eyebrow">Business Destiny</div>
+            <h1>{c.thankYou.title}</h1>
+            <p>{c.thankYou.description}</p>
+            <a className="button" href="/">
+              {c.thankYou.buttonLabel}
+              <ArrowRight size={18} />
+            </a>
+          </section>
+        ) : route ? (
           <ContentRoute c={c} path={route} preview={preview} />
         ) : (
           <>
@@ -205,6 +218,7 @@ export default function Home() {
                     <div
                       className={
                         'hero-grid wrap' +
+                        (c.heroEnquiry.visible ? ' hero-with-enquiry' : '') +
                         (c.chakra.mode === 'none' ? ' hero-without-visual' : '')
                       }
                     >
@@ -222,16 +236,25 @@ export default function Home() {
                         {s.body && (
                           <p className="industrial-hero-topics">{s.body}</p>
                         )}
-                        <div className="actions">
-                          <a className="button" href="#contact">
-                            {c.labels.book}
-                            <ArrowUpRight size={19} />
-                          </a>
-                          <a className="textlink" href="#services">
-                            {c.labels.explore}
-                            <ArrowRight size={17} />
-                          </a>
-                        </div>
+                        {c.heroEnquiry.visible ? (
+                          <Enquiry
+                            c={c}
+                            compact
+                            selectedService={selectedService}
+                            onServiceChange={setSelectedService}
+                          />
+                        ) : (
+                          <div className="actions">
+                            <a className="button" href="#contact">
+                              {c.labels.book}
+                              <ArrowUpRight size={19} />
+                            </a>
+                            <a className="textlink" href="#services">
+                              {c.labels.explore}
+                              <ArrowRight size={17} />
+                            </a>
+                          </div>
+                        )}
                         <div className="hero-foot">
                           <ShieldCheck size={21} />
                           <span>{c.heroNote}</span>
@@ -544,8 +567,10 @@ function Enquiry({
   c,
   selectedService,
   onServiceChange,
+  compact = false,
 }: {
   c: Content;
+  compact?: boolean;
   selectedService: string;
   onServiceChange: (s: string) => void;
 }) {
@@ -566,6 +591,7 @@ function Enquiry({
       setState(c.form.success);
       form.reset();
       onServiceChange('');
+      window.location.assign('/thank-you');
     } catch (e) {
       setState((e as Error).message);
     } finally {
@@ -573,9 +599,18 @@ function Enquiry({
     }
   }
   return (
-    <form onSubmit={submit} className="enquiry">
+    <form
+      onSubmit={submit}
+      className={'enquiry' + (compact ? ' hero-enquiry' : '')}
+    >
+      {compact && (
+        <div className="enquiry-intro">
+          <h2>{c.heroEnquiry.title}</h2>
+          <p>{c.heroEnquiry.description}</p>
+        </div>
+      )}
       <div className="form-grid">
-        {c.form.fields.map((f) => (
+        {(compact ? c.heroEnquiry.fields : c.form.fields).map((f) => (
           <label key={f.name}>
             {f.label}
             {f.required && ' *'}
@@ -589,43 +624,45 @@ function Enquiry({
           </label>
         ))}
       </div>
+      {!compact && (
+        <label>
+          {c.form.serviceLabel}
+          <select
+            name="service"
+            value={selectedService}
+            onChange={(e) => onServiceChange(e.target.value)}
+          >
+            <option value="">{c.form.servicePlaceholder}</option>
+            {c.sections
+              .find((s) => s.id === 'consultation-preparation')
+              ?.items.filter(
+                (i) =>
+                  !c.sections
+                    .filter((s) => ['services', 'pricing'].includes(s.id))
+                    .some((s) =>
+                      s.items.some((x) => x.title === (i.subtitle || i.title)),
+                    ),
+              )
+              .map((i) => (
+                <option key={i.subtitle || i.title}>
+                  {i.subtitle || i.title}
+                </option>
+              ))}
+            {c.sections
+              .find((s) => s.id === 'pricing')
+              ?.items.map((i) => (
+                <option key={i.title}>{i.title}</option>
+              ))}
+            {c.sections
+              .find((s) => s.id === 'services')
+              ?.items.map((i) => (
+                <option key={i.title}>{i.title}</option>
+              ))}
+          </select>
+        </label>
+      )}
       <label>
-        {c.form.serviceLabel}
-        <select
-          name="service"
-          value={selectedService}
-          onChange={(e) => onServiceChange(e.target.value)}
-        >
-          <option value="">{c.form.servicePlaceholder}</option>
-          {c.sections
-            .find((s) => s.id === 'consultation-preparation')
-            ?.items.filter(
-              (i) =>
-                !c.sections
-                  .filter((s) => ['services', 'pricing'].includes(s.id))
-                  .some((s) =>
-                    s.items.some((x) => x.title === (i.subtitle || i.title)),
-                  ),
-            )
-            .map((i) => (
-              <option key={i.subtitle || i.title}>
-                {i.subtitle || i.title}
-              </option>
-            ))}
-          {c.sections
-            .find((s) => s.id === 'pricing')
-            ?.items.map((i) => (
-              <option key={i.title}>{i.title}</option>
-            ))}
-          {c.sections
-            .find((s) => s.id === 'services')
-            ?.items.map((i) => (
-              <option key={i.title}>{i.title}</option>
-            ))}
-        </select>
-      </label>
-      <label>
-        {c.form.questionLabel}
+        {compact ? c.heroEnquiry.messageLabel : c.form.questionLabel}
         <textarea
           name="question"
           required
@@ -646,7 +683,7 @@ function Enquiry({
         {c.form.consent}
       </label>
       <button className="button" disabled={busy}>
-        {busy ? c.form.sending : c.form.submit}
+        {busy ? c.form.sending : compact ? c.heroEnquiry.submit : c.form.submit}
         <ArrowUpRight size={17} />
       </button>
       {state && (

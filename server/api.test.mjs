@@ -139,6 +139,28 @@ await test('admin security, publishing, enquiries, uploads and password rotation
     201,
   );
   assert.equal((await (await request('admin/enquiries')).json()).length, 1);
+  const hero = await request('enquiries', 'POST', {
+    name: 'Hero enquiry',
+    phone: '+91 9876543210',
+    birthDate: '1990-01-02',
+    birthPlace: 'Ahmedabad',
+    birthTime: '09:30',
+    question: 'Consultation request',
+    consent: 'on',
+    emailStatus: 'Accepted by email provider',
+  });
+  assert.equal(hero.status, 201);
+  const heroId = (await hero.json()).id;
+  const saved = (await (await request('admin/enquiries')).json()).find(
+    (e) => e.id === heroId,
+  );
+  assert.equal(saved.data.birthPlace, 'Ahmedabad');
+  assert.equal(saved.data.emailStatus, 'Not configured');
+  const retry = await request('admin/enquiries/retry-email', 'POST', {
+    id: heroId,
+  });
+  assert.equal((await retry.json()).status, 'Not configured');
+
   assert.equal(
     (await request('admin/upload', 'POST', '<svg/>', { raw: true })).status,
     400,

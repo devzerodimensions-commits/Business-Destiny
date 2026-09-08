@@ -17,6 +17,7 @@ export default function Chakra({
 }) {
   const {
     mode,
+    faceOn,
     autoRotate,
     speed,
     direction,
@@ -100,7 +101,11 @@ export default function Chakra({
         roughness: 0.32,
       });
       const root = new T.Group();
-      root.rotation.set(0.22, (-tilt * Math.PI) / 180, 0);
+      root.rotation.set(
+        faceOn ? 0 : 0.22,
+        faceOn ? 0 : (-tilt * Math.PI) / 180,
+        0,
+      );
       root.scale.setScalar(scale);
       scene.add(root);
       const wheel = new T.Group();
@@ -354,6 +359,7 @@ export default function Chakra({
     accent,
     highlight,
     mode,
+    faceOn,
     autoRotate,
     speed,
     direction,

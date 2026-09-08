@@ -108,6 +108,11 @@ export function upgradeContent(content) {
     ...updated,
     sections,
     chakra: { ...defaults.chakra, ...content.chakra },
+    heroEnquiry: {
+      ...structuredClone(defaults.heroEnquiry),
+      ...content.heroEnquiry,
+    },
+    thankYou: { ...defaults.thankYou, ...content.thankYou },
     homepageRevision: Math.max(content.homepageRevision ?? 0, 4),
     pages: content.pages ?? [],
     posts: content.posts ?? structuredClone(defaults.posts),
@@ -154,6 +159,7 @@ export function validateCMS(c, fail) {
   )
     fail('Choose a valid hero visual.');
   for (const key of [
+    'faceOn',
     'autoRotate',
     'floating',
     'glow',

@@ -161,7 +161,7 @@ export default function Admin() {
     navigation: ['navigation'],
     brand: ['brand', 'founder'],
     theme: ['theme', 'labels', 'heroNote', 'artTag', 'heroCaption'],
-    contact: ['contact', 'footer', 'form'],
+    contact: ['contact', 'footer', 'form', 'heroEnquiry', 'thankYou'],
   };
   function update(next: Content) {
     setData(next);
@@ -588,6 +588,32 @@ export default function Admin() {
                       </div>
                       <p>{e.data.service}</p>
                       <p>{e.data.question}</p>
+                      {e.data.emailStatus !== 'Accepted by email provider' && (
+                        <button
+                          className="admin-btn"
+                          onClick={async (event) => {
+                            const button = event.currentTarget;
+                            button.disabled = true;
+                            try {
+                              const result = await api(
+                                'admin/enquiries/retry-email',
+                                {
+                                  method: 'POST',
+                                  body: JSON.stringify({ id: e.id }),
+                                },
+                              );
+                              setStatus('Email: ' + result.status);
+                              setEnquiries(await api('admin/enquiries'));
+                            } catch (error) {
+                              setStatus((error as Error).message);
+                            } finally {
+                              button.disabled = false;
+                            }
+                          }}
+                        >
+                          Retry enquiry email
+                        </button>
+                      )}
                       <dl>
                         {Object.entries(e.data)
                           .filter(

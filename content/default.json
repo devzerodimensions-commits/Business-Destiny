@@ -648,6 +648,56 @@
     "useThemeColours": true,
     "accent": "#d6a442",
     "highlight": "#f1d58e",
-    "surface": "#082746"
+    "surface": "#082746",
+    "faceOn": true
+  },
+  "heroEnquiry": {
+    "visible": true,
+    "title": "Begin your consultation",
+    "description": "Tell us what is on your mind. We will contact you to discuss the next step.",
+    "messageLabel": "Message",
+    "submit": "Request a consultation",
+    "fields": [
+      {
+        "name": "name",
+        "label": "Full name",
+        "type": "text",
+        "required": true,
+        "placeholder": "Your name"
+      },
+      {
+        "name": "phone",
+        "label": "Contact number",
+        "type": "tel",
+        "required": true,
+        "placeholder": "Include country code"
+      },
+      {
+        "name": "birthDate",
+        "label": "Date of birth",
+        "type": "date",
+        "required": false,
+        "placeholder": ""
+      },
+      {
+        "name": "birthPlace",
+        "label": "Birth place",
+        "type": "text",
+        "required": false,
+        "placeholder": "City, state, country"
+      },
+      {
+        "name": "birthTime",
+        "label": "Birth time (if known)",
+        "type": "time",
+        "required": false,
+        "placeholder": ""
+      }
+    ]
+  },
+  "thankYou": {
+    "title": "Thank you for reaching out.",
+    "description": "Your enquiry has been received. Our team will contact you on the number you shared to discuss your consultation.",
+    "buttonLabel": "Back to home"
   }
 }

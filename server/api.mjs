@@ -1,3 +1,4 @@
+import { sendEnquiryMail } from './enquiry-mail.mjs';
 import defaults from '../content/default.json' with { type: 'json' };
 import { upgradeContent, publicContent, validateCMS } from './cms.mjs';
 const encoder = new TextEncoder();
@@ -234,6 +235,37 @@ function validContent(c) {
     )
   )
     fail('Navigation must link to existing sections.');
+  if (
+    typeof c.heroEnquiry?.visible !== 'boolean' ||
+    !Array.isArray(c.heroEnquiry.fields) ||
+    c.heroEnquiry.fields.length > 12
+  )
+    fail('Invalid hero enquiry settings.');
+  for (const f of c.heroEnquiry.fields) {
+    if (
+      !['name', 'phone', 'birthDate', 'birthPlace', 'birthTime'].includes(
+        f.name,
+      ) ||
+      !['text', 'tel', 'date', 'time'].includes(f.type) ||
+      typeof f.required !== 'boolean' ||
+      typeof f.label !== 'string' ||
+      typeof f.placeholder !== 'string'
+    )
+      fail('Invalid hero enquiry field.');
+  }
+  if (
+    new Set(c.heroEnquiry.fields.map((f) => f.name)).size !==
+    c.heroEnquiry.fields.length
+  )
+    fail('Hero field names must be unique.');
+  for (const name of ['name', 'phone'])
+    if (!c.heroEnquiry.fields.some((f) => f.name === name && f.required))
+      fail('Hero name and contact number must stay required.');
+  for (const key of ['title', 'description', 'messageLabel', 'submit'])
+    if (typeof c.heroEnquiry[key] !== 'string') fail('Invalid hero form text.');
+  for (const key of ['title', 'description', 'buttonLabel'])
+    if (typeof c.thankYou?.[key] !== 'string')
+      fail('Invalid thank-you page text.');
   if (!Array.isArray(c.form.fields) || c.form.fields.length > 12)
     fail('Invalid enquiry fields.');
   for (const f of c.form.fields)
@@ -255,9 +287,9 @@ function validContent(c) {
       typeof f.required !== 'boolean'
     )
       fail('Invalid enquiry field.');
-  for (const name of ['name', 'email', 'phone'])
+  for (const name of ['name', 'phone'])
     if (!c.form.fields.some((f) => f.name === name && f.required))
-      fail('Name, email, and phone must stay required.');
+      fail('Name and phone must stay required.');
   if (new Set(c.form.fields.map((f) => f.name)).size !== c.form.fields.length)
     fail('Enquiry field names must be unique.');
   function walk(x) {
@@ -342,17 +374,17 @@ export async function handleAPI(req, env) {
             .slice(0, key === 'question' ? 3000 : 180);
       if (
         !data.name ||
-        !data.email ||
-        !/^\S+@\S+\.\S+$/.test(data.email) ||
+        (data.email && !/^\S+@\S+\.\S+$/.test(data.email)) ||
         !data.phone ||
         data.phone.replace(/\D/g, '').length < 7 ||
         !data.question ||
         data.consent !== 'on'
       )
         fail(
-          'Please enter your name, valid email and phone, question, and consent.',
+          'Please enter your name, a valid contact number, message, and consent. If provided, email must be valid.',
         );
       const id = crypto.randomUUID();
+      data.emailStatus = 'Pending';
       await run(
         env.DB,
         'INSERT INTO enquiries (id,data,created) VALUES (?,?,?)',
@@ -360,6 +392,17 @@ export async function handleAPI(req, env) {
         JSON.stringify(data),
         Date.now(),
       );
+      data.emailStatus = await sendEnquiryMail(env, id, data);
+      try {
+        await run(
+          env.DB,
+          'UPDATE enquiries SET data=? WHERE id=?',
+          JSON.stringify(data),
+          id,
+        );
+      } catch {
+        console.error('Could not update enquiry email status');
+      }
       return json({ ok: true, id }, 201);
     }
     if (!path.startsWith('admin/')) return json({ error: 'Not found' }, 404);
@@ -399,6 +442,28 @@ export async function handleAPI(req, env) {
         );
       await env.DB.batch(statements);
       return json({ ok: true });
+    }
+    if (path === 'admin/enquiries/retry-email' && method === 'POST') {
+      await rate(req, env.DB, 'retry-email', 20);
+      const input = await readJson(req);
+      if (typeof input.id !== 'string') fail('Choose an enquiry.');
+      const row = await one(
+        env.DB,
+        'SELECT * FROM enquiries WHERE id=?',
+        input.id,
+      );
+      if (!row) fail('Enquiry not found.', 404);
+      const data = JSON.parse(row.data);
+      if (data.emailStatus !== 'Accepted by email provider') {
+        data.emailStatus = await sendEnquiryMail(env, row.id, data);
+        await run(
+          env.DB,
+          'UPDATE enquiries SET data=? WHERE id=?',
+          JSON.stringify(data),
+          row.id,
+        );
+      }
+      return json({ status: data.emailStatus });
     }
     if (path === 'admin/enquiries' && method === 'GET') {
       const rows = await env.DB.prepare(
