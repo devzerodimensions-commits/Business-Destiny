@@ -2502,16 +2502,18 @@ select:focus {
   margin-bottom: 40px;
 }
 .site-footer {
-  border-top: 1px solid #ffffff1a;
-  background: #020e1b;
+  border-top: 1px solid #dfd7c8;
+  background: #faf7ef;
   padding-top: 45px;
+  color: #10263e;
+  color-scheme: light;
 }
 .footer-callout {
   display: flex;
   gap: 30px;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #ffffff20;
+  border-bottom: 1px solid #dfd7c8;
   padding-bottom: 40px;
 }
 .footer-callout h2 {
@@ -2544,11 +2546,11 @@ select:focus {
 }
 .footer-business small {
   font-size: 12px;
-  color: #a8b7c7;
+  color: #596b7d;
 }
 .footer-columns h3 {
   font-size: 16px;
-  color: #f0cf8a;
+  color: #10263e;
   margin: 0 0 20px;
 }
 .footer-columns nav {
@@ -2559,11 +2561,11 @@ select:focus {
 .footer-columns a,
 .footer-contact p {
   font-size: 14px;
-  color: #b8c4d0;
+  color: #596b7d;
   line-height: 1.65;
 }
 .footer-columns a:hover {
-  color: white;
+  color: #906721;
 }
 .footer-contact > a {
   display: flex;
@@ -2577,8 +2579,8 @@ select:focus {
   margin: 0;
   font-size: 12px;
   gap: 20px;
-  color: #b8c4d0;
-  border-top: 1px solid #ffffff20;
+  color: #596b7d;
+  border-top: 1px solid #dfd7c8;
 }
 .cms-toolbar {
   display: flex;
@@ -4681,3 +4683,7 @@ select:focus {
 #main.alternating-home > section .hero-enquiry .error {
   color: #b42318;
 }
+
+.site-footer .eyebrow, .site-footer .textlink, .site-footer .footer-bottom a { color:#906721; }
+.site-footer .footer-business p { color:#596b7d; }
+.site-footer .footer-bottom a:hover { color:#10263e; }
