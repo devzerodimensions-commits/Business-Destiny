@@ -4432,3 +4432,63 @@ select:focus {
 .palm-illustration {
   transform: scale(1.12);
 }
+/* Light business-challenges section, kept under the existing services anchor. */
+.section.services {
+  background: #faf7ef;
+  color: #10263e;
+}
+.services .eyebrow {
+  color: #936a24;
+}
+.services .eyebrow .line {
+  background: #b98b36;
+}
+.services .section-heading h2 {
+  color: #10263e;
+}
+.services .section-heading h2 em {
+  color: #9b722e;
+}
+.services .section-heading p {
+  color: #596a79;
+  max-width: 720px;
+}
+.services .service-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e7decc;
+  padding: 26px;
+  box-shadow: 0 5px 18px #21354c04;
+}
+.services .service-card:hover {
+  border-color: #bc923e;
+  box-shadow: 0 12px 30px #21354c0c;
+}
+.services .card-top {
+  margin-bottom: 22px;
+  color: #a77c2c;
+}
+.services .card-top > span {
+  color: #8c7854;
+  font-variant-numeric: tabular-nums;
+}
+.services .service-card h3 {
+  color: #10263e;
+  font-size: 20px;
+  line-height: 1.35;
+}
+.services .service-card p {
+  color: #607080;
+  min-height: 0;
+  margin-bottom: 22px;
+  line-height: 1.7;
+}
+.services .service-link {
+  color: #8b641f;
+  border-color: #eee5d5;
+  margin-top: auto;
+}
+.services .service-link svg {
+  color: #a77c2c;
+}

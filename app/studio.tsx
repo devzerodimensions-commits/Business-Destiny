@@ -102,7 +102,7 @@ export default function Admin() {
       icon: Building2,
     },
     {
-      title: 'Services',
+      title: 'Business challenges',
       view: 'content',
       section: 'services',
       icon: BriefcaseBusiness,
@@ -383,7 +383,7 @@ export default function Admin() {
                     icon: Layers,
                   },
                   {
-                    name: 'Services',
+                    name: 'Business challenges',
                     value:
                       data.sections.find((s) => s.id === 'services')?.items
                         .length || 0,

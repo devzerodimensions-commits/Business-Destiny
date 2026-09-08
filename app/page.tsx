@@ -3,12 +3,21 @@ import { useEffect, useState, type CSSProperties } from 'react';
 import {
   ArrowUpRight,
   ArrowRight,
-  Sparkles,
-  Compass,
+  TrendingDown,
+  Coins,
+  Users,
+  Wallet,
+  Scale,
+  Maximize,
+  Settings,
+  House,
+  Package,
+  Globe,
+  Type,
+  Target,
   Factory,
   ChartNoAxesCombined,
   Handshake,
-  Orbit,
   ShieldCheck,
   Menu,
   X,
@@ -91,11 +100,20 @@ export async function api(path: string, init?: RequestInit) {
 }
 const icons = [
   ChartNoAxesCombined,
-  Compass,
-  Factory,
+  TrendingDown,
+  Coins,
   Handshake,
-  Orbit,
-  Sparkles,
+  Users,
+  Wallet,
+  Scale,
+  Factory,
+  Maximize,
+  Settings,
+  House,
+  Package,
+  Globe,
+  Type,
+  Target,
 ];
 export default function Home() {
   const [c, setC] = useState<Content>(initial);
@@ -330,10 +348,15 @@ export default function Home() {
                         {s.items.map((i, j) => {
                           const Icon = icons[j % icons.length];
                           return (
-                            <a href="#contact" className="service-card" key={j}>
+                            <a
+                              href="#contact"
+                              className="service-card"
+                              key={j}
+                              onClick={() => setSelectedService(i.title)}
+                            >
                               <div className="card-top">
                                 <Icon size={29} strokeWidth={1.25} />
-                                <span>0{j + 1}</span>
+                                <span>{String(j + 1).padStart(2, '0')}</span>
                               </div>
                               <h3>{i.title}</h3>
                               <p>{i.description}</p>
@@ -636,7 +659,10 @@ function Enquiry({
             {c.sections
               .find((s) => s.id === 'consultation-preparation')
               ?.items.filter(
-                (i) =>
+                (i, index, items) =>
+                  items.findIndex(
+                    (x) => (x.subtitle || x.title) === (i.subtitle || i.title),
+                  ) === index &&
                   !c.sections
                     .filter((s) => ['services', 'pricing'].includes(s.id))
                     .some((s) =>

@@ -246,64 +246,76 @@
     },
     {
       "visible": true,
-      "body": "",
+      "body": "PLAN · DECIDE · ALIGN · GROW",
       "image": "",
       "imageAlt": "",
       "items": [
         {
-          "title": "Industrial business astrology",
-          "description": "Traditional chart analysis focused on your business context, priorities and questions."
+          "title": "Growth stagnation & slow business",
+          "description": "Explore the questions behind stalled growth and your next phase of business."
         },
         {
-          "title": "Factory Vastu",
-          "description": "Review factory entrances, production zones, machinery placement and office layout through Vastu."
+          "title": "Continuous losses & low profitability",
+          "description": "Discuss your business direction alongside the financial realities of your enterprise."
         },
         {
-          "title": "Business setup & expansion",
-          "description": "Discuss a new factory, additional capacity, relocation or entry into a new market."
+          "title": "Cash flow & payment blockages",
+          "description": "Bring your payment concerns and timing questions to a focused consultation."
         },
         {
-          "title": "Partnership analysis",
-          "description": "Explore traditional compatibility interpretations for promoters, directors and business partners."
+          "title": "Partnership & director conflicts",
+          "description": "Explore working relationships, expectations and traditional compatibility interpretations."
         },
         {
-          "title": "Machinery & project Muhurat",
-          "description": "Discuss traditional timing considerations for machinery installation, inaugurations and project commencement."
+          "title": "Employee & management issues",
+          "description": "Discuss leadership and team relationships alongside practical management considerations."
         },
         {
-          "title": "Business numerology",
-          "description": "Explore interpretations of company, brand and product names alongside important business numbers."
+          "title": "Debt & financial pressure",
+          "description": "Reflect on priorities and timing while considering your financial commitments."
         },
         {
-          "title": "Investment & cash-flow questions",
-          "description": "Reflect on timing questions alongside your budget and financial analysis; this is not investment advice."
+          "title": "Legal & government obstacles",
+          "description": "Discuss timing concerns alongside advice from qualified legal and regulatory professionals."
         },
         {
-          "title": "Product launch timing",
-          "description": "Bring your launch schedule and commercial constraints for a focused timing discussion."
+          "title": "New business / factory setup",
+          "description": "Explore traditional timing and Vastu considerations for your new venture."
         },
         {
-          "title": "Export & international business",
-          "description": "Explore questions about overseas plans while considering market research and practical requirements."
+          "title": "Business expansion & investment decisions",
+          "description": "Discuss expansion plans and timing alongside your budget and commercial analysis."
         },
         {
-          "title": "Key management questions",
-          "description": "Discuss working relationships using a traditional framework; hiring decisions should rest on skills and fair assessment."
+          "title": "Machinery purchase & installation Muhurat",
+          "description": "Explore traditional Muhurat considerations for purchasing and installing machinery."
         },
         {
-          "title": "Industrial property selection",
-          "description": "Discuss orientation and spatial considerations alongside due diligence and professional property advice."
+          "title": "Factory / office Vastu problems",
+          "description": "Review entrances, orientation and work zones through a traditional Vastu perspective."
         },
         {
-          "title": "Business review consultation",
-          "description": "A focused discussion about your current direction, commitments and questions."
+          "title": "New product / project launch",
+          "description": "Discuss launch timing in the context of your project plans and readiness."
+        },
+        {
+          "title": "Export & international business challenges",
+          "description": "Explore questions about overseas expansion and international business timing."
+        },
+        {
+          "title": "Business name & brand correction",
+          "description": "Consider traditional numerology interpretations of company and brand names."
+        },
+        {
+          "title": "Right timing for major business decisions",
+          "description": "Bring an important decision for a focused discussion of traditional timing considerations."
         }
       ],
-      "highlight": "Your next decision.",
-      "description": "Choose a consultation around a specific project, business question or industrial space.",
-      "eyebrow": "SPECIALISED INDUSTRIAL CONSULTATIONS",
+      "highlight": "Start with yours.",
+      "description": "Explore 15 common business challenges through a focused astrology and Vastu consultation. Choose the topic you would like to discuss.",
+      "eyebrow": "BUSINESS CHALLENGES",
       "id": "services",
-      "title": "Your enterprise."
+      "title": "Every business has challenges."
     },
     {
       "visible": true,
@@ -700,5 +712,6 @@
     "description": "Your enquiry has been received. Our team will contact you on the number you shared to discuss your consultation.",
     "buttonLabel": "Back to home"
   },
-  "palmVisualRevision": 1
+  "palmVisualRevision": 1,
+  "businessChallengesRevision": 1
 }

@@ -4,7 +4,7 @@ import type { Content, Section } from './page';
 const names: Record<string, string> = {
   hero: 'Hero & 3D chakra',
   industries: 'Industries we serve',
-  services: 'Industrial services',
+  services: 'Business challenges',
   about: 'About Tejas Parikh',
   process: 'Consultation process',
   pricing: 'Consultation pricing',

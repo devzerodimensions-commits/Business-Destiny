@@ -104,8 +104,21 @@ export function upgradeContent(content) {
       },
     };
   }
+  if (!content.businessChallengesRevision && Array.isArray(sections)) {
+    sections = sections.map((s) =>
+      s.id === 'services'
+        ? {
+            ...structuredClone(
+              defaults.sections.find((d) => d.id === 'services'),
+            ),
+            visible: s.visible,
+          }
+        : s,
+    );
+  }
   return {
     ...updated,
+    businessChallengesRevision: 1,
     sections,
     chakra: {
       ...defaults.chakra,
