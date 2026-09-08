@@ -4687,3 +4687,9 @@ select:focus {
 .site-footer .eyebrow, .site-footer .textlink, .site-footer .footer-bottom a { color:#906721; }
 .site-footer .footer-business p { color:#596b7d; }
 .site-footer .footer-bottom a:hover { color:#10263e; }
+/* Fit the six primary navigation links comfortably on desktop. */
+@media (min-width: 901px) {
+ .header .nav { gap:clamp(12px,1.6vw,26px); font-size:13px; }
+ .header .nav a { white-space:nowrap; }
+}
+@media (min-width:901px) and (max-width:1150px) { .header .header-cta { display:none; } }

@@ -119,6 +119,10 @@ export function upgradeContent(content) {
   return {
     ...updated,
     businessChallengesRevision: 1,
+    navigationRevision: 1,
+    navigation: content.navigationRevision
+      ? content.navigation
+      : structuredClone(defaults.navigation),
     sections,
     chakra: {
       ...defaults.chakra,
@@ -136,7 +140,18 @@ export function upgradeContent(content) {
     posts: content.posts ?? structuredClone(defaults.posts),
     media: content.media ?? [],
     blog: { ...defaults.blog, ...content.blog },
-    footer: { ...defaults.footer, ...updated.footer },
+    footer: {
+      ...defaults.footer,
+      ...updated.footer,
+      ...(!content.navigationRevision
+        ? {
+            columns: [
+              structuredClone(defaults.footer.columns[0]),
+              ...(updated.footer?.columns ?? defaults.footer.columns).slice(1),
+            ],
+          }
+        : {}),
+    },
   };
 }
 export function publicContent(content) {

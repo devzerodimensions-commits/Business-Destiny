@@ -19,16 +19,24 @@
       "target": "hero"
     },
     {
-      "label": "Our expertise",
+      "label": "About Us",
+      "target": "about"
+    },
+    {
+      "label": "Services",
       "target": "services"
     },
     {
-      "label": "About",
-      "target": "about"
+      "label": "Our Expertise",
+      "target": "consultation-preparation"
     },
     {
       "label": "Consultations",
       "target": "pricing"
+    },
+    {
+      "label": "Contact Us",
+      "target": "contact"
     }
   ],
   "labels": {
@@ -62,23 +70,31 @@
     "note": "Traditional interpretive guidance, not a guarantee of business results.",
     "columns": [
       {
-        "title": "Explore",
+        "title": "Quick links",
         "links": [
           {
             "label": "Home",
-            "href": "/"
+            "href": "/#hero"
           },
           {
-            "label": "Our expertise",
-            "href": "/#services"
-          },
-          {
-            "label": "About the founder",
+            "label": "About Us",
             "href": "/#about"
           },
           {
-            "label": "Journal",
-            "href": "/blog"
+            "label": "Services",
+            "href": "/#services"
+          },
+          {
+            "label": "Our Expertise",
+            "href": "/#consultation-preparation"
+          },
+          {
+            "label": "Consultations",
+            "href": "/#pricing"
+          },
+          {
+            "label": "Contact Us",
+            "href": "/#contact"
           }
         ]
       },
@@ -713,5 +729,6 @@
     "buttonLabel": "Back to home"
   },
   "palmVisualRevision": 1,
-  "businessChallengesRevision": 1
+  "businessChallengesRevision": 1,
+  "navigationRevision": 1
 }
