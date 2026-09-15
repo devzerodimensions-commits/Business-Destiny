@@ -31,8 +31,10 @@ export function PageBlock({
           <img src={s.image} alt={s.imageAlt} />
         )}
       <div className="block-content">
+        <div className="block-heading">
         <h2>{s.title}</h2>
-        <p className="article-intro">{s.description}</p>
+        {s.description && <p className="article-intro">{s.description}</p>}
+        </div>
         {s.body && <div className="article-body">
           {s.body.split(/\n\s*\n/).map((p, i) => (
             <p key={i}>{p}</p>
