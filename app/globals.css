@@ -4885,3 +4885,9 @@ select:focus {
  .service-detail-page .layout-banner h2 {font-size:34px;}
  .layout-spotlight .block-content {padding-left:0;border-left:0;}
 }
+/* Keep decorative lines and FAQ controls readable on either section colour. */
+.has-block-design .service-question {border-color:color-mix(in srgb,currentColor 25%,transparent);}
+.has-block-design .service-question summary {color:inherit;}
+.has-block-design .detail-card-icon,
+.has-block-design .service-question summary span {color:inherit;}
+.service-detail-page .service-card:hover {transform:none;}

@@ -152,8 +152,20 @@ export function upgradeContent(content) {
         ? {...page, sections: structuredClone(redesigned.sections)} : page;
     });
   }
+  if (!content.serviceColourRevision) {
+    pages = pages.map(page => {
+      if (!defaults.pages.some(p => p.id === page.id) || page.trashedAt) return page;
+      let visibleIndex = 0;
+      return {...page, sections: page.sections.map(section => {
+        if (!section.visible) return section;
+        const light = visibleIndex++ % 2 === 1;
+        return {...section, design: {...section.design, background: light ? '#faf7ef' : '#061426', text: light ? '#10263e' : '#f4f6f8'}};
+      })};
+    });
+  }
   return {
     ...updated,
+    serviceColourRevision: 1,
     serviceDesignRevision: 1,
     businessChallengesRevision: 1,
     navigationRevision: 1,

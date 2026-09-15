@@ -635,8 +635,8 @@
           "buttonUrl": "/#contact",
           "items": [],
           "design": {
-            "background": "#faf7ef",
-            "text": "#10263e",
+            "background": "#061426",
+            "text": "#f4f6f8",
             "align": "left",
             "padding": 80,
             "columns": 3,
@@ -719,8 +719,8 @@
           "buttonUrl": "",
           "items": [],
           "design": {
-            "background": "#061426",
-            "text": "#f4f6f8",
+            "background": "#faf7ef",
+            "text": "#10263e",
             "align": "left",
             "padding": 80,
             "columns": 3,
@@ -740,8 +740,8 @@
           "buttonUrl": "",
           "items": [],
           "design": {
-            "background": "#faf7ef",
-            "text": "#10263e",
+            "background": "#061426",
+            "text": "#f4f6f8",
             "align": "left",
             "padding": 80,
             "columns": 3,
@@ -845,8 +845,8 @@
           "buttonUrl": "",
           "items": [],
           "design": {
-            "background": "#061426",
-            "text": "#f4f6f8",
+            "background": "#faf7ef",
+            "text": "#10263e",
             "align": "left",
             "padding": 80,
             "columns": 3,
@@ -882,8 +882,8 @@
             }
           ],
           "design": {
-            "background": "#faf7ef",
-            "text": "#10263e",
+            "background": "#061426",
+            "text": "#f4f6f8",
             "align": "left",
             "padding": 80,
             "columns": 3,
@@ -924,8 +924,8 @@
           "buttonUrl": "",
           "items": [],
           "design": {
-            "background": "#faf7ef",
-            "text": "#10263e",
+            "background": "#061426",
+            "text": "#f4f6f8",
             "align": "left",
             "padding": 80,
             "columns": 3,
@@ -1092,8 +1092,8 @@
           "buttonUrl": "",
           "items": [],
           "design": {
-            "background": "#061426",
-            "text": "#f4f6f8",
+            "background": "#faf7ef",
+            "text": "#10263e",
             "align": "left",
             "padding": 80,
             "columns": 3,
@@ -1113,8 +1113,8 @@
           "buttonUrl": "",
           "items": [],
           "design": {
-            "background": "#faf7ef",
-            "text": "#10263e",
+            "background": "#061426",
+            "text": "#f4f6f8",
             "align": "left",
             "padding": 80,
             "columns": 3,
@@ -1197,8 +1197,8 @@
           "buttonUrl": "/#contact",
           "items": [],
           "design": {
-            "background": "#faf7ef",
-            "text": "#10263e",
+            "background": "#061426",
+            "text": "#f4f6f8",
             "align": "left",
             "padding": 80,
             "columns": 3,
@@ -1218,8 +1218,8 @@
           "buttonUrl": "",
           "items": [],
           "design": {
-            "background": "#061426",
-            "text": "#f4f6f8",
+            "background": "#faf7ef",
+            "text": "#10263e",
             "align": "left",
             "padding": 80,
             "columns": 3,
@@ -1255,8 +1255,8 @@
             }
           ],
           "design": {
-            "background": "#faf7ef",
-            "text": "#10263e",
+            "background": "#061426",
+            "text": "#f4f6f8",
             "align": "left",
             "padding": 80,
             "columns": 3,
@@ -1297,8 +1297,8 @@
           "buttonUrl": "",
           "items": [],
           "design": {
-            "background": "#faf7ef",
-            "text": "#10263e",
+            "background": "#061426",
+            "text": "#f4f6f8",
             "align": "left",
             "padding": 80,
             "columns": 3,
@@ -1504,5 +1504,6 @@
   "businessChallengesRevision": 1,
   "navigationRevision": 1,
   "servicePagesRevision": 1,
-  "serviceDesignRevision": 1
+  "serviceDesignRevision": 1,
+  "serviceColourRevision": 1
 }
