@@ -4891,3 +4891,10 @@ select:focus {
 .has-block-design .detail-card-icon,
 .has-block-design .service-question summary span {color:inherit;}
 .service-detail-page .service-card:hover {transform:none;}
+.password-field {margin-bottom:18px;}
+.password-field > label {display:block;margin-bottom:8px;}
+.password-control {position:relative;}
+.password-control input {width:100%;padding-right:54px!important;margin:0;}
+.password-control .password-toggle {position:absolute;right:4px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:6px;background:transparent;color:inherit;cursor:pointer;}
+.password-control .password-toggle:hover {background:#9b732c18;}
+.password-control .password-toggle:focus-visible {outline:2px solid #a77620;outline-offset:1px;}

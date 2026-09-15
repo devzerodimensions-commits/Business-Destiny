@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState, type InputHTMLAttributes } from 'react';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -9,6 +9,7 @@ import {
   LogOut,
   Save,
   Eye,
+  EyeOff,
   ImagePlus,
   LayoutDashboard,
   Layers,
@@ -222,15 +223,7 @@ export default function Admin() {
             Username
             <input name="username" autoComplete="username" required />
           </label>
-          <label>
-            Password
-            <input
-              name="password"
-              type="password"
-              autoComplete="current-password"
-              required
-            />
-          </label>
+          <PasswordField label="Password" name="password" autoComplete="current-password" required />
           <button className="button" disabled={busy}>
             {busy ? 'Signing in…' : 'Sign in'}
             <ArrowRight size={18} />
@@ -641,6 +634,20 @@ export default function Admin() {
     </main>
   );
 }
+function PasswordField({label, ...props}: InputHTMLAttributes<HTMLInputElement> & {label: string}) {
+  const [visible, setVisible] = useState(false);
+  const id = useId();
+  const action = visible ? 'Hide password' : 'Show password';
+  return <div className="password-field">
+    <label htmlFor={id}>{label}</label>
+    <div className="password-control">
+      <input {...props} id={id} type={visible ? 'text' : 'password'} />
+      <button type="button" className="password-toggle" aria-label={action} aria-controls={id} aria-pressed={visible} title={action} onClick={() => setVisible(v => !v)}>
+        {visible ? <EyeOff size={20} aria-hidden="true" /> : <Eye size={20} aria-hidden="true" />}
+      </button>
+    </div>
+  </div>;
+}
 function PasswordForm({ setStatus }: { setStatus: (v: string) => void }) {
   const [busy, setBusy] = useState(false);
   return (
@@ -665,25 +672,8 @@ function PasswordForm({ setStatus }: { setStatus: (v: string) => void }) {
       }}
     >
       <h2>Change your password</h2>
-      <label>
-        Current password
-        <input
-          type="password"
-          name="current"
-          autoComplete="current-password"
-          required
-        />
-      </label>
-      <label>
-        New password (at least 12 characters)
-        <input
-          type="password"
-          name="password"
-          minLength={12}
-          autoComplete="new-password"
-          required
-        />
-      </label>
+      <PasswordField label="Current password" name="current" autoComplete="current-password" required />
+      <PasswordField label="New password (at least 12 characters)" name="password" minLength={12} autoComplete="new-password" required />
       <button className="button" disabled={busy}>
         Update password
       </button>
