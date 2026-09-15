@@ -1,4 +1,5 @@
 import defaults from '../content/default.json' with { type: 'json' };
+import originalServicePages from '../content/service-pages-original.json' with { type: 'json' };
 // Extend older saved websites without overwriting their existing content.
 export function upgradeContent(content) {
   let sections = content.sections;
@@ -116,7 +117,7 @@ export function upgradeContent(content) {
         : s,
     );
   }
-  const pages = [...(content.pages ?? [])];
+  let pages = [...(content.pages ?? [])];
   const media = [...(content.media ?? [])];
   if (!content.servicePagesRevision) {
     for (const page of defaults.pages) {
@@ -141,8 +142,19 @@ export function upgradeContent(content) {
       if (media.length < 200 && !media.some((m) => m.image === image.image))
         media.push(structuredClone(image));
   }
+  if (!content.serviceDesignRevision) {
+    pages = pages.map(page => {
+      const original = originalServicePages.find(p => p.id === page.id);
+      const redesigned = defaults.pages.find(p => p.id === page.id);
+      if (!original || !redesigned || page.trashedAt) return page;
+      // Upgrade only untouched starter sections; keep owner-authored content intact.
+      return JSON.stringify(page.sections) === JSON.stringify(original.sections)
+        ? {...page, sections: structuredClone(redesigned.sections)} : page;
+    });
+  }
   return {
     ...updated,
+    serviceDesignRevision: 1,
     businessChallengesRevision: 1,
     navigationRevision: 1,
     navigation: content.navigationRevision
@@ -304,6 +316,7 @@ export function validateCMS(c, fail) {
           sectionIds.add(section.id);
           if (section.design !== undefined) {
             const d = section.design;
+            if (d?.layout !== undefined && !['standard','editorial','spotlight','panorama','numeric','list','timeline','numbered','questions','reading','banner'].includes(d.layout)) fail('Choose a supported section layout.');
             if (
               !d ||
               !['left', 'center', 'right'].includes(d.align) ||

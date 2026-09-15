@@ -55,6 +55,7 @@ export type Section = {
 };
 export type PageSection = {
   design?: {
+    layout?: string;
     background: string;
     text: string;
     align: string;

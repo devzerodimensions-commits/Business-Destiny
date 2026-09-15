@@ -1,11 +1,27 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import defaults from '../content/default.json' with { type: 'json' };
+import originalServicePages from '../content/service-pages-original.json' with { type: 'json' };
 import { upgradeContent, publicContent, validateCMS } from './cms.mjs';
 import { handleAPI } from './api.mjs';
 const fail = (message) => {
   throw Error(message);
 };
+
+test('Service redesign upgrades starter layouts while preserving owner edits and page status', () => {
+  const content = structuredClone(defaults);
+  delete content.serviceDesignRevision;
+  content.pages = structuredClone(originalServicePages);
+  content.pages[0].published = false;
+  content.pages[1].sections[0].title = 'Owner-written headline';
+  const next = upgradeContent(content);
+  assert.equal(next.pages[0].sections[0].design.layout, 'editorial');
+  assert.equal(next.pages[0].published, false);
+  assert.equal(next.pages[1].sections[0].title, 'Owner-written headline');
+  assert.equal(next.pages[2].sections[0].design.layout, 'panorama');
+  validateCMS(next, fail);
+  assert.deepEqual(upgradeContent(next).pages, next.pages);
+});
 
 test('Service pages seed once, link homepage cards and preserve admin edits and deletions', () => {
   const old = structuredClone(defaults);

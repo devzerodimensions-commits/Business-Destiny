@@ -12,7 +12,7 @@ export function PageBlock({
   return (
     <section
       className={
-        'page-block wrap block-' + s.type + (d ? ' has-block-design' : '')
+        'page-block wrap block-' + s.type + (d ? ' has-block-design' : '') + (d?.layout ? ' layout-' + d.layout : '')
       }
       style={
         d
@@ -30,18 +30,22 @@ export function PageBlock({
         (s.type === 'hero' || s.type === 'text' || s.type === 'image') && (
           <img src={s.image} alt={s.imageAlt} />
         )}
-      <div>
+      <div className="block-content">
         <h2>{s.title}</h2>
         <p className="article-intro">{s.description}</p>
-        <div className="article-body">
+        {s.body && <div className="article-body">
           {s.body.split(/\n\s*\n/).map((p, i) => (
             <p key={i}>{p}</p>
           ))}
-        </div>
+        </div>}
         {s.type === 'cards' && (
           <div className="service-grid">
             {s.items.map((item, i) => (
-              <article className="service-card" key={i}>
+              d?.layout === 'questions' ? <details className="service-question" key={i}>
+                <summary>{item.title}<span aria-hidden="true">+</span></summary>
+                <p>{item.description}</p>
+              </details> : <article className="service-card" key={i}>
+                {['timeline','numbered','list'].includes(d?.layout || '') && <span className="card-number">{String(i+1).padStart(2,'0')}</span>}
                 {item.icon && <ServiceIcon name={item.icon} />}
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
@@ -80,6 +84,13 @@ export function SectionDesignEditor({
     <details className="editor-group">
       <summary>Style & layout</summary>
       <div className="section-style-controls">
+        <label>
+          Section layout
+          <select value={d.layout || 'standard'} onChange={e => onChange({...section, design:{...d,layout:e.target.value}})}>
+            <option value="standard">Standard</option>
+            {(section.type === 'hero' ? [['editorial','Editorial portrait'],['spotlight','Image on the left'],['panorama','Full-width photo'],['numeric','Bold statement']] : section.type === 'cards' ? [['list','Editorial rows'],['timeline','Step timeline'],['numbered','Numbered grid'],['questions','Expandable questions']] : [['reading','Editorial columns'],['banner','Centred feature']]).map(([value,label]) => <option key={value} value={value}>{label}</option>)}
+          </select>
+        </label>
         {section.type === 'cards' &&
           section.items.map((item, index) => (
             <label key={index}>

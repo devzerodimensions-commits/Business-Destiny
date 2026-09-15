@@ -1,0 +1,642 @@
+[
+  {
+    "id": "service-vedic-astrology",
+    "slug": "vedic-astrology",
+    "title": "Vedic Astrology",
+    "published": true,
+    "sections": [
+      {
+        "id": "vedic-astrology-hero",
+        "type": "hero",
+        "visible": true,
+        "title": "A wider perspective on your business journey.",
+        "description": "Traditional horoscope interpretation, centred on your enterprise and the decisions in front of you.",
+        "body": "",
+        "image": "/media/service-astrology.png",
+        "imageAlt": "A gold zodiac wheel used as an illustration of Vedic astrology",
+        "buttonLabel": "Enquire about Vedic Astrology",
+        "buttonUrl": "/#contact",
+        "items": [],
+        "design": {
+          "background": "#061426",
+          "text": "#f4f6f8",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "vedic-astrology-topics",
+        "type": "cards",
+        "visible": true,
+        "title": "What we can explore",
+        "description": "A consultation built around the questions that matter to you.",
+        "body": "",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [
+          {
+            "icon": "orbit",
+            "title": "Your business direction",
+            "description": "Explore questions about your current phase, longer-term plans and the priorities you want to focus on."
+          },
+          {
+            "icon": "calendar",
+            "title": "Timing & milestones",
+            "description": "Discuss traditional timing interpretations around launches, expansion and important commitments."
+          },
+          {
+            "icon": "people",
+            "title": "Partnership questions",
+            "description": "Bring questions about roles, expectations and working relationships to the consultation."
+          }
+        ],
+        "design": {
+          "background": "#faf7ef",
+          "text": "#10263e",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "vedic-astrology-approach",
+        "type": "image",
+        "visible": true,
+        "title": "Your business comes first.",
+        "description": "A personal discussion with Tejas Parikh.",
+        "body": "Vedic astrology uses a traditional interpretation of birth charts and planetary cycles. In a business consultation, those interpretations are discussed in the context of your company, your plans and your specific questions.\n\nThe session starts with what is happening in your enterprise. Tejas Parikh considers the relevant birth details and business context, then discusses observations and the questions they raise.",
+        "image": "/media/tejas-parikh-portrait.png",
+        "imageAlt": "Tejas Parikh, Business Destiny founder and consultant",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [],
+        "design": {
+          "background": "#061426",
+          "text": "#f4f6f8",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "vedic-astrology-prepare",
+        "type": "text",
+        "visible": true,
+        "title": "Make the most of your consultation.",
+        "description": "What to share before your session",
+        "body": "Your date, time and place of birth; your company background; and two or three clearly defined business questions. If the birth time is uncertain, mention this before the session.",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [],
+        "design": {
+          "background": "#faf7ef",
+          "text": "#10263e",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "vedic-astrology-steps",
+        "type": "cards",
+        "visible": true,
+        "title": "From enquiry to a focused conversation.",
+        "description": "",
+        "body": "",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [
+          {
+            "icon": "message",
+            "title": "01 · Share your question",
+            "description": "Send an enquiry describing the topic you want to discuss."
+          },
+          {
+            "icon": "calendar",
+            "title": "02 · Confirm the scope",
+            "description": "We discuss the information needed, availability and fees before booking."
+          },
+          {
+            "icon": "check",
+            "title": "03 · Explore the observations",
+            "description": "Review the traditional interpretations, ask questions and consider your next steps."
+          }
+        ],
+        "design": {
+          "background": "#061426",
+          "text": "#f4f6f8",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "vedic-astrology-book",
+        "type": "cta",
+        "visible": true,
+        "title": "Let’s discuss your next decision.",
+        "description": "Start a conversation about Vedic Astrology.",
+        "body": "Consultations offer traditional interpretive guidance. Outcomes are not guaranteed; use relevant financial, legal or technical advice for business decisions.",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "Request a consultation",
+        "buttonUrl": "/#contact",
+        "items": [],
+        "design": {
+          "background": "#faf7ef",
+          "text": "#10263e",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "service-kp-astrology",
+    "slug": "kp-astrology",
+    "title": "KP Astrology",
+    "published": true,
+    "sections": [
+      {
+        "id": "kp-astrology-hero",
+        "type": "hero",
+        "visible": true,
+        "title": "A focused question. A closer examination.",
+        "description": "A structured astrological discussion for a specific business decision, project or timing question.",
+        "body": "",
+        "image": "/media/consultation-table.png",
+        "imageAlt": "Illustrative consultation table with an astrolabe, horoscope notes and compass",
+        "buttonLabel": "Enquire about KP Astrology",
+        "buttonUrl": "/#contact",
+        "items": [],
+        "design": {
+          "background": "#061426",
+          "text": "#f4f6f8",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "kp-astrology-topics",
+        "type": "cards",
+        "visible": true,
+        "title": "What we can explore",
+        "description": "A consultation built around the questions that matter to you.",
+        "body": "",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [
+          {
+            "icon": "target",
+            "title": "One clear question",
+            "description": "Define the project or decision you want to explore so the consultation stays focused."
+          },
+          {
+            "icon": "chart",
+            "title": "Detailed chart discussion",
+            "description": "Discuss relevant chart interpretations within the KP astrology framework."
+          },
+          {
+            "icon": "calendar",
+            "title": "Timing considerations",
+            "description": "Consider traditional timing observations alongside your deadlines and practical constraints."
+          }
+        ],
+        "design": {
+          "background": "#faf7ef",
+          "text": "#10263e",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "kp-astrology-approach",
+        "type": "image",
+        "visible": true,
+        "title": "Your business comes first.",
+        "description": "A personal discussion with Tejas Parikh.",
+        "body": "KP astrology is a detailed approach to astrological interpretation. This consultation is designed around a clearly framed question rather than an open-ended list of predictions.\n\nShare the decision, the options you are considering and the timeframe involved. The discussion connects traditional interpretation with the context you provide, leaving room for questions and uncertainty.",
+        "image": "/media/tejas-parikh-portrait.png",
+        "imageAlt": "Tejas Parikh, Business Destiny founder and consultant",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [],
+        "design": {
+          "background": "#061426",
+          "text": "#f4f6f8",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "kp-astrology-prepare",
+        "type": "text",
+        "visible": true,
+        "title": "Make the most of your consultation.",
+        "description": "What to share before your session",
+        "body": "A single main question, relevant birth details where available, important project dates, and any deadlines or constraints. Tell us what decisions have already been made.",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [],
+        "design": {
+          "background": "#faf7ef",
+          "text": "#10263e",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "kp-astrology-steps",
+        "type": "cards",
+        "visible": true,
+        "title": "From enquiry to a focused conversation.",
+        "description": "",
+        "body": "",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [
+          {
+            "icon": "message",
+            "title": "01 · Share your question",
+            "description": "Send an enquiry describing the topic you want to discuss."
+          },
+          {
+            "icon": "calendar",
+            "title": "02 · Confirm the scope",
+            "description": "We discuss the information needed, availability and fees before booking."
+          },
+          {
+            "icon": "check",
+            "title": "03 · Explore the observations",
+            "description": "Review the traditional interpretations, ask questions and consider your next steps."
+          }
+        ],
+        "design": {
+          "background": "#061426",
+          "text": "#f4f6f8",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "kp-astrology-book",
+        "type": "cta",
+        "visible": true,
+        "title": "Let’s discuss your next decision.",
+        "description": "Start a conversation about KP Astrology.",
+        "body": "Consultations offer traditional interpretive guidance. Outcomes are not guaranteed; use relevant financial, legal or technical advice for business decisions.",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "Request a consultation",
+        "buttonUrl": "/#contact",
+        "items": [],
+        "design": {
+          "background": "#faf7ef",
+          "text": "#10263e",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "service-factory-vastu",
+    "slug": "factory-vastu",
+    "title": "Factory Vastu",
+    "published": true,
+    "sections": [
+      {
+        "id": "factory-vastu-hero",
+        "type": "hero",
+        "visible": true,
+        "title": "A considered perspective on your working space.",
+        "description": "Explore orientation, entrances and operational zones through a traditional Vastu consultation.",
+        "body": "",
+        "image": "/media/industrial-factory.png",
+        "imageAlt": "Illustrative modern factory interior with machinery and production zones",
+        "buttonLabel": "Enquire about Factory Vastu",
+        "buttonUrl": "/#contact",
+        "items": [],
+        "design": {
+          "background": "#061426",
+          "text": "#f4f6f8",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "factory-vastu-topics",
+        "type": "cards",
+        "visible": true,
+        "title": "What we can explore",
+        "description": "A consultation built around the questions that matter to you.",
+        "body": "",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [
+          {
+            "icon": "compass",
+            "title": "Orientation & entrances",
+            "description": "Discuss the direction of the site and the location of entrances in the context of the layout."
+          },
+          {
+            "icon": "factory",
+            "title": "Production & movement",
+            "description": "Review the arrangement of machinery, work zones, storage and movement through the premises."
+          },
+          {
+            "icon": "building",
+            "title": "Office & shared spaces",
+            "description": "Consider administrative areas and shared spaces alongside the needs of the people using them."
+          }
+        ],
+        "design": {
+          "background": "#faf7ef",
+          "text": "#10263e",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "factory-vastu-approach",
+        "type": "image",
+        "visible": true,
+        "title": "Your business comes first.",
+        "description": "A personal discussion with Tejas Parikh.",
+        "body": "A factory or office is a working environment with real operational requirements. A Vastu consultation brings a traditional spatial perspective to the site plan while taking those requirements into account.\n\nThe review can cover the main entrance, orientation, production areas, storage and office zones. The scope depends on the property and the information available. Any structural, electrical or machinery changes require qualified professional assessment.",
+        "image": "/media/tejas-parikh-portrait.png",
+        "imageAlt": "Tejas Parikh, Business Destiny founder and consultant",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [],
+        "design": {
+          "background": "#061426",
+          "text": "#f4f6f8",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "factory-vastu-prepare",
+        "type": "text",
+        "visible": true,
+        "title": "Make the most of your consultation.",
+        "description": "What to share before your session",
+        "body": "A floor plan with north marked, the property location, recent photographs, and notes on machinery, entrances and everyday operations. Share any restrictions on changes to the site.",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [],
+        "design": {
+          "background": "#faf7ef",
+          "text": "#10263e",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "factory-vastu-steps",
+        "type": "cards",
+        "visible": true,
+        "title": "From enquiry to a focused conversation.",
+        "description": "",
+        "body": "",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [
+          {
+            "icon": "message",
+            "title": "01 · Share your question",
+            "description": "Send an enquiry describing the topic you want to discuss."
+          },
+          {
+            "icon": "calendar",
+            "title": "02 · Confirm the scope",
+            "description": "We discuss the information needed, availability and fees before booking."
+          },
+          {
+            "icon": "check",
+            "title": "03 · Explore the observations",
+            "description": "Review the traditional interpretations, ask questions and consider your next steps."
+          }
+        ],
+        "design": {
+          "background": "#061426",
+          "text": "#f4f6f8",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "factory-vastu-book",
+        "type": "cta",
+        "visible": true,
+        "title": "Let’s discuss your next decision.",
+        "description": "Start a conversation about Factory Vastu.",
+        "body": "Consultations offer traditional interpretive guidance. Outcomes are not guaranteed; use relevant financial, legal or technical advice for business decisions.",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "Request a consultation",
+        "buttonUrl": "/#contact",
+        "items": [],
+        "design": {
+          "background": "#faf7ef",
+          "text": "#10263e",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "service-numerology",
+    "slug": "numerology",
+    "title": "Numerology",
+    "published": true,
+    "sections": [
+      {
+        "id": "numerology-hero",
+        "type": "hero",
+        "visible": true,
+        "title": "Explore the numbers behind your business identity.",
+        "description": "Traditional interpretations of company names, brand names and important dates, with your business context at the centre.",
+        "body": "",
+        "image": "/media/service-numerology.png",
+        "imageAlt": "Gold numerals on a circular dial illustrating numerology",
+        "buttonLabel": "Enquire about Numerology",
+        "buttonUrl": "/#contact",
+        "items": [],
+        "design": {
+          "background": "#061426",
+          "text": "#f4f6f8",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "numerology-topics",
+        "type": "cards",
+        "visible": true,
+        "title": "What we can explore",
+        "description": "A consultation built around the questions that matter to you.",
+        "body": "",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [
+          {
+            "icon": "type",
+            "title": "Company & brand names",
+            "description": "Discuss the traditional numerical interpretation of an existing name or shortlist."
+          },
+          {
+            "icon": "calendar",
+            "title": "Dates & milestones",
+            "description": "Explore important business dates and the questions you associate with them."
+          },
+          {
+            "icon": "target",
+            "title": "A focused name review",
+            "description": "Compare proposed names while keeping pronunciation, customer recognition and practical use in view."
+          }
+        ],
+        "design": {
+          "background": "#faf7ef",
+          "text": "#10263e",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "numerology-approach",
+        "type": "image",
+        "visible": true,
+        "title": "Your business comes first.",
+        "description": "A personal discussion with Tejas Parikh.",
+        "body": "Numerology assigns traditional interpretations to numbers associated with names and dates. A business consultation can focus on a company name, a brand identity or a specific milestone.\n\nBring the exact spellings you use and explain the business behind the name. We discuss the interpretation and its limits alongside practical branding considerations. Trademark checks and legal availability remain separate professional checks.",
+        "image": "/media/tejas-parikh-portrait.png",
+        "imageAlt": "Tejas Parikh, Business Destiny founder and consultant",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [],
+        "design": {
+          "background": "#061426",
+          "text": "#f4f6f8",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "numerology-prepare",
+        "type": "text",
+        "visible": true,
+        "title": "Make the most of your consultation.",
+        "description": "What to share before your session",
+        "body": "The exact spelling of your business and brand names, any shortlisted alternatives, relevant dates, and the purpose of the review. Bring existing registration or branding constraints.",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [],
+        "design": {
+          "background": "#faf7ef",
+          "text": "#10263e",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "numerology-steps",
+        "type": "cards",
+        "visible": true,
+        "title": "From enquiry to a focused conversation.",
+        "description": "",
+        "body": "",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "",
+        "buttonUrl": "",
+        "items": [
+          {
+            "icon": "message",
+            "title": "01 · Share your question",
+            "description": "Send an enquiry describing the topic you want to discuss."
+          },
+          {
+            "icon": "calendar",
+            "title": "02 · Confirm the scope",
+            "description": "We discuss the information needed, availability and fees before booking."
+          },
+          {
+            "icon": "check",
+            "title": "03 · Explore the observations",
+            "description": "Review the traditional interpretations, ask questions and consider your next steps."
+          }
+        ],
+        "design": {
+          "background": "#061426",
+          "text": "#f4f6f8",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      },
+      {
+        "id": "numerology-book",
+        "type": "cta",
+        "visible": true,
+        "title": "Let’s discuss your next decision.",
+        "description": "Start a conversation about Numerology.",
+        "body": "Consultations offer traditional interpretive guidance. Outcomes are not guaranteed; use relevant financial, legal or technical advice for business decisions.",
+        "image": "",
+        "imageAlt": "",
+        "buttonLabel": "Request a consultation",
+        "buttonUrl": "/#contact",
+        "items": [],
+        "design": {
+          "background": "#faf7ef",
+          "text": "#10263e",
+          "align": "left",
+          "padding": 48,
+          "columns": 3
+        }
+      }
+    ]
+  }
+]
