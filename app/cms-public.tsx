@@ -109,8 +109,18 @@ export function ContentRoute({
   );
   if (page)
     return (
-      <div className="dynamic-page">
+      <div
+        className={
+          'dynamic-page' +
+          (page.sections.some((s) => s.type === 'hero')
+            ? ' service-detail-page'
+            : '')
+        }
+      >
         <header className="wrap page-title">
+          <a className="textlink" href="/#consultation-preparation">
+            ← All services
+          </a>
           <div className="eyebrow">{c.brand.name}</div>
           <h1>{page.title}</h1>
         </header>

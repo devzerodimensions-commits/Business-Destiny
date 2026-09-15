@@ -30,6 +30,7 @@ import { BlogCards, ContentRoute, SiteFooter } from './cms-public';
 import { BusinessMilestones, ConsultationPreparation } from './home-extras';
 
 export type Item = {
+  pageId?: string;
   title: string;
   description?: string;
   featured?: boolean;
@@ -61,7 +62,7 @@ export type PageSection = {
     columns: number;
   };
   id: string;
-  type: 'text' | 'image' | 'cards' | 'cta';
+  type: 'hero' | 'text' | 'image' | 'cards' | 'cta';
   visible: boolean;
   title: string;
   description: string;
@@ -70,7 +71,7 @@ export type PageSection = {
   imageAlt: string;
   buttonLabel: string;
   buttonUrl: string;
-  items: { title: string; description: string }[];
+  items: { title: string; description: string; icon?: string }[];
 };
 export type CMSPage = {
   trashedAt?: string;
@@ -116,7 +117,7 @@ const icons = [
   Target,
 ];
 export default function Home() {
-  const [c, setC] = useState<Content>(initial);
+  const [c, setC] = useState<Content>(initial as Content);
   const [menu, setMenu] = useState(false);
   const [selectedService, setSelectedService] = useState('');
   const [route, setRoute] = useState('');
@@ -373,6 +374,7 @@ export default function Home() {
                     <BusinessMilestones s={s} buttonLabel={c.labels.discuss} />
                   ) : s.id === 'consultation-preparation' ? (
                     <ConsultationPreparation
+                      pages={c.pages}
                       s={s}
                       buttonLabel={c.labels.discuss}
                       onSelect={(service) =>

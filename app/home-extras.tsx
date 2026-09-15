@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowUpRight, ArrowRight, Compass, Check } from 'lucide-react';
-import type { Section } from './page';
+import type { Section, CMSPage } from './page';
 export function BusinessMilestones({
   s,
   buttonLabel,
@@ -74,6 +74,7 @@ export function BusinessMilestones({
   );
 }
 export function ConsultationPreparation({
+  pages,
   s,
   buttonLabel,
   onSelect,
@@ -81,6 +82,7 @@ export function ConsultationPreparation({
   s: Section;
   buttonLabel: string;
   onSelect: (service: string) => void;
+  pages: CMSPage[];
 }) {
   return (
     <div className="practice-section">
@@ -112,7 +114,13 @@ export function ConsultationPreparation({
             </div>
             <p>{item.description}</p>
             <a
-              href="#contact"
+              href={
+                pages.some(
+                  (p) => p.id === item.pageId && p.published && !p.trashedAt,
+                )
+                  ? '/pages/' + pages.find((p) => p.id === item.pageId)!.slug
+                  : '#contact'
+              }
               onClick={() => onSelect(item.subtitle || item.title)}
               className="practice-link"
             >

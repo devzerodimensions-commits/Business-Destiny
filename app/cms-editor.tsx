@@ -180,42 +180,46 @@ export function PagesEditor({
           </div>
           <h3>Page sections</h3>
           <div className="section-add-buttons">
-            {(['text', 'image', 'cards', 'cta'] as const).map((type) => (
-              <button
-                className="button outline small"
-                key={type}
-                onClick={() =>
-                  update({
-                    ...page,
-                    sections: [
-                      ...page.sections,
-                      {
-                        id: crypto.randomUUID(),
-                        type,
-                        visible: true,
-                        title: 'New ' + type + ' section',
-                        description: '',
-                        body: '',
-                        image: '',
-                        imageAlt: '',
-                        buttonLabel: type === 'cta' ? 'Contact us' : '',
-                        buttonUrl: type === 'cta' ? '/#contact' : '',
-                        items: [],
-                      },
-                    ],
-                  })
-                }
-              >
-                <Plus size={14} />
-                {type === 'cta'
-                  ? 'Call to action'
-                  : type === 'cards'
-                    ? 'Cards'
-                    : type === 'image'
-                      ? 'Image & text'
-                      : 'Text'}
-              </button>
-            ))}
+            {(['hero', 'text', 'image', 'cards', 'cta'] as const).map(
+              (type) => (
+                <button
+                  className="button outline small"
+                  key={type}
+                  onClick={() =>
+                    update({
+                      ...page,
+                      sections: [
+                        ...page.sections,
+                        {
+                          id: crypto.randomUUID(),
+                          type,
+                          visible: true,
+                          title: 'New ' + type + ' section',
+                          description: '',
+                          body: '',
+                          image: '',
+                          imageAlt: '',
+                          buttonLabel: type === 'cta' ? 'Contact us' : '',
+                          buttonUrl: type === 'cta' ? '/#contact' : '',
+                          items: [],
+                        },
+                      ],
+                    })
+                  }
+                >
+                  <Plus size={14} />
+                  {type === 'hero'
+                    ? 'Hero banner'
+                    : type === 'cta'
+                      ? 'Call to action'
+                      : type === 'cards'
+                        ? 'Cards'
+                        : type === 'image'
+                          ? 'Image & text'
+                          : 'Text'}
+                </button>
+              ),
+            )}
           </div>
           {page.sections.map((section, i) => (
             <div className="cms-section" key={section.id}>

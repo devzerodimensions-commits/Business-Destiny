@@ -1,3 +1,4 @@
+import { ServiceIcon, serviceIcons } from './service-icons';
 import type { CSSProperties } from 'react';
 import type { PageSection } from './page';
 export function PageBlock({
@@ -25,9 +26,10 @@ export function PageBlock({
           : undefined
       }
     >
-      {s.image && (s.type === 'text' || s.type === 'image') && (
-        <img src={s.image} alt={s.imageAlt} />
-      )}
+      {s.image &&
+        (s.type === 'hero' || s.type === 'text' || s.type === 'image') && (
+          <img src={s.image} alt={s.imageAlt} />
+        )}
       <div>
         <h2>{s.title}</h2>
         <p className="article-intro">{s.description}</p>
@@ -40,6 +42,7 @@ export function PageBlock({
           <div className="service-grid">
             {s.items.map((item, i) => (
               <article className="service-card" key={i}>
+                {item.icon && <ServiceIcon name={item.icon} />}
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </article>
@@ -77,6 +80,30 @@ export function SectionDesignEditor({
     <details className="editor-group">
       <summary>Style & layout</summary>
       <div className="section-style-controls">
+        {section.type === 'cards' &&
+          section.items.map((item, index) => (
+            <label key={index}>
+              Icon for {item.title || 'card ' + (index + 1)}
+              <select
+                value={item.icon || ''}
+                onChange={(e) =>
+                  onChange({
+                    ...section,
+                    items: section.items.map((x, j) =>
+                      j === index ? { ...x, icon: e.target.value } : x,
+                    ),
+                  })
+                }
+              >
+                <option value="">No icon</option>
+                {Object.keys(serviceIcons).map((key) => (
+                  <option key={key} value={key}>
+                    {key}
+                  </option>
+                ))}
+              </select>
+            </label>
+          ))}
         {(['background', 'text'] as const).map((key) => (
           <label key={key}>
             {key === 'background' ? 'Section background' : 'Text colour'}

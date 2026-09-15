@@ -6,6 +6,23 @@ import { handleAPI } from './api.mjs';
 const fail = (message) => {
   throw Error(message);
 };
+
+test('Service pages seed once, link homepage cards and preserve admin edits and deletions', () => {
+  const old = structuredClone(defaults);
+  delete old.servicePagesRevision;
+  old.pages = [];
+  const next = upgradeContent(old);
+  assert.equal(next.pages.length, 4);
+  validateCMS(next, fail);
+  assert.ok(next.sections.find(s => s.id === 'consultation-preparation').items.every(i => next.pages.some(p => p.id === i.pageId)));
+  next.pages[0].title = 'My edited service';
+  next.pages[1].trashedAt = new Date().toISOString();
+  next.pages.pop();
+  const again = upgradeContent(next);
+  assert.equal(again.pages.length, 3);
+  assert.equal(again.pages[0].title, 'My edited service');
+  assert.equal(publicContent(again).pages.length, 2);
+});
 test('Homepage additions upgrade once and preserve later admin choices', () => {
   const old = structuredClone(defaults);
   delete old.homepageRevision;

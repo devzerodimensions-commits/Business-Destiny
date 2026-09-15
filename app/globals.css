@@ -4126,6 +4126,7 @@ select:focus {
 .has-block-design h3,
 .has-block-design .article-intro,
 .has-block-design .article-body,
+.has-block-design .article-body p,
 .has-block-design .service-card p {
   color: inherit;
 }
@@ -4693,3 +4694,24 @@ select:focus {
  .header .nav a { white-space:nowrap; }
 }
 @media (min-width:901px) and (max-width:1150px) { .header .header-cta { display:none; } }
+/* Service detail pages use the same editable blocks as the admin preview. */
+.service-detail-page { padding-bottom:56px; background:#edf0f2; }
+.service-detail-page .page-title { background:var(--bg); color:#fff; max-width:1290px; width:calc(100% - 48px); padding:36px 48px; min-height:0; }
+.service-detail-page .page-title .eyebrow { margin-top:24px; }
+.service-detail-page .page-title h1 { font-size:clamp(32px,4vw,54px); margin:12px 0 0; }
+.service-detail-page .page-block { margin:0 auto; max-width:1290px; width:calc(100% - 48px); }
+.block-hero { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:54px; overflow:hidden; }
+.block-hero > img { order:2; height:430px; width:100%; object-fit:contain; border-radius:18px; margin:0; }
+.block-hero h2 { font-size:clamp(30px,3.2vw,47px); line-height:1.2; letter-spacing:-.035em; }
+.block-hero .article-intro { font-size:18px; line-height:1.8; }
+.block-hero .button { margin-top:22px; }
+.service-detail-page .block-image > img { height:420px; object-fit:cover; object-position:50% 25%; margin:0; }
+.service-detail-page .page-block h2 { max-width:860px; }
+.has-block-design .service-card { background:transparent; color:inherit; border:1px solid color-mix(in srgb,currentColor 20%,transparent); }
+.has-block-design .service-card p { min-height:0; }
+.detail-card-icon { display:inline-grid; place-items:center; width:54px; height:54px; border-radius:14px; border:1px solid #b58b4355; color:#b68c3e; background:#c49a4412; margin-bottom:24px; }
+.service-detail-page .block-cta { border:0; border-radius:0 0 20px 20px; text-align:center; }
+.service-detail-page .block-cta h2 { margin-left:auto; margin-right:auto; }
+.service-detail-page .block-cta .article-body { max-width:720px; margin:auto; font-size:14px; }
+.service-detail-page .block-cta .button { margin-top:16px; }
+@media(max-width:800px) { .block-hero {grid-template-columns:1fr;gap:24px;} .block-hero > img {order:0;height:280px;} .service-detail-page .page-block, .service-detail-page .page-title {width:100%;padding:30px 22px!important;} .service-detail-page .block-image {grid-template-columns:1fr;} .service-detail-page .block-image > img {height:360px;} }

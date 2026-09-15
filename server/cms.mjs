@@ -116,6 +116,31 @@ export function upgradeContent(content) {
         : s,
     );
   }
+  const pages = [...(content.pages ?? [])];
+  const media = [...(content.media ?? [])];
+  if (!content.servicePagesRevision) {
+    for (const page of defaults.pages) {
+      if (
+        pages.length < 100 &&
+        !pages.some((p) => p.id === page.id || p.slug === page.slug)
+      )
+        pages.push(structuredClone(page));
+    }
+    sections = sections.map((s) =>
+      s.id === 'consultation-preparation'
+        ? {
+            ...s,
+            items: s.items.map((item) => {
+              const page = pages.find((p) => p.title === item.title);
+              return page ? { ...item, pageId: page.id } : item;
+            }),
+          }
+        : s,
+    );
+    for (const image of defaults.media)
+      if (media.length < 200 && !media.some((m) => m.image === image.image))
+        media.push(structuredClone(image));
+  }
   return {
     ...updated,
     businessChallengesRevision: 1,
@@ -136,9 +161,10 @@ export function upgradeContent(content) {
     },
     thankYou: { ...defaults.thankYou, ...content.thankYou },
     homepageRevision: Math.max(content.homepageRevision ?? 0, 4),
-    pages: content.pages ?? [],
+    pages,
+    servicePagesRevision: 1,
     posts: content.posts ?? structuredClone(defaults.posts),
-    media: content.media ?? [],
+    media,
     blog: { ...defaults.blog, ...content.blog },
     footer: {
       ...defaults.footer,
@@ -272,7 +298,7 @@ export function validateCMS(c, fail) {
             typeof section.id !== 'string' ||
             sectionIds.has(section.id) ||
             typeof section.visible !== 'boolean' ||
-            !['text', 'image', 'cards', 'cta'].includes(section.type)
+            !['hero', 'text', 'image', 'cards', 'cta'].includes(section.type)
           )
             fail('Invalid page section.');
           sectionIds.add(section.id);

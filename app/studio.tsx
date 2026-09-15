@@ -35,7 +35,7 @@ import { AppearanceEditor } from './appearance-editor';
 export default function Admin() {
   const [authorized, setAuthorized] = useState(false),
     [checking, setChecking] = useState(true),
-    [data, setData] = useState<Content>(initial),
+    [data, setData] = useState<Content>(initial as Content),
     [section, setSection] = useState(-1),
     [status, setStatus] = useState(''),
     [busy, setBusy] = useState(false),
@@ -760,7 +760,7 @@ function ObjectEditor({
         {Object.entries(value)
           .filter(
             ([k]) =>
-              k !== 'id' &&
+              k !== 'pageId' && k !== 'id' &&
               k !== 'homepageRevision' &&
               !(path.endsWith('fields') && k === 'name'),
           )
