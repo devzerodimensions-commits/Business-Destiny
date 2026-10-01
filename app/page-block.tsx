@@ -11,6 +11,7 @@ export function PageBlock({
   const d = s.design;
   return (
     <section
+      id={s.id}
       className={
         'page-block wrap block-' + s.type + (d ? ' has-block-design' : '') + (d?.layout ? ' layout-' + d.layout : '')
       }

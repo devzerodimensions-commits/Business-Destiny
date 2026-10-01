@@ -143,28 +143,69 @@ export function upgradeContent(content) {
         media.push(structuredClone(image));
   }
   if (!content.serviceDesignRevision) {
-    pages = pages.map(page => {
-      const original = originalServicePages.find(p => p.id === page.id);
-      const redesigned = defaults.pages.find(p => p.id === page.id);
+    pages = pages.map((page) => {
+      const original = originalServicePages.find((p) => p.id === page.id);
+      const redesigned = defaults.pages.find((p) => p.id === page.id);
       if (!original || !redesigned || page.trashedAt) return page;
       // Upgrade only untouched starter sections; keep owner-authored content intact.
       return JSON.stringify(page.sections) === JSON.stringify(original.sections)
-        ? {...page, sections: structuredClone(redesigned.sections)} : page;
+        ? { ...page, sections: structuredClone(redesigned.sections) }
+        : page;
     });
   }
   if (!content.serviceColourRevision) {
-    pages = pages.map(page => {
-      if (!defaults.pages.some(p => p.id === page.id) || page.trashedAt) return page;
+    pages = pages.map((page) => {
+      if (!defaults.pages.some((p) => p.id === page.id) || page.trashedAt)
+        return page;
       let visibleIndex = 0;
-      return {...page, sections: page.sections.map(section => {
-        if (!section.visible) return section;
-        const light = visibleIndex++ % 2 === 1;
-        return {...section, design: {...section.design, background: light ? '#faf7ef' : '#061426', text: light ? '#10263e' : '#f4f6f8'}};
-      })};
+      return {
+        ...page,
+        sections: page.sections.map((section) => {
+          if (!section.visible) return section;
+          const light = visibleIndex++ % 2 === 1;
+          return {
+            ...section,
+            design: {
+              ...section.design,
+              background: light ? '#faf7ef' : '#061426',
+              text: light ? '#10263e' : '#f4f6f8',
+            },
+          };
+        }),
+      };
     });
+  }
+  if (!content.businessServicePagesRevision) {
+    for (const page of defaults.pages.filter((p) =>
+      p.id.startsWith('business-service-'),
+    )) {
+      if (
+        pages.length < 100 &&
+        !pages.some((p) => p.id === page.id || p.slug === page.slug)
+      )
+        pages.push(structuredClone(page));
+    }
+    sections = sections.map((s) =>
+      s.id === 'services'
+        ? {
+            ...s,
+            items: s.items.map((item) => {
+              const starter = defaults.sections
+                .find((s) => s.id === 'services')
+                .items.find((i) => i.title === item.title);
+              return !item.pageId &&
+                starter &&
+                pages.some((p) => p.id === starter.pageId)
+                ? { ...item, pageId: starter.pageId }
+                : item;
+            }),
+          }
+        : s,
+    );
   }
   return {
     ...updated,
+    businessServicePagesRevision: 1,
     serviceColourRevision: 1,
     serviceDesignRevision: 1,
     businessChallengesRevision: 1,
@@ -328,7 +369,23 @@ export function validateCMS(c, fail) {
           sectionIds.add(section.id);
           if (section.design !== undefined) {
             const d = section.design;
-            if (d?.layout !== undefined && !['standard','editorial','spotlight','panorama','numeric','list','timeline','numbered','questions','reading','banner'].includes(d.layout)) fail('Choose a supported section layout.');
+            if (
+              d?.layout !== undefined &&
+              ![
+                'standard',
+                'editorial',
+                'spotlight',
+                'panorama',
+                'numeric',
+                'list',
+                'timeline',
+                'numbered',
+                'questions',
+                'reading',
+                'banner',
+              ].includes(d.layout)
+            )
+              fail('Choose a supported section layout.');
             if (
               !d ||
               !['left', 'center', 'right'].includes(d.align) ||

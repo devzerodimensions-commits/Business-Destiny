@@ -1,6 +1,12 @@
 import { PageBlock } from './page-block';
 import { ArrowRight, ArrowUpRight, Mail, Phone } from 'lucide-react';
 import type { Content } from './page';
+import {
+  ServicesDirectory,
+  ServiceNavigation,
+  availableServices,
+  serviceHref,
+} from './services-directory';
 export function BlogCards({
   c,
   all = false,
@@ -75,6 +81,8 @@ export function ContentRoute({
   path: string;
   preview: boolean;
 }) {
+  if (path === '/services')
+    return <ServicesDirectory c={c} preview={preview} />;
   if (path === '/blog') return <BlogCards c={c} all preview={preview} />;
   const post = path.startsWith('/blog/')
     ? c.posts.find(
@@ -118,17 +126,51 @@ export function ContentRoute({
         }
       >
         <header className="wrap page-title">
-          <a className="textlink" href="/#consultation-preparation">
+          <a
+            className="textlink"
+            href={'/services' + (preview ? '?preview=1' : '')}
+          >
             ← All services
           </a>
           <div className="eyebrow">{c.brand.name}</div>
           <h1>{page.title}</h1>
         </header>
+        {availableServices(c, preview).some((p) => p.id === page.id) && (
+          <ServiceNavigation page={page} preview={preview} />
+        )}
         {page.sections
           .filter((s) => s.visible)
           .map((s) => (
             <PageBlock key={s.id} section={s} />
           ))}
+        {availableServices(c, preview).some((p) => p.id === page.id) && (
+          <section className="related-services wrap">
+            <div className="eyebrow">KEEP EXPLORING</div>
+            <h2>Another perspective for your business.</h2>
+            <div>
+              {availableServices(c, preview)
+                .filter(
+                  (p) =>
+                    p.id !== page.id &&
+                    p.id.startsWith('business-service-') ===
+                      page.id.startsWith('business-service-'),
+                )
+                .slice(0, 3)
+                .map((p) => (
+                  <a key={p.id} href={serviceHref(p, preview)}>
+                    {p.title}
+                    <ArrowUpRight size={20} />
+                  </a>
+                ))}
+            </div>
+            <a
+              className="textlink"
+              href={'/services' + (preview ? '?preview=1' : '')}
+            >
+              View all services <ArrowRight size={17} />
+            </a>
+          </section>
+        )}
       </div>
     );
   return (
@@ -168,7 +210,14 @@ export function SiteFooter({ c }: { c: Content }) {
               <h3>{col.title}</h3>
               <nav aria-label={col.title}>
                 {col.links.map((link, j) => (
-                  <a key={j} href={link.href}>
+                  <a
+                    key={j}
+                    href={
+                      link.href === '/#services' && link.label === 'Services'
+                        ? '/services'
+                        : link.href
+                    }
+                  >
                     {link.label}
                   </a>
                 ))}

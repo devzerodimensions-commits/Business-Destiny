@@ -268,63 +268,78 @@
       "items": [
         {
           "title": "Growth stagnation & slow business",
-          "description": "Explore the questions behind stalled growth and your next phase of business."
+          "description": "Explore the questions behind stalled growth and your next phase of business.",
+          "pageId": "business-service-business-growth"
         },
         {
           "title": "Continuous losses & low profitability",
-          "description": "Discuss your business direction alongside the financial realities of your enterprise."
+          "description": "Discuss your business direction alongside the financial realities of your enterprise.",
+          "pageId": "business-service-business-profitability"
         },
         {
           "title": "Cash flow & payment blockages",
-          "description": "Bring your payment concerns and timing questions to a focused consultation."
+          "description": "Bring your payment concerns and timing questions to a focused consultation.",
+          "pageId": "business-service-cash-flow-payments"
         },
         {
           "title": "Partnership & director conflicts",
-          "description": "Explore working relationships, expectations and traditional compatibility interpretations."
+          "description": "Explore working relationships, expectations and traditional compatibility interpretations.",
+          "pageId": "business-service-business-partnerships"
         },
         {
           "title": "Employee & management issues",
-          "description": "Discuss leadership and team relationships alongside practical management considerations."
+          "description": "Discuss leadership and team relationships alongside practical management considerations.",
+          "pageId": "business-service-leadership-management"
         },
         {
           "title": "Debt & financial pressure",
-          "description": "Reflect on priorities and timing while considering your financial commitments."
+          "description": "Reflect on priorities and timing while considering your financial commitments.",
+          "pageId": "business-service-financial-pressure"
         },
         {
           "title": "Legal & government obstacles",
-          "description": "Discuss timing concerns alongside advice from qualified legal and regulatory professionals."
+          "description": "Discuss timing concerns alongside advice from qualified legal and regulatory professionals.",
+          "pageId": "business-service-legal-regulatory-concerns"
         },
         {
           "title": "New business / factory setup",
-          "description": "Explore traditional timing and Vastu considerations for your new venture."
+          "description": "Explore traditional timing and Vastu considerations for your new venture.",
+          "pageId": "business-service-new-business-factory"
         },
         {
           "title": "Business expansion & investment decisions",
-          "description": "Discuss expansion plans and timing alongside your budget and commercial analysis."
+          "description": "Discuss expansion plans and timing alongside your budget and commercial analysis.",
+          "pageId": "business-service-business-expansion"
         },
         {
           "title": "Machinery purchase & installation Muhurat",
-          "description": "Explore traditional Muhurat considerations for purchasing and installing machinery."
+          "description": "Explore traditional Muhurat considerations for purchasing and installing machinery.",
+          "pageId": "business-service-machinery-muhurat"
         },
         {
           "title": "Factory / office Vastu problems",
-          "description": "Review entrances, orientation and work zones through a traditional Vastu perspective."
+          "description": "Review entrances, orientation and work zones through a traditional Vastu perspective.",
+          "pageId": "business-service-office-factory-vastu"
         },
         {
           "title": "New product / project launch",
-          "description": "Discuss launch timing in the context of your project plans and readiness."
+          "description": "Discuss launch timing in the context of your project plans and readiness.",
+          "pageId": "business-service-product-project-launch"
         },
         {
           "title": "Export & international business challenges",
-          "description": "Explore questions about overseas expansion and international business timing."
+          "description": "Explore questions about overseas expansion and international business timing.",
+          "pageId": "business-service-international-business"
         },
         {
           "title": "Business name & brand correction",
-          "description": "Consider traditional numerology interpretations of company and brand names."
+          "description": "Consider traditional numerology interpretations of company and brand names.",
+          "pageId": "business-service-business-name-numerology"
         },
         {
           "title": "Right timing for major business decisions",
-          "description": "Bring an important decision for a focused discussion of traditional timing considerations."
+          "description": "Bring an important decision for a focused discussion of traditional timing considerations.",
+          "pageId": "business-service-business-decision-timing"
         }
       ],
       "highlight": "Start with yours.",
@@ -1361,6 +1376,2601 @@
           }
         }
       ]
+    },
+    {
+      "id": "business-service-business-growth",
+      "slug": "business-growth",
+      "title": "Growth stagnation & slow business",
+      "published": true,
+      "sections": [
+        {
+          "id": "business-growth-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "Find perspective for your next phase of growth.",
+          "description": "When progress feels slow, take time to understand the decisions ahead.",
+          "body": "",
+          "image": "/media/consultation-table.png",
+          "imageAlt": "A consultation setting",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Growth%20stagnation%20%26%20slow%20business#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "business-growth-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Current direction",
+              "description": "Describe where growth has slowed and what you have already tried."
+            },
+            {
+              "title": "Next opportunities",
+              "description": "Explore proposed markets, products or changes through traditional astrological interpretation."
+            },
+            {
+              "title": "Decision timing",
+              "description": "Discuss upcoming milestones alongside your business capacity and readiness."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "business-growth-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "business-growth-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "A short business history, the period when growth slowed, and two or three decisions you are considering.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "business-growth-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Will this identify the cause of slow growth?",
+              "description": "The consultation offers a traditional perspective. It does not establish commercial causes; review sales, demand, pricing and operations separately."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "business-growth-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Explore the questions behind stalled growth and your next phase of business.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Growth%20stagnation%20%26%20slow%20business#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-business-profitability",
+      "slug": "business-profitability",
+      "title": "Continuous losses & low profitability",
+      "published": true,
+      "sections": [
+        {
+          "id": "business-profitability-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "A thoughtful pause. A clearer set of priorities.",
+          "description": "A focused conversation about recurring losses, business direction and the choices ahead.",
+          "body": "",
+          "image": "/media/consultation-table.png",
+          "imageAlt": "A consultation setting",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Continuous%20losses%20%26%20low%20profitability#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "business-profitability-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Business context",
+              "description": "Explain the nature of your business, recent changes and the period of difficulty."
+            },
+            {
+              "title": "Priorities to explore",
+              "description": "Discuss which decisions need attention first, from continuing a venture to considering a new direction."
+            },
+            {
+              "title": "Timing considerations",
+              "description": "Explore traditional timing interpretations in the context of your existing commitments."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "business-profitability-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "business-profitability-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "A broad overview of the business, a timeline of recent difficulties and the questions you want to prioritise. Detailed account records are not required for an initial enquiry.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "business-profitability-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Can a consultation guarantee better profits?",
+              "description": "No. Profitability depends on commercial factors. Use accounting and financial analysis to evaluate any decision discussed."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "business-profitability-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Discuss your business direction alongside the financial realities of your enterprise.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Continuous%20losses%20%26%20low%20profitability#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-cash-flow-payments",
+      "slug": "cash-flow-payments",
+      "title": "Cash flow & payment blockages",
+      "published": true,
+      "sections": [
+        {
+          "id": "cash-flow-payments-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "Make space to think through payment concerns.",
+          "description": "Explore timing questions and business relationships around delayed payments.",
+          "body": "",
+          "image": "/media/consultation-table.png",
+          "imageAlt": "A consultation setting",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Cash%20flow%20%26%20payment%20blockages#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "cash-flow-payments-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Payment patterns",
+              "description": "Describe when delays began and the business relationships involved."
+            },
+            {
+              "title": "Upcoming commitments",
+              "description": "Discuss the decisions and dates you are concerned about without sharing confidential customer records."
+            },
+            {
+              "title": "A considered next step",
+              "description": "Explore traditional interpretations alongside the collection and payment plans you already have."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "cash-flow-payments-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "cash-flow-payments-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "A simple timeline of payment concerns, upcoming decision dates and your main question. Avoid sending bank details or confidential invoices.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "cash-flow-payments-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Can you predict when a payment will arrive?",
+              "description": "A specific payment date cannot be guaranteed. Contract terms, customer circumstances and collection processes remain essential."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "cash-flow-payments-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Bring your payment concerns and timing questions to a focused consultation.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Cash%20flow%20%26%20payment%20blockages#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-business-partnerships",
+      "slug": "business-partnerships",
+      "title": "Partnership & director conflicts",
+      "published": true,
+      "sections": [
+        {
+          "id": "business-partnerships-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "Understand the people behind the partnership.",
+          "description": "Explore compatibility, expectations and the decisions shaping a shared business.",
+          "body": "",
+          "image": "/media/consultation-table.png",
+          "imageAlt": "A consultation setting",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Partnership%20%26%20director%20conflicts#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "business-partnerships-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Working relationships",
+              "description": "Explain the roles, expectations and points of friction between partners."
+            },
+            {
+              "title": "Compatibility discussion",
+              "description": "Explore traditional horoscope interpretations using personal details shared with permission."
+            },
+            {
+              "title": "Future commitments",
+              "description": "Discuss timing questions around a new partnership, changing roles or reviewing an existing arrangement."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "business-partnerships-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "business-partnerships-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "An outline of each partner’s role, the concern you wish to discuss and any relevant decision dates. Confirm what birth details are needed and obtain permission before sharing them.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "business-partnerships-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Should every partner attend?",
+              "description": "Explain the situation when you enquire. The participants and information needed can then be agreed for the consultation."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "business-partnerships-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Explore working relationships, expectations and traditional compatibility interpretations.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Partnership%20%26%20director%20conflicts#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-leadership-management",
+      "slug": "leadership-management",
+      "title": "Employee & management issues",
+      "published": true,
+      "sections": [
+        {
+          "id": "leadership-management-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "Bring perspective to your leadership decisions.",
+          "description": "A conversation about team relationships, management changes and your role as a business owner.",
+          "body": "",
+          "image": "/media/consultation-table.png",
+          "imageAlt": "A consultation setting",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Employee%20%26%20management%20issues#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "leadership-management-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Leadership context",
+              "description": "Discuss your responsibilities and the team changes you are considering."
+            },
+            {
+              "title": "Relationship questions",
+              "description": "Explore your own working style and concerns through traditional interpretation."
+            },
+            {
+              "title": "Transition timing",
+              "description": "Consider timing questions around restructuring or leadership handovers alongside practical plans."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "leadership-management-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "leadership-management-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "A summary of your role, team structure and proposed changes. Share the issue without sending private employee records.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "leadership-management-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Can this determine who to hire or dismiss?",
+              "description": "No. Employment decisions should be based on fair assessment, performance evidence and applicable requirements. This consultation focuses on your questions and perspective."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "leadership-management-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Discuss leadership and team relationships alongside practical management considerations.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Employee%20%26%20management%20issues#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-financial-pressure",
+      "slug": "financial-pressure",
+      "title": "Debt & financial pressure",
+      "published": true,
+      "sections": [
+        {
+          "id": "financial-pressure-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "Step back and consider what comes next.",
+          "description": "A focused discussion of business priorities and timing during a demanding period.",
+          "body": "",
+          "image": "/media/consultation-table.png",
+          "imageAlt": "A consultation setting",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Debt%20%26%20financial%20pressure#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "financial-pressure-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Your present situation",
+              "description": "Describe the broad business context and decisions that feel most pressing."
+            },
+            {
+              "title": "Competing priorities",
+              "description": "Explore questions about business direction and the commitments you are weighing."
+            },
+            {
+              "title": "Decision windows",
+              "description": "Discuss traditional timing considerations without losing sight of deadlines and obligations."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "financial-pressure-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "financial-pressure-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "Your key questions, a broad timeline of commitments and the options you are already discussing with your financial adviser.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "financial-pressure-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Is this debt or investment advice?",
+              "description": "No. The session offers traditional interpretive guidance. Debt restructuring, borrowing and investment choices require qualified financial advice."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "financial-pressure-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Reflect on priorities and timing while considering your financial commitments.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Debt%20%26%20financial%20pressure#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-legal-regulatory-concerns",
+      "slug": "legal-regulatory-concerns",
+      "title": "Legal & government obstacles",
+      "published": true,
+      "sections": [
+        {
+          "id": "legal-regulatory-concerns-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "A considered perspective during complex decisions.",
+          "description": "Discuss your timing concerns while your legal and regulatory advisers handle the substance.",
+          "body": "",
+          "image": "/media/consultation-table.png",
+          "imageAlt": "A consultation setting",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Legal%20%26%20government%20obstacles#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "legal-regulatory-concerns-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Decision context",
+              "description": "Outline the business decision at a high level without sharing privileged documents."
+            },
+            {
+              "title": "Timing questions",
+              "description": "Discuss traditional interpretations around forthcoming business milestones."
+            },
+            {
+              "title": "Business continuity",
+              "description": "Explore the wider direction of your enterprise while keeping professional advice central."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "legal-regulatory-concerns-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "legal-regulatory-concerns-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "A high-level summary of the concern and any relevant business decision dates. Keep confidential legal documents with your legal adviser.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "legal-regulatory-concerns-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Can astrology predict a legal outcome?",
+              "description": "No legal or regulatory outcome can be guaranteed. Always follow professional legal advice and meet official deadlines."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "legal-regulatory-concerns-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Discuss timing concerns alongside advice from qualified legal and regulatory professionals.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Legal%20%26%20government%20obstacles#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-new-business-factory",
+      "slug": "new-business-factory",
+      "title": "New business / factory setup",
+      "published": true,
+      "sections": [
+        {
+          "id": "new-business-factory-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "Give your new venture a thoughtful beginning.",
+          "description": "Explore the traditional timing and space considerations around starting a business or factory.",
+          "body": "",
+          "image": "/media/industrial-factory.png",
+          "imageAlt": "Industrial workplace",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=New%20business%20%2F%20factory%20setup#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "new-business-factory-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Venture direction",
+              "description": "Introduce your business idea, proposed activity and the decisions still open."
+            },
+            {
+              "title": "Site considerations",
+              "description": "Discuss orientation and the proposed use of the premises through a Vastu perspective."
+            },
+            {
+              "title": "Launch planning",
+              "description": "Explore traditional timing options within your practical setup schedule."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "new-business-factory-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "new-business-factory-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "A short venture overview, target launch window, proposed location and available site drawings. Identify decisions that are still flexible.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "new-business-factory-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "At what stage should I enquire?",
+              "description": "You can enquire while comparing plans or preparing to launch. Explain the current stage so the consultation can focus on decisions you can still influence."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "new-business-factory-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Explore traditional timing and Vastu considerations for your new venture.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=New%20business%20%2F%20factory%20setup#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-business-expansion",
+      "slug": "business-expansion",
+      "title": "Business expansion & investment decisions",
+      "published": true,
+      "sections": [
+        {
+          "id": "business-expansion-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "Consider the next chapter before you commit.",
+          "description": "Explore direction and timing for a larger business, a new location or a new investment.",
+          "body": "",
+          "image": "/media/consultation-table.png",
+          "imageAlt": "A consultation setting",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Business%20expansion%20%26%20investment%20decisions#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "business-expansion-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Expansion options",
+              "description": "Explain the locations, products or business models you are evaluating."
+            },
+            {
+              "title": "Timing discussion",
+              "description": "Explore traditional interpretations around the proposed expansion period."
+            },
+            {
+              "title": "Space and readiness",
+              "description": "Discuss whether a separate premises review would help and clarify the scope before booking."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "business-expansion-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "business-expansion-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "A concise description of the expansion options, the target schedule and the decisions awaiting your approval.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "business-expansion-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Will you recommend a specific investment?",
+              "description": "The consultation does not evaluate investment returns or recommend financial products. Use due diligence and qualified financial advice alongside any traditional interpretation."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "business-expansion-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Discuss expansion plans and timing alongside your budget and commercial analysis.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Business%20expansion%20%26%20investment%20decisions#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-machinery-muhurat",
+      "slug": "machinery-muhurat",
+      "title": "Machinery purchase & installation Muhurat",
+      "published": true,
+      "sections": [
+        {
+          "id": "machinery-muhurat-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "Plan an important installation with intention.",
+          "description": "Discuss traditional Muhurat considerations for machinery purchase, installation or commissioning.",
+          "body": "",
+          "image": "/media/industrial-factory.png",
+          "imageAlt": "Industrial workplace",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Machinery%20purchase%20%26%20installation%20Muhurat#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "machinery-muhurat-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Define the milestone",
+              "description": "Clarify whether your question concerns purchase, delivery, installation or first operation."
+            },
+            {
+              "title": "Workable time windows",
+              "description": "Share supplier schedules and operational constraints before exploring traditional timing."
+            },
+            {
+              "title": "Coordinate the plan",
+              "description": "Consider the chosen milestone alongside the work of your installation and safety teams."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "machinery-muhurat-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "machinery-muhurat-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "The machinery type, site location, proposed date range and the exact milestone you wish to discuss. Include any fixed delivery or engineering constraints.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "machinery-muhurat-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Can one date cover every stage?",
+              "description": "Purchase, installation and commissioning are different milestones. Clarify which matters to your enquiry; practical and safety requirements determine what is feasible."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "machinery-muhurat-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Explore traditional Muhurat considerations for purchasing and installing machinery.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Machinery%20purchase%20%26%20installation%20Muhurat#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-office-factory-vastu",
+      "slug": "office-factory-vastu",
+      "title": "Factory / office Vastu problems",
+      "published": true,
+      "sections": [
+        {
+          "id": "office-factory-vastu-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "Understand your space, one zone at a time.",
+          "description": "A traditional Vastu review grounded in the way your workplace is actually used.",
+          "body": "",
+          "image": "/media/industrial-factory.png",
+          "imageAlt": "Industrial workplace",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Factory%20%2F%20office%20Vastu%20problems#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "office-factory-vastu-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Orientation and access",
+              "description": "Discuss the building direction, entrances and circulation areas using a readable plan."
+            },
+            {
+              "title": "Working zones",
+              "description": "Explore office, production, machinery and storage areas within the agreed scope."
+            },
+            {
+              "title": "Practical constraints",
+              "description": "Identify fixed structures, tenancy restrictions and changes that require professional assessment."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "office-factory-vastu-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "office-factory-vastu-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "A floor plan, north-direction reference, recent photographs and a description of activities in each area. Indicate areas that cannot be changed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "office-factory-vastu-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Does a review always require structural changes?",
+              "description": "No automatic structural change is required. Any suggested alteration must be assessed for feasibility, safety and suitability by the relevant professionals."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "office-factory-vastu-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Review entrances, orientation and work zones through a traditional Vastu perspective.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Factory%20%2F%20office%20Vastu%20problems#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-product-project-launch",
+      "slug": "product-project-launch",
+      "title": "New product / project launch",
+      "published": true,
+      "sections": [
+        {
+          "id": "product-project-launch-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "Prepare for a meaningful new beginning.",
+          "description": "Explore traditional timing for introducing a product, opening a project or announcing your next step.",
+          "body": "",
+          "image": "/media/consultation-table.png",
+          "imageAlt": "A consultation setting",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=New%20product%20%2F%20project%20launch#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "product-project-launch-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Choose your milestone",
+              "description": "Define whether you mean an announcement, opening, first sale or formal launch."
+            },
+            {
+              "title": "Explore your window",
+              "description": "Discuss possible dates within your production, marketing and customer schedules."
+            },
+            {
+              "title": "Keep readiness in view",
+              "description": "Bring dependencies and fixed commitments into the conversation before considering a date."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "product-project-launch-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "product-project-launch-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "A brief product or project description, preferred launch window, location and key operational dependencies.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "product-project-launch-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Does a launch date guarantee success?",
+              "description": "No. Product quality, demand, preparation and execution remain fundamental. Traditional timing is an additional perspective on your planning."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "product-project-launch-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Discuss launch timing in the context of your project plans and readiness.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=New%20product%20%2F%20project%20launch#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-international-business",
+      "slug": "international-business",
+      "title": "Export & international business challenges",
+      "published": true,
+      "sections": [
+        {
+          "id": "international-business-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "Explore the possibilities beyond your home market.",
+          "description": "A focused perspective on overseas expansion, international relationships and decision timing.",
+          "body": "",
+          "image": "/media/consultation-table.png",
+          "imageAlt": "A consultation setting",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Export%20%26%20international%20business%20challenges#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "international-business-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Market direction",
+              "description": "Discuss the regions and types of international activity you are considering."
+            },
+            {
+              "title": "Business relationships",
+              "description": "Explore traditional interpretations around partnerships and your role in the venture."
+            },
+            {
+              "title": "Expansion timing",
+              "description": "Consider proposed milestones alongside logistics, compliance and commercial readiness."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "international-business-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "international-business-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "An overview of your current business, the markets under consideration and the international decisions you want to discuss.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "international-business-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Does this include export compliance advice?",
+              "description": "No. Customs, tax, contracts and market-entry requirements need qualified specialists. The consultation addresses traditional interpretation and timing questions."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "international-business-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Explore questions about overseas expansion and international business timing.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Export%20%26%20international%20business%20challenges#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-business-name-numerology",
+      "slug": "business-name-numerology",
+      "title": "Business name & brand correction",
+      "published": true,
+      "sections": [
+        {
+          "id": "business-name-numerology-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "An identity that begins with a thoughtful choice.",
+          "description": "Explore company and brand names through traditional numerology.",
+          "body": "",
+          "image": "/media/service-numerology.png",
+          "imageAlt": "Numerology illustration",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Business%20name%20%26%20brand%20correction#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "business-name-numerology-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Exact spellings",
+              "description": "Review your existing business name or a shortlist of alternatives."
+            },
+            {
+              "title": "Brand context",
+              "description": "Explain the audience, meaning and business activity behind each option."
+            },
+            {
+              "title": "Practical next steps",
+              "description": "Discuss interpretations before evaluating registration, trademark and customer implications."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "business-name-numerology-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "business-name-numerology-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "The exact spellings of your current name and shortlisted alternatives, along with a brief description of the business and its audience.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "business-name-numerology-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Should I change my name immediately?",
+              "description": "Consider the discussion first. Check registration, trademarks, domains and customer recognition before adopting a new name."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "business-name-numerology-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Consider traditional numerology interpretations of company and brand names.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Business%20name%20%26%20brand%20correction#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "business-service-business-decision-timing",
+      "slug": "business-decision-timing",
+      "title": "Right timing for major business decisions",
+      "published": true,
+      "sections": [
+        {
+          "id": "business-decision-timing-hero",
+          "type": "hero",
+          "visible": true,
+          "title": "Give an important decision your full attention.",
+          "description": "Explore traditional timing around a milestone that matters to your business.",
+          "body": "",
+          "image": "/media/consultation-table.png",
+          "imageAlt": "A consultation setting",
+          "buttonLabel": "Discuss this service",
+          "buttonUrl": "/?service=Right%20timing%20for%20major%20business%20decisions#contact",
+          "items": [],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "spotlight"
+          }
+        },
+        {
+          "id": "business-decision-timing-topics",
+          "type": "cards",
+          "visible": true,
+          "title": "What we can explore",
+          "description": "A focused consultation, shaped around your business.",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Define the decision",
+              "description": "Narrow the session to the commitment, change or milestone you want to explore."
+            },
+            {
+              "title": "Compare feasible windows",
+              "description": "Bring available date ranges and fixed deadlines into the timing discussion."
+            },
+            {
+              "title": "Connect timing to context",
+              "description": "Consider traditional interpretations alongside the information and readiness needed to proceed."
+            }
+          ],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "numbered"
+          }
+        },
+        {
+          "id": "business-decision-timing-process",
+          "type": "cards",
+          "visible": true,
+          "title": "From your question to a focused conversation.",
+          "description": "How your consultation comes together",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "Share your situation",
+              "description": "Tell us about your business and the question that brought you here. A short overview is enough to start."
+            },
+            {
+              "title": "Agree the scope",
+              "description": "We will discuss the information needed, consultation format, availability and fees before you book."
+            },
+            {
+              "title": "Explore your next step",
+              "description": "Bring your priorities to the session, ask questions and consider the observations alongside your business plans."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "timeline"
+          }
+        },
+        {
+          "id": "business-decision-timing-prepare",
+          "type": "text",
+          "visible": true,
+          "title": "Before we meet",
+          "description": "Make your consultation more useful.",
+          "body": "A clear description of the decision, feasible date ranges, location and any deadlines that cannot move.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "reading"
+          }
+        },
+        {
+          "id": "business-decision-timing-questions",
+          "type": "cards",
+          "visible": true,
+          "title": "A few things you may be wondering.",
+          "description": "",
+          "body": "",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "",
+          "buttonUrl": "",
+          "items": [
+            {
+              "title": "What if a deadline is fixed?",
+              "description": "State the constraint at the outset. Legal, contractual and operational deadlines should be respected; the discussion can focus on the choices still available."
+            },
+            {
+              "title": "What are the fees and consultation format?",
+              "description": "Fees and format depend on the agreed scope. Send an enquiry with your question and location so these details can be confirmed before booking."
+            },
+            {
+              "title": "What personal information is needed?",
+              "description": "The requirements depend on the practice used. If birth details, plans or other information are needed, we will explain this when agreeing the scope. Share only what is requested."
+            }
+          ],
+          "design": {
+            "background": "#061426",
+            "text": "#f4f6f8",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "questions"
+          }
+        },
+        {
+          "id": "business-decision-timing-book",
+          "type": "cta",
+          "visible": true,
+          "title": "Let’s talk about your next step.",
+          "description": "Bring an important decision for a focused discussion of traditional timing considerations.",
+          "body": "Traditional astrology, Vastu and numerology offer interpretive perspectives. Business outcomes are not guaranteed.",
+          "image": "",
+          "imageAlt": "",
+          "buttonLabel": "Enquire about this service",
+          "buttonUrl": "/?service=Right%20timing%20for%20major%20business%20decisions#contact",
+          "items": [],
+          "design": {
+            "background": "#faf7ef",
+            "text": "#10263e",
+            "align": "left",
+            "padding": 72,
+            "columns": 3,
+            "layout": "banner"
+          }
+        }
+      ]
     }
   ],
   "media": [
@@ -1505,5 +4115,6 @@
   "navigationRevision": 1,
   "servicePagesRevision": 1,
   "serviceDesignRevision": 1,
-  "serviceColourRevision": 1
+  "serviceColourRevision": 1,
+  "businessServicePagesRevision": 1
 }

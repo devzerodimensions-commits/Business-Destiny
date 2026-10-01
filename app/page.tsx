@@ -125,7 +125,28 @@ export default function Home() {
   const [preview, setPreview] = useState(false);
   const [error, setError] = useState('');
   useEffect(() => {
+    const page = c.pages.find(
+      (p) =>
+        '/pages/' + p.slug === route &&
+        !p.trashedAt &&
+        (preview || p.published),
+    );
+    document.title =
+      (route === '/services'
+        ? 'Our Services'
+        : page?.title || 'Business Astrology & Vastu') +
+      ' | ' +
+      c.brand.name;
+  }, [route, c.pages, c.brand.name, preview]);
+  useEffect(() => {
     const loadedRoute = location.pathname.replace(/\/$/, '') || '';
+    const requestedService = new URLSearchParams(location.search).get(
+      'service',
+    );
+    const finishLoading = () => {
+      if (requestedService) setSelectedService(requestedService);
+      setRoute(loadedRoute);
+    };
     if (new URLSearchParams(location.search).has('preview')) {
       api('admin/content')
         .then((x) => {
@@ -133,14 +154,14 @@ export default function Home() {
           setPreview(true);
         })
         .catch(() => setError('Sign in to preview unpublished changes.'))
-        .finally(() => setRoute(loadedRoute));
+        .finally(finishLoading);
     } else {
       api('content')
         .then(setC)
         .catch(() =>
           setError('Live content is unavailable. Showing the saved homepage.'),
         )
-        .finally(() => setRoute(loadedRoute));
+        .finally(finishLoading);
     }
   }, []);
   return (
@@ -185,6 +206,7 @@ export default function Home() {
               (n) =>
                 c.sections.some((s) => s.id === n.target && s.visible) ||
                 n.target === '/blog' ||
+                n.target === '/services' ||
                 c.pages.some(
                   (p) => '/pages/' + p.slug === n.target && p.published,
                 ),
@@ -192,7 +214,19 @@ export default function Home() {
             .map((n) => (
               <a
                 key={n.target}
-                href={n.target.startsWith('/') ? n.target : '/#' + n.target}
+                aria-current={
+                  (n.target === 'services' && route === '/services') ||
+                  n.target === route
+                    ? 'page'
+                    : undefined
+                }
+                href={
+                  n.target === 'services'
+                    ? '/services'
+                    : n.target.startsWith('/')
+                      ? n.target
+                      : '/#' + n.target
+                }
                 onClick={() => setMenu(false)}
               >
                 {n.label}
@@ -349,9 +383,21 @@ export default function Home() {
                       <div className="service-grid">
                         {s.items.map((i, j) => {
                           const Icon = icons[j % icons.length];
+                          const servicePage = c.pages.find(
+                            (p) =>
+                              p.id === i.pageId &&
+                              !p.trashedAt &&
+                              (preview || p.published),
+                          );
                           return (
                             <a
-                              href="#contact"
+                              href={
+                                servicePage
+                                  ? '/pages/' +
+                                    servicePage.slug +
+                                    (preview ? '?preview=1' : '')
+                                  : '#contact'
+                              }
                               className="service-card"
                               key={j}
                               onClick={() => setSelectedService(i.title)}
@@ -363,7 +409,9 @@ export default function Home() {
                               <h3>{i.title}</h3>
                               <p>{i.description}</p>
                               <span className="service-link">
-                                {c.labels.discuss}
+                                {servicePage
+                                  ? 'Explore service'
+                                  : c.labels.discuss}
                                 <ArrowUpRight size={18} />
                               </span>
                             </a>

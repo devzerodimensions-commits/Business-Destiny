@@ -28,16 +28,47 @@ test('Service pages seed once, link homepage cards and preserve admin edits and 
   delete old.servicePagesRevision;
   old.pages = [];
   const next = upgradeContent(old);
-  assert.equal(next.pages.length, 4);
+  assert.equal(next.pages.length, defaults.pages.length);
   validateCMS(next, fail);
-  assert.ok(next.sections.find(s => s.id === 'consultation-preparation').items.every(i => next.pages.some(p => p.id === i.pageId)));
+  assert.ok(
+    next.sections
+      .find((s) => s.id === 'consultation-preparation')
+      .items.every((i) => next.pages.some((p) => p.id === i.pageId)),
+  );
   next.pages[0].title = 'My edited service';
   next.pages[1].trashedAt = new Date().toISOString();
   next.pages.pop();
   const again = upgradeContent(next);
-  assert.equal(again.pages.length, 3);
+  assert.equal(again.pages.length, defaults.pages.length - 1);
   assert.equal(again.pages[0].title, 'My edited service');
-  assert.equal(publicContent(again).pages.length, 2);
+  assert.equal(publicContent(again).pages.length, defaults.pages.length - 2);
+});
+
+test('Business services upgrade existing sites once without replacing edits or restoring deleted pages', () => {
+  const old = structuredClone(defaults);
+  delete old.businessServicePagesRevision;
+  old.pages = old.pages.filter((p) => !p.id.startsWith('business-service-'));
+  const items = old.sections.find((s) => s.id === 'services').items;
+  for (const item of items) delete item.pageId;
+  items[0].description = 'Owner description';
+  const next = upgradeContent(old);
+  const services = next.sections.find((s) => s.id === 'services').items;
+  assert.equal(services[0].description, 'Owner description');
+  assert.ok(
+    services.every((item) =>
+      next.pages.some((p) => p.id === item.pageId && p.sections.length === 6),
+    ),
+  );
+  validateCMS(next, fail);
+  next.pages.find((p) => p.id === services[0].pageId).published = false;
+  next.pages = next.pages.filter((p) => p.id !== services[1].pageId);
+  const again = upgradeContent(next);
+  assert.deepEqual(again.pages, next.pages);
+  assert.ok(
+    !publicContent(again).pages.some(
+      (p) => p.id === services[0].pageId || p.id === services[1].pageId,
+    ),
+  );
 });
 test('Homepage additions upgrade once and preserve later admin choices', () => {
   const old = structuredClone(defaults);
