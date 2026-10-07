@@ -1,5 +1,5 @@
 'use client';
-import { useMemo, useState, type FormEvent } from 'react';
+import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import type { Kundali } from '@grahan/vedic';
 import {
   CalendarDays,
@@ -87,6 +87,30 @@ function BirthChart({ chart }: { chart: Kundali }) {
 export default function GujaratiAstrology() {
   const [date, setDate] = useState(indiaDate);
   const [city, setCity] = useState('ahmedabad');
+  useEffect(() => {
+    let lastToday = indiaDate();
+    let timer: ReturnType<typeof setTimeout>;
+    const refresh = () => {
+      const now = new Date();
+      const today = indiaDate(now);
+      if (today !== lastToday) {
+        const previousToday = lastToday;
+        setDate((selected) => selected === previousToday ? today : selected);
+        lastToday = today;
+      }
+      clearTimeout(timer);
+      const nextMidnight = new Date(today + 'T00:00:00+05:30').getTime() + 86400000;
+      timer = setTimeout(refresh, Math.max(1000, nextMidnight - now.getTime() + 500));
+    };
+    refresh();
+    window.addEventListener('focus', refresh);
+    document.addEventListener('visibilitychange', refresh);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('focus', refresh);
+      document.removeEventListener('visibilitychange', refresh);
+    };
+  }, []);
   const [tab, setTab] = useState<'panchang' | 'janmakshar'>(() =>
     typeof window !== 'undefined' && window.location.hash === '#janmakshar'
       ? 'janmakshar'
