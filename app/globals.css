@@ -4982,3 +4982,77 @@ select:focus {
 .testimonial-grid blockquote {margin:24px 0;font-size:20px;line-height:1.7;font-family:Georgia,serif;}
 .testimonial-grid figcaption {font-size:13px;opacity:.75;}
 @media(max-width:800px){.journey-grid,.traditional-grid,.testimonial-grid {grid-template-columns:1fr;gap:28px;}.traditional-grid article,.testimonial-grid figure{padding:26px;}}
+/* Gujarati Panchang and Janmakshar */
+.gu-page {background:#faf7ef;color:#10263e;line-height:1.8;}
+.gu-page h1,.gu-page h2,.gu-page h3,.gu-promo h2,.gu-promo h3 {font-family:system-ui,sans-serif;line-height:1.5;}
+.gu-intro {padding-top:42px;padding-bottom:0;}
+.gu-intro .eyebrow {margin-top:36px;color:#896325;}
+.gu-intro h1 {font-size:clamp(34px,5vw,60px);margin:16px 0;}
+.gu-intro h1 em {color:#896325;font-style:normal;}
+.gu-intro > p {font-size:19px;color:#596b7d;}
+.gu-tabs {display:flex;gap:12px;margin-top:36px;border-bottom:1px solid #dcd3c2;}
+.gu-tabs button {display:flex;align-items:center;gap:10px;background:transparent;border:0;border-bottom:3px solid transparent;padding:18px 26px;font-size:18px;color:#596b7d;cursor:pointer;}
+.gu-tabs button[aria-selected=true] {border-color:#a87828;color:#6a4c16;background:#f1e9d8;}
+.gu-content {padding-top:40px;padding-bottom:60px;}
+.gu-toolbar {display:flex;flex-wrap:wrap;align-items:end;gap:22px;padding:26px;background:#fff;border:1px solid #e1d9ca;border-radius:12px;}
+.gu-page label {display:block;font-size:14px;font-weight:600;}
+.gu-page input,.gu-page select {display:block;width:100%;margin-top:8px;min-height:48px;border:1px solid #d2c6b1;border-radius:6px;padding:10px 14px;background:white;color:#10263e;font:inherit;font-weight:400;color-scheme:light;}
+.gu-toolbar label {flex:1;min-width:180px;}
+.gu-day-buttons {display:flex;gap:8px;}
+.gu-day-buttons button {min-height:48px;background:#faf7ef;border:1px solid #d2c6b1;border-radius:6px;padding:8px 14px;color:#10263e;cursor:pointer;display:flex;align-items:center;}
+.gu-day-heading {display:flex;justify-content:space-between;align-items:center;gap:30px;margin:42px 0 28px;}
+.gu-page .eyebrow {color:#896325;}
+.gu-day-heading h2 {font-size:30px;margin:12px 0;}
+.gu-sun-times {display:flex;gap:32px;}
+.gu-sun-times > div {display:flex;align-items:center;gap:12px;}
+.gu-sun-times svg {color:#a87828;}
+.gu-sun-times span {font-size:13px;color:#596b7d;}
+.gu-sun-times strong {display:block;font-size:23px;color:#10263e;}
+.gu-anga-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;}
+.gu-anga {padding:26px;background:white;border:1px solid #e1d9ca;border-top:3px solid #b68a3d;border-radius:10px;}
+.gu-anga > span {font-size:14px;color:#896325;}
+.gu-anga h3 {font-size:25px;margin:12px 0 20px;}
+.gu-anga p {font-size:13px;color:#596b7d;margin-bottom:8px;}
+.gu-rahu {display:flex;justify-content:space-between;gap:30px;align-items:center;margin-top:26px;padding:26px 32px;background:#10263e;color:white;border-radius:10px;}
+.gu-rahu h3 {font-size:27px;margin:8px 0 0;}
+.gu-rahu > p {max-width:520px;color:#c6d0da;margin:0;}
+.gu-note {font-size:13px;color:#596b7d;margin-top:24px;}
+.gu-birth-layout {display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+.gu-birth-layout h2 {font-size:32px;margin:14px 0;}
+.gu-birth-layout p {color:#596b7d;}
+.gu-birth-form {margin-top:28px;}
+.gu-birth-form label {margin-bottom:20px;}
+.gu-form-row {display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.gu-birth-form .button {margin-top:12px;}
+.gu-birth-preview {padding:32px;background:#fff;border:1px solid #e1d9ca;border-radius:14px;text-align:center;align-self:start;}
+.gu-birth-preview > svg:not(.gu-chart) {margin:28px auto 18px;color:#a87828;}
+.gu-birth-preview h3 {font-size:26px;margin:12px 0;}
+.gu-birth-preview > p {font-size:14px;}
+.gu-empty-orbit {width:220px;height:220px;border:1px solid #d2c6b1;border-radius:50%;margin:42px auto;display:grid;place-items:center;font-size:70px;color:#a87828;background:radial-gradient(circle,#f1e9d8,transparent);}
+.gu-chart {width:100%;height:auto;max-width:480px;margin:18px auto 12px;color:#886122;}
+.gu-chart rect,.gu-chart path {fill:none;stroke:currentColor;stroke-width:1.5;}
+.gu-chart text {fill:#10263e;text-anchor:middle;font-size:16px;font-family:system-ui,sans-serif;}
+.gu-chart .gu-sign-number {font-size:13px;fill:#886122;}
+.gu-birth-preview small {font-size:12px;display:block;color:#596b7d;}
+.gu-summary {display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:40px 0;}
+.gu-summary > div {padding:24px;background:#f1e9d8;border-radius:10px;}
+.gu-summary span {color:#896325;font-size:14px;}
+.gu-summary h3 {font-size:26px;margin:10px 0;}
+.gu-birth-results h2 {font-size:28px;margin-bottom:24px;}
+.gu-table-scroll {overflow-x:auto;}
+.gu-page table {border-collapse:collapse;width:100%;min-width:540px;background:#fff;}
+.gu-page th,.gu-page td {padding:16px;text-align:left;border-bottom:1px solid #e1d9ca;}
+.gu-page thead {background:#10263e;color:white;}
+.gu-page tbody th {font-weight:500;}
+.gu-page .button {background:#10263e;color:#fff;}
+.gu-page .button.outline {background:transparent;color:#10263e;border-color:#10263e;}
+.gu-bottom {padding-top:28px;padding-bottom:40px;border-top:1px solid #e1d9ca;}
+.gu-bottom p {font-size:14px;color:#596b7d;}
+.gu-bottom small {font-size:12px;color:#596b7d;}
+.gu-bottom a {text-decoration:underline;}
+.gu-promo .traditional-grid .button {margin-top:24px;font-size:15px;}
+.gu-page button:focus-visible,.gu-page input:focus-visible,.gu-page select:focus-visible {outline:3px solid #b68a3d;outline-offset:3px;}
+@media(max-width:950px){.gu-anga-grid {grid-template-columns:repeat(2,minmax(0,1fr));}.gu-day-heading {align-items:start;flex-direction:column;}.gu-birth-layout {gap:28px;}}
+@media(max-width:700px){.gu-content{padding-top:24px;padding-bottom:40px;}.gu-birth-layout,.gu-summary{grid-template-columns:1fr;}.gu-toolbar{padding:18px;gap:16px;}.gu-day-buttons{width:100%;justify-content:space-between;}.gu-anga{padding:18px;}.gu-anga h3{font-size:22px;}.gu-rahu{display:block;padding:24px;}.gu-rahu p{margin-top:18px;}.gu-tabs button{padding:14px 18px;font-size:16px;}.gu-form-row{grid-template-columns:1fr;gap:0;}.gu-birth-preview{padding:20px;}}
+@media print{.topline,.header,.site-footer,.skip,.preview-bar,.gu-intro,.gu-toolbar,.gu-birth-form,.gu-birth-layout>div:first-child,.gu-bottom,.gu-birth-results .actions{display:none!important;}.gu-birth-layout{display:block;}.gu-birth-preview{max-width:500px;margin:auto;}.gu-page{background:white;}.gu-content{padding:0;}.gu-summary{margin:16px 0;}.gu-chart{max-width:340px;}.gu-table-scroll{overflow:visible;}.gu-page th,.gu-page td{padding:8px;}.gu-birth-results{break-before:page;}}
+.gu-page label {color:#10263e;}

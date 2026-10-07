@@ -216,9 +216,19 @@ export function upgradeContent(content) {
   }
   const navigation = content.navigationRevision ? [...content.navigation] : structuredClone(defaults.navigation);
   if (!content.requestedChangesRevision && !navigation.some((n) => n.target === 'janmakshar-panchang')) navigation.splice(Math.max(0, navigation.length - 1), 0, {label: 'Janmakshar & Panchang', target: 'janmakshar-panchang'});
+  if (!content.gujaratiToolsRevision) {
+    sections = sections.map((s) => s.id === 'janmakshar-panchang' ? {...structuredClone(defaults.sections.find((d) => d.id === s.id)), visible: s.visible} : s);
+    const index = navigation.findIndex((n) => n.target === 'janmakshar-panchang');
+    if (!navigation.some((n) => n.target === '/panchang-janmakshar')) {
+      const link = {label: 'પંચાંગ / જન્માક્ષર', target: '/panchang-janmakshar'};
+      if (index >= 0) navigation[index] = link;
+      else navigation.push(link);
+    }
+  }
   return {
     ...updated,
     requestedChangesRevision: 1,
+    gujaratiToolsRevision: 1,
     businessServicePagesRevision: 1,
     serviceColourRevision: 1,
     serviceDesignRevision: 1,

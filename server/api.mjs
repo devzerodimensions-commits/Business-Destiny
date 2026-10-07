@@ -230,6 +230,8 @@ function validContent(c) {
         !(
           ids.has(n.target) ||
           n.target === '/blog' ||
+          n.target === '/services' ||
+          n.target === '/panchang-janmakshar' ||
           c.pages.some((p) => '/pages/' + p.slug === n.target)
         ),
     )

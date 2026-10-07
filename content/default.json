@@ -35,8 +35,8 @@
       "target": "pricing"
     },
     {
-      "label": "Janmakshar & Panchang",
-      "target": "janmakshar-panchang"
+      "label": "પંચાંગ / જન્માક્ષર",
+      "target": "/panchang-janmakshar"
     },
     {
       "label": "Contact Us",
@@ -99,6 +99,10 @@
           {
             "label": "Contact Us",
             "href": "/#contact"
+          },
+          {
+            "label": "પંચાંગ / જન્માક્ષર",
+            "href": "/panchang-janmakshar"
           }
         ]
       },
@@ -563,25 +567,23 @@
     {
       "id": "janmakshar-panchang",
       "visible": true,
-      "title": "Janmakshar & Panchang.",
-      "highlight": "Tradition for your next step.",
-      "description": "Explore your birth chart and traditional calendar guidance with Business Destiny.",
+      "title": "પંચાંગ અને જન્માક્ષર",
+      "highlight": "હવે ગુજરાતી ભાષામાં.",
+      "description": "ગુજરાતના શહેરો માટે દૈનિક પંચાંગ જુઓ અને તમારી જન્મ વિગતો પરથી વ્યક્તિગત જન્માક્ષર બનાવો.",
       "body": "",
-      "eyebrow": "BUSINESS DESTINY",
+      "eyebrow": "BUSINESS DESTINY · ગુજરાત",
       "image": "",
       "imageAlt": "",
       "items": [
         {
-          "title": "Janmakshar (Birth Chart)",
+          "title": "જન્માક્ષર",
           "subtitle": "Janmakshar",
-          "description": "Explore a traditional reading of your birth chart, based on your date, time and place of birth. Discuss your personal questions, strengths and life direction.",
-          "features": "Date of birth\nTime of birth\nPlace of birth"
+          "description": "જન્મ તારીખ, ચોક્કસ સમય અને જન્મસ્થળ પરથી તમારી રાશિ, લગ્ન, નક્ષત્ર અને ગ્રહોની સ્થિતિ જાણો."
         },
         {
-          "title": "Panchang",
+          "title": "પંચાંગ",
           "subtitle": "Panchang",
-          "description": "Discuss the traditional Hindu calendar, including tithi, nakshatra, yoga, karana and vaar, when considering dates for important occasions or business beginnings.",
-          "features": "Occasion or planned activity\nPreferred date or date range\nLocation"
+          "description": "તમારા શહેર અને પસંદ કરેલી તારીખ મુજબ તિથિ, નક્ષત્ર, યોગ, કરણ, સૂર્યોદય અને રાહુ કાળ જુઓ."
         }
       ]
     },
@@ -4188,5 +4190,6 @@
   "serviceDesignRevision": 1,
   "serviceColourRevision": 1,
   "businessServicePagesRevision": 1,
-  "requestedChangesRevision": 1
+  "requestedChangesRevision": 1,
+  "gujaratiToolsRevision": 1
 }

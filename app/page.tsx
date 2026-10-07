@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState, type CSSProperties } from 'react';
+import { lazy, Suspense, useEffect, useState, type CSSProperties } from 'react';
 import {
   ArrowUpRight,
   ArrowRight,
@@ -29,6 +29,7 @@ import Chakra from './chakra';
 import { SiteImage } from './site-image';
 import { BlogCards, ContentRoute, SiteFooter } from './cms-public';
 import { BusinessMilestones, ConsultationPreparation } from './home-extras';
+const GujaratiAstrology = lazy(() => import('./gujarati-astrology'));
 
 export type Item = {
   pageId?: string;
@@ -135,6 +136,7 @@ export default function Home({initialPath = ''}: {initialPath?: string}) {
     document.title =
       (route === '/services'
         ? 'Our Services'
+        : route === '/panchang-janmakshar' ? 'પંચાંગ અને જન્માક્ષર'
         : page?.title || 'Business Astrology & Vastu') +
       ' | ' +
       c.brand.name;
@@ -208,6 +210,7 @@ export default function Home({initialPath = ''}: {initialPath?: string}) {
                 c.sections.some((s) => s.id === n.target && s.visible) ||
                 n.target === '/blog' ||
                 n.target === '/services' ||
+                n.target === '/panchang-janmakshar' ||
                 c.pages.some(
                   (p) => '/pages/' + p.slug === n.target && p.published,
                 ),
@@ -261,6 +264,8 @@ export default function Home({initialPath = ''}: {initialPath?: string}) {
               <ArrowRight size={18} />
             </a>
           </section>
+        ) : route === '/panchang-janmakshar' ? (
+          <Suspense fallback={<p className="wrap" role="status" lang="gu">પંચાંગ અને જન્માક્ષર તૈયાર થઈ રહ્યાં છે…</p>}><GujaratiAstrology /></Suspense>
         ) : route ? (
           <ContentRoute c={c} path={route} preview={preview} />
         ) : (
@@ -343,7 +348,7 @@ export default function Home({initialPath = ''}: {initialPath?: string}) {
                   ) : s.id === 'testimonials' ? (
                     <div className="wrap"><Heading s={s} /><div className="testimonial-grid">{s.items.map((item, i) => <figure key={i}><span className="eyebrow">SAMPLE TESTIMONIAL</span><blockquote>{item.description}</blockquote><figcaption>{item.title}</figcaption></figure>)}</div></div>
                   ) : s.id === 'janmakshar-panchang' ? (
-                    <div className="wrap"><Heading s={s} /><div className="traditional-grid">{s.items.map((item, i) => <article key={i}><span className="eyebrow">{i === 0 ? '01 · BIRTH CHART' : '02 · TRADITIONAL CALENDAR'}</span><h3>{item.title}</h3><p>{item.description}</p><h4>What to share</h4><ul>{item.features?.split('\n').map(f => <li key={f}>{f}</li>)}</ul><a className="textlink" href="#contact" onClick={() => setSelectedService(item.subtitle || item.title)}>Enquire with Business Destiny <ArrowUpRight size={17} /></a></article>)}</div></div>
+                    <div className="wrap gu-promo" lang="gu"><Heading s={s} /><div className="traditional-grid">{s.items.map((item, i) => <article key={i}><span className="eyebrow">{i === 0 ? 'વ્યક્તિગત જન્મ કુંડળી' : 'ગુજરાતનું દૈનિક પંચાંગ'}</span><h3>{item.title}</h3><p>{item.description}</p><a className="button" href={'/panchang-janmakshar#' + (i === 0 ? 'janmakshar' : 'panchang')}>{i === 0 ? 'જન્માક્ષર બનાવો' : 'પંચાંગ જુઓ'} <ArrowUpRight size={17} /></a></article>)}</div></div>
                   ) : s.id === 'industrial-questions' ||
                     s.id === 'industrial-scenarios' ? (
                     <div className="wrap industrial-editorial">

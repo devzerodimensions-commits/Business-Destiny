@@ -281,3 +281,11 @@ test('Requested homepage changes migrate saved content once and preserve subsequ
   assert.equal(again.sections.find(s => s.id === 'testimonials').visible, false);
   validateCMS(again, fail);
 });
+
+test('Gujarati tools migrate promotional content and navigation once',()=>{
+ const old=structuredClone(defaults);delete old.gujaratiToolsRevision;
+ old.navigation=old.navigation.map(n=>n.target==='/panchang-janmakshar'?{label:'Janmakshar & Panchang',target:'janmakshar-panchang'}:n);
+ old.sections.find(s=>s.id==='janmakshar-panchang').title='Old promotional copy';
+ const next=upgradeContent(old);assert.equal(next.navigation.filter(n=>n.target==='/panchang-janmakshar').length,1);assert.equal(next.sections.find(s=>s.id==='janmakshar-panchang').title,'પંચાંગ અને જન્માક્ષર');
+ next.sections.find(s=>s.id==='janmakshar-panchang').title='Owner edit';assert.equal(upgradeContent(next).sections.find(s=>s.id==='janmakshar-panchang').title,'Owner edit');
+});
