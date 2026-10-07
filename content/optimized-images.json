@@ -1,0 +1,74 @@
+{
+  "/media/astrologer.png": {
+    "src": "/media/optimized/astrologer-1122-a6e66fe8ca.webp",
+    "srcSet": "/media/optimized/astrologer-640-a207d5c6e1.webp 640w, /media/optimized/astrologer-1122-a6e66fe8ca.webp 1122w",
+    "width": 1122,
+    "height": 1402
+  },
+  "/media/business-destiny-hd.png": {
+    "src": "/media/optimized/business-destiny-hd-1280-33f0dd7cd7.webp",
+    "srcSet": "/media/optimized/business-destiny-hd-640-1aa77d4d69.webp 640w, /media/optimized/business-destiny-hd-1280-33f0dd7cd7.webp 1280w",
+    "width": 1536,
+    "height": 1024
+  },
+  "/media/consultation-table.png": {
+    "src": "/media/optimized/consultation-table-1280-945032a958.webp",
+    "srcSet": "/media/optimized/consultation-table-640-73e2a924a4.webp 640w, /media/optimized/consultation-table-1280-945032a958.webp 1280w",
+    "width": 1536,
+    "height": 1024
+  },
+  "/media/industrial-factory.png": {
+    "src": "/media/optimized/industrial-factory-1280-066ca51269.webp",
+    "srcSet": "/media/optimized/industrial-factory-640-556f6de89d.webp 640w, /media/optimized/industrial-factory-1280-066ca51269.webp 1280w",
+    "width": 1536,
+    "height": 1024
+  },
+  "/media/logo.png": {
+    "src": "/media/optimized/logo-400-aba1742602.webp",
+    "srcSet": "/media/optimized/logo-400-aba1742602.webp 400w",
+    "width": 2000,
+    "height": 2000
+  },
+  "/media/palm-astrology-hand.png": {
+    "src": "/media/optimized/palm-astrology-hand-655-2e5f2d4d4c.webp",
+    "srcSet": "/media/optimized/palm-astrology-hand-640-9b023761e7.webp 640w, /media/optimized/palm-astrology-hand-655-2e5f2d4d4c.webp 655w",
+    "width": 655,
+    "height": 732
+  },
+  "/media/palm-zodiac-wheel.png": {
+    "src": "/media/optimized/palm-zodiac-wheel-506-b80c9dbdc1.webp",
+    "srcSet": "/media/optimized/palm-zodiac-wheel-506-b80c9dbdc1.webp 506w",
+    "width": 506,
+    "height": 507
+  },
+  "/media/service-astrology.png": {
+    "src": "/media/optimized/service-astrology-1254-84b2355f2c.webp",
+    "srcSet": "/media/optimized/service-astrology-640-0815d13793.webp 640w, /media/optimized/service-astrology-1254-84b2355f2c.webp 1254w",
+    "width": 1254,
+    "height": 1254
+  },
+  "/media/service-numerology.png": {
+    "src": "/media/optimized/service-numerology-1254-b7db191819.webp",
+    "srcSet": "/media/optimized/service-numerology-640-ef572e7073.webp 640w, /media/optimized/service-numerology-1254-b7db191819.webp 1254w",
+    "width": 1254,
+    "height": 1254
+  },
+  "/media/service-palmistry.png": {
+    "src": "/media/optimized/service-palmistry-1254-97c3b81f9a.webp",
+    "srcSet": "/media/optimized/service-palmistry-640-f1d3d96755.webp 640w, /media/optimized/service-palmistry-1254-97c3b81f9a.webp 1254w",
+    "width": 1254,
+    "height": 1254
+  },
+  "/media/service-vastu.png": {
+    "src": "/media/optimized/service-vastu-1254-3778395445.webp",
+    "srcSet": "/media/optimized/service-vastu-640-59be6907c7.webp 640w, /media/optimized/service-vastu-1254-3778395445.webp 1254w",
+    "width": 1254,
+    "height": 1254
+  },
+  "/media/tejas-parikh-portrait.png": {
+    "src": "/media/optimized/tejas-parikh-portrait-1280-7b8d25d0f1.webp",
+    "srcSet": "/media/optimized/tejas-parikh-portrait-640-b592cd4ae8.webp 640w, /media/optimized/tejas-parikh-portrait-1280-7b8d25d0f1.webp 1280w",
+    "width": 1339,
+    "height": 1175
+  }
+}

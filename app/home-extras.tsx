@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SiteImage } from './site-image';
 import { ArrowUpRight, ArrowRight, Compass, Check } from 'lucide-react';
 import type { Section, CMSPage } from './page';
 export function BusinessMilestones({
@@ -97,7 +98,7 @@ export function ConsultationPreparation({
         {s.items.map((item, i) => (
           <article className="practice-panel" key={i}>
             {item.image && (
-              <img
+              <SiteImage sizes="220px"
                 className="practice-image"
                 src={item.image}
                 alt={item.imageAlt || item.title}

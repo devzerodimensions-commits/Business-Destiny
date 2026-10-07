@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import initial from '@/content/default.json';
 import Chakra from './chakra';
+import { SiteImage } from './site-image';
 import { BlogCards, ContentRoute, SiteFooter } from './cms-public';
 import { BusinessMilestones, ConsultationPreparation } from './home-extras';
 
@@ -117,11 +118,11 @@ const icons = [
   Type,
   Target,
 ];
-export default function Home() {
+export default function Home({initialPath = ''}: {initialPath?: string}) {
   const [c, setC] = useState<Content>(initial as Content);
   const [menu, setMenu] = useState(false);
   const [selectedService, setSelectedService] = useState('');
-  const [route, setRoute] = useState('');
+  const [route, setRoute] = useState(initialPath);
   const [preview, setPreview] = useState(false);
   const [error, setError] = useState('');
   useEffect(() => {
@@ -194,7 +195,7 @@ export default function Home() {
       </div>
       <header className="header wrap">
         <a href="/" className="brand">
-          <img src={c.brand.logo} alt="Business Destiny logo" />
+          <SiteImage src={c.brand.logo} alt="Business Destiny logo" loading="eager" sizes="200px" />
           <span>
             {c.brand.name}
             <small>{c.brand.descriptor}</small>
@@ -272,7 +273,6 @@ export default function Home() {
                     <div
                       className={
                         'hero-grid wrap' +
-                        (c.heroEnquiry.visible ? ' hero-with-enquiry' : '') +
                         (c.chakra.mode === 'none' ? ' hero-without-visual' : '')
                       }
                     >
@@ -290,14 +290,7 @@ export default function Home() {
                         {s.body && (
                           <p className="industrial-hero-topics">{s.body}</p>
                         )}
-                        {c.heroEnquiry.visible ? (
-                          <Enquiry
-                            c={c}
-                            compact
-                            selectedService={selectedService}
-                            onServiceChange={setSelectedService}
-                          />
-                        ) : (
+                        {(
                           <div className="actions">
                             <a className="button" href="#contact">
                               {c.labels.book}
@@ -317,7 +310,7 @@ export default function Home() {
                       {c.chakra.mode !== 'none' && (
                         <div className="hero-art industrial-hero-art chakra-hero">
                           {c.chakra.mode === 'image' ? (
-                            <img
+                            <SiteImage loading="eager" fetchPriority="high"
                               className="hero-custom-visual"
                               src={s.image || c.brand.logo}
                               alt={s.imageAlt || c.brand.name}
@@ -342,6 +335,15 @@ export default function Home() {
                         </div>
                       )}
                     </div>
+                  ) : s.id === 'business-journey' ? (
+                    <div className="wrap journey-grid">
+                      <SiteImage src={s.image} alt={s.imageAlt} sizes="(max-width: 800px) 100vw, 55vw" />
+                      <div><Heading s={s} /><p>{s.body}</p><a className="button" href="#contact">Start your conversation <ArrowUpRight size={18} /></a></div>
+                    </div>
+                  ) : s.id === 'testimonials' ? (
+                    <div className="wrap"><Heading s={s} /><div className="testimonial-grid">{s.items.map((item, i) => <figure key={i}><span className="eyebrow">SAMPLE TESTIMONIAL</span><blockquote>{item.description}</blockquote><figcaption>{item.title}</figcaption></figure>)}</div></div>
+                  ) : s.id === 'janmakshar-panchang' ? (
+                    <div className="wrap"><Heading s={s} /><div className="traditional-grid">{s.items.map((item, i) => <article key={i}><span className="eyebrow">{i === 0 ? '01 · BIRTH CHART' : '02 · TRADITIONAL CALENDAR'}</span><h3>{item.title}</h3><p>{item.description}</p><h4>What to share</h4><ul>{item.features?.split('\n').map(f => <li key={f}>{f}</li>)}</ul><a className="textlink" href="#contact" onClick={() => setSelectedService(item.subtitle || item.title)}>Enquire with Business Destiny <ArrowUpRight size={17} /></a></article>)}</div></div>
                   ) : s.id === 'industrial-questions' ||
                     s.id === 'industrial-scenarios' ? (
                     <div className="wrap industrial-editorial">
@@ -447,7 +449,7 @@ export default function Home() {
                   ) : s.id === 'about' ? (
                     <div className="wrap about-grid">
                       <div className="about-visual">
-                        <img src={s.image} alt={s.imageAlt} />
+                        <SiteImage src={s.image} alt={s.imageAlt} />
                         <span>
                           {c.brand.name}
                           <small>{c.brand.descriptor}</small>
@@ -596,7 +598,7 @@ export default function Home() {
                     <div className="wrap">
                       <Heading s={s} />
                       {s.image && (
-                        <img
+                        <SiteImage
                           className="custom-image"
                           src={s.image}
                           alt={s.imageAlt}
@@ -707,6 +709,7 @@ function Enquiry({
             onChange={(e) => onServiceChange(e.target.value)}
           >
             <option value="">{c.form.servicePlaceholder}</option>
+            {c.sections.find((s) => s.id === 'janmakshar-panchang')?.items.map((i) => <option key={i.title} value={i.subtitle || i.title}>{i.title}</option>)}
             {c.sections
               .find((s) => s.id === 'consultation-preparation')
               ?.items.filter(

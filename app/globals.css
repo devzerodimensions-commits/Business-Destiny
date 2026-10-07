@@ -4968,3 +4968,17 @@ select:focus {
 .password-control .password-toggle {position:absolute;right:4px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:6px;background:transparent;color:inherit;cursor:pointer;}
 .password-control .password-toggle:hover {background:#9b732c18;}
 .password-control .password-toggle:focus-visible {outline:2px solid #a77620;outline-offset:1px;}
+/* Business Destiny homepage additions */
+.journey-grid {display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;}
+.journey-grid > img {width:100%;height:auto;border-radius:var(--radius);}
+.journey-grid .button {margin-top:20px;}
+.traditional-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;}
+.traditional-grid article {padding:36px;border:1px solid currentColor;border-color:color-mix(in srgb,currentColor 20%,transparent);border-radius:var(--radius);}
+.traditional-grid h3 {font-size:30px;margin:20px 0;}
+.traditional-grid h4 {font-size:14px;margin:24px 0 12px;}
+.traditional-grid ul {padding-left:20px;line-height:1.9;margin-bottom:28px;}
+.testimonial-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+.testimonial-grid figure {margin:0;padding:32px;border:1px solid color-mix(in srgb,currentColor 20%,transparent);border-radius:var(--radius);}
+.testimonial-grid blockquote {margin:24px 0;font-size:20px;line-height:1.7;font-family:Georgia,serif;}
+.testimonial-grid figcaption {font-size:13px;opacity:.75;}
+@media(max-width:800px){.journey-grid,.traditional-grid,.testimonial-grid {grid-template-columns:1fr;gap:28px;}.traditional-grid article,.testimonial-grid figure{padding:26px;}}

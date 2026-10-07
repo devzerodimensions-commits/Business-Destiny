@@ -3,7 +3,7 @@
     "name": "Business Destiny",
     "descriptor": "INDUSTRIAL & BUSINESS ASTROLOGY",
     "logo": "/media/business-destiny-hd.png",
-    "strapline": "Traditional astrological insight for industry, manufacturing & business",
+    "strapline": "Business Destiny · Traditional insight for industry, business & life",
     "availability": "Consultations for business owners"
   },
   "theme": {
@@ -33,6 +33,10 @@
     {
       "label": "Consultations",
       "target": "pricing"
+    },
+    {
+      "label": "Janmakshar & Panchang",
+      "target": "janmakshar-panchang"
     },
     {
       "label": "Contact Us",
@@ -65,7 +69,7 @@
   },
   "heroCaption": "",
   "footer": {
-    "tagline": "Industrial questions. Traditional insight. A considered next step.",
+    "tagline": "Business Destiny · Traditional insight. A considered next step.",
     "rights": "All rights reserved.",
     "note": "Traditional interpretive guidance, not a guarantee of business results.",
     "columns": [
@@ -210,6 +214,18 @@
       "eyebrow": "INDUSTRIAL ASTROLOGY / BUSINESS DESTINY",
       "id": "hero",
       "title": "A deeper perspective."
+    },
+    {
+      "id": "business-journey",
+      "visible": true,
+      "title": "Your business journey.",
+      "highlight": "A clearer perspective.",
+      "description": "From the first idea to the next chapter, Business Destiny helps you explore questions about timing, partnerships and direction.",
+      "body": "Every business journey brings decisions. Bring yours to a thoughtful conversation grounded in your plans and priorities.",
+      "eyebrow": "BUSINESS DESTINY",
+      "image": "/media/business-journey-realistic.png",
+      "imageAlt": "An entrepreneur maps a business journey from start to growth on a glass planning wall",
+      "items": []
     },
     {
       "visible": true,
@@ -443,7 +459,7 @@
     },
     {
       "visible": true,
-      "body": "Tejas Parikh brings Vedic Astrology, KP Astrology, Vastu and Numerology into a focused discussion of industrial and business questions. Each consultation starts with your enterprise: the people, premises, plans and decisions that matter to you.",
+      "body": "Business Destiny is a space to explore business and personal questions through traditional astrology, Vastu and numerology. A fuller introduction from Tejas Parikh will be shared here soon.",
       "image": "/media/tejas-parikh-portrait.png",
       "imageAlt": "Tejas Parikh, Business Destiny founder and astrology consultant",
       "items": [
@@ -460,11 +476,11 @@
           "title": "Numerology"
         }
       ],
-      "highlight": "An industrial focus.",
-      "description": "Industrial & Business Astrology Consultant",
+      "highlight": "Meet Tejas Parikh.",
+      "description": "Business, astrology and a thoughtful conversation.",
       "eyebrow": "MEET YOUR CONSULTANT",
       "id": "about",
-      "title": "Tejas Parikh."
+      "title": "About Business Destiny"
     },
     {
       "visible": true,
@@ -545,6 +561,31 @@
       "description": "Traditional frameworks used to explore your questions. The approach depends on the scope of your consultation."
     },
     {
+      "id": "janmakshar-panchang",
+      "visible": true,
+      "title": "Janmakshar & Panchang.",
+      "highlight": "Tradition for your next step.",
+      "description": "Explore your birth chart and traditional calendar guidance with Business Destiny.",
+      "body": "",
+      "eyebrow": "BUSINESS DESTINY",
+      "image": "",
+      "imageAlt": "",
+      "items": [
+        {
+          "title": "Janmakshar (Birth Chart)",
+          "subtitle": "Janmakshar",
+          "description": "Explore a traditional reading of your birth chart, based on your date, time and place of birth. Discuss your personal questions, strengths and life direction.",
+          "features": "Date of birth\nTime of birth\nPlace of birth"
+        },
+        {
+          "title": "Panchang",
+          "subtitle": "Panchang",
+          "description": "Discuss the traditional Hindu calendar, including tithi, nakshatra, yoga, karana and vaar, when considering dates for important occasions or business beginnings.",
+          "features": "Occasion or planned activity\nPreferred date or date range\nLocation"
+        }
+      ]
+    },
+    {
       "visible": true,
       "body": "Indicative packages for this website preview. Final scope, fees and availability are confirmed before booking. No payment is collected here.",
       "image": "",
@@ -583,6 +624,31 @@
       "eyebrow": "INVEST IN A CLEARER PERSPECTIVE",
       "id": "pricing",
       "title": "The right conversation."
+    },
+    {
+      "id": "testimonials",
+      "visible": true,
+      "title": "Conversations at",
+      "highlight": "Business Destiny.",
+      "description": "Sample testimonials for layout preview. These will be replaced with verified client feedback.",
+      "body": "",
+      "eyebrow": "BUSINESS DESTINY",
+      "image": "",
+      "imageAlt": "",
+      "items": [
+        {
+          "title": "Sample · Business owner",
+          "description": "“A thoughtful conversation about the questions I wanted to explore before planning my next business step.”"
+        },
+        {
+          "title": "Sample · Entrepreneur",
+          "description": "“The consultation format helped me organise my questions about timing, partnerships and direction.”"
+        },
+        {
+          "title": "Sample · Personal consultation",
+          "description": "“I appreciated having space to ask questions about my birth chart and understand the traditional perspective.”"
+        }
+      ]
     },
     {
       "visible": true,
@@ -3993,6 +4059,11 @@
       "id": "service-numerology-image",
       "name": "Numerology illustration",
       "image": "/media/service-numerology.png"
+    },
+    {
+      "id": "business-journey",
+      "name": "Business Destiny business journey",
+      "image": "/media/business-journey-realistic.png"
     }
   ],
   "blog": {
@@ -4062,7 +4133,7 @@
     "faceOn": true
   },
   "heroEnquiry": {
-    "visible": true,
+    "visible": false,
     "title": "Begin your consultation",
     "description": "Tell us what is on your mind. We will contact you to discuss the next step.",
     "messageLabel": "Message",
@@ -4116,5 +4187,6 @@
   "servicePagesRevision": 1,
   "serviceDesignRevision": 1,
   "serviceColourRevision": 1,
-  "businessServicePagesRevision": 1
+  "businessServicePagesRevision": 1,
+  "requestedChangesRevision": 1
 }

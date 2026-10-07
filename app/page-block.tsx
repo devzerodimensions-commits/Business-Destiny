@@ -1,4 +1,5 @@
 import { ServiceIcon, serviceIcons } from './service-icons';
+import { SiteImage } from './site-image';
 import type { CSSProperties } from 'react';
 import type { PageSection } from './page';
 export function PageBlock({
@@ -29,7 +30,7 @@ export function PageBlock({
     >
       {s.image &&
         (s.type === 'hero' || s.type === 'text' || s.type === 'image') && (
-          <img src={s.image} alt={s.imageAlt} />
+          <SiteImage src={s.image} alt={s.imageAlt} loading={s.type === 'hero' ? 'eager' : 'lazy'} fetchPriority={s.type === 'hero' ? 'high' : 'auto'} />
         )}
       <div className="block-content">
         <div className="block-heading">

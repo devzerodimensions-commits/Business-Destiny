@@ -263,3 +263,21 @@ test('Trashed pages stay in admin content but are excluded from public pages and
   page.sections[0].design.padding = -1;
   assert.throws(() => validateCMS(c, fail), /section design/);
 });
+
+test('Requested homepage changes migrate saved content once and preserve subsequent edits', () => {
+  const old = structuredClone(defaults);
+  delete old.requestedChangesRevision;
+  old.heroEnquiry.visible = true;
+  old.sections = old.sections.filter(s => !['business-journey', 'janmakshar-panchang', 'testimonials'].includes(s.id));
+  old.navigation = old.navigation.filter(n => n.target !== 'janmakshar-panchang');
+  const next = upgradeContent(old);
+  assert.equal(next.heroEnquiry.visible, false);
+  for (const id of ['business-journey', 'janmakshar-panchang', 'testimonials']) assert.equal(next.sections.filter(s => s.id === id).length, 1);
+  assert.equal(next.navigation.filter(n => n.target === 'janmakshar-panchang').length, 1);
+  next.sections.find(s => s.id === 'about').body = 'Approved copy from Tejas bhai';
+  next.sections.find(s => s.id === 'testimonials').visible = false;
+  const again = upgradeContent(next);
+  assert.equal(again.sections.find(s => s.id === 'about').body, 'Approved copy from Tejas bhai');
+  assert.equal(again.sections.find(s => s.id === 'testimonials').visible, false);
+  validateCMS(again, fail);
+});

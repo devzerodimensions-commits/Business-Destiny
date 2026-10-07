@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight, Compass, Sparkles } from 'lucide-react';
 import type { CMSPage, Content } from './page';
+import { SiteImage } from './site-image';
 
 export function availableServices(c: Content, preview: boolean) {
   const ids = new Set(
@@ -48,7 +49,7 @@ export function ServicesDirectory({
           </a>
         </div>
         <div className="directory-art">
-          <img
+          <SiteImage loading="eager" fetchPriority="high"
             src="/media/service-astrology.png"
             alt="A golden zodiac wheel illustrating traditional astrology"
           />
@@ -94,7 +95,7 @@ export function ServicesDirectory({
                       0{i + 1} / PRACTICE
                     </span>
                     {hero?.image && (
-                      <img
+                    <SiteImage sizes="(max-width: 700px) 100vw, 25vw"
                         src={hero.image}
                         alt={hero.imageAlt}
                         loading="lazy"

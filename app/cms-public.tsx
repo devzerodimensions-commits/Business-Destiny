@@ -1,4 +1,5 @@
 import { PageBlock } from './page-block';
+import { SiteImage } from './site-image';
 import { ArrowRight, ArrowUpRight, Mail, Phone } from 'lucide-react';
 import type { Content } from './page';
 import {
@@ -47,7 +48,7 @@ export function BlogCards({
               tabIndex={-1}
               aria-hidden="true"
             >
-              {p.image && <img src={p.image} alt={p.imageAlt} />}
+              {p.image && <SiteImage src={p.image} alt={p.imageAlt} sizes="(max-width: 700px) 100vw, 33vw" />}
             </a>
             <div>
               <span className="journal-category">{p.category}</span>
@@ -102,7 +103,7 @@ export function ContentRoute({
         </p>
         <p className="article-intro">{post.excerpt}</p>
         {post.image && (
-          <img className="article-image" src={post.image} alt={post.imageAlt} />
+          <SiteImage className="article-image" src={post.image} alt={post.imageAlt} loading="eager" />
         )}
         <div className="article-body">
           {post.body.split(/\n\s*\n/).map((p, i) => (
@@ -200,7 +201,7 @@ export function SiteFooter({ c }: { c: Content }) {
         <div className="footer-columns">
           <div className="footer-business">
             <a href="/">
-              <img src={c.brand.logo} alt={c.brand.name} />
+              <SiteImage src={c.brand.logo} alt={c.brand.name} sizes="200px" />
             </a>
             <p>{c.brand.strapline}</p>
             <small>{c.footer.note}</small>

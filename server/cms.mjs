@@ -203,16 +203,28 @@ export function upgradeContent(content) {
         : s,
     );
   }
+  if (!content.requestedChangesRevision && Array.isArray(sections)) {
+    sections = [...sections];
+    for (const [id, before] of [['business-journey', 'industries'], ['janmakshar-panchang', 'pricing'], ['testimonials', 'faq']]) {
+      if (!sections.some((s) => s.id === id)) {
+        const index = sections.findIndex((s) => s.id === before);
+        sections.splice(index < 0 ? sections.length : index, 0, structuredClone(defaults.sections.find((s) => s.id === id)));
+      }
+    }
+    sections = sections.map((s) => s.id === 'about' ? {...s, ...Object.fromEntries(['title', 'highlight', 'description', 'body'].map((key) => [key, defaults.sections.find((s) => s.id === 'about')[key]]))} : s);
+    updated = {...updated, brand: {...updated.brand, name: defaults.brand.name, strapline: defaults.brand.strapline}};
+  }
+  const navigation = content.navigationRevision ? [...content.navigation] : structuredClone(defaults.navigation);
+  if (!content.requestedChangesRevision && !navigation.some((n) => n.target === 'janmakshar-panchang')) navigation.splice(Math.max(0, navigation.length - 1), 0, {label: 'Janmakshar & Panchang', target: 'janmakshar-panchang'});
   return {
     ...updated,
+    requestedChangesRevision: 1,
     businessServicePagesRevision: 1,
     serviceColourRevision: 1,
     serviceDesignRevision: 1,
     businessChallengesRevision: 1,
     navigationRevision: 1,
-    navigation: content.navigationRevision
-      ? content.navigation
-      : structuredClone(defaults.navigation),
+    navigation,
     sections,
     chakra: {
       ...defaults.chakra,
@@ -223,6 +235,7 @@ export function upgradeContent(content) {
     heroEnquiry: {
       ...structuredClone(defaults.heroEnquiry),
       ...content.heroEnquiry,
+      ...(!content.requestedChangesRevision ? {visible: false} : {}),
     },
     thankYou: { ...defaults.thankYou, ...content.thankYou },
     homepageRevision: Math.max(content.homepageRevision ?? 0, 4),
