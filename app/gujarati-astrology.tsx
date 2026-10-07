@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import type { Kundali } from '@grahan/vedic';
 import { KundaliGuide, KundaliAccuracy } from './kundali-guide';
+import PersonalReading from './personal-reading';
 import {
   CalendarDays,
   Sunrise,
@@ -450,6 +451,7 @@ export default function GujaratiAstrology() {
                     આંકડા રાશિના ક્રમાંક દર્શાવે છે (૧ = મેષ). ગ્રહો તેમના ભાવમાં દર્શાવ્યા
                     છે.
                   </small>
+                  <a className="button outline reading-jump" href="#personal-reading">શક્તિઓ અને સંબંધોની વાંચન નોંધ જુઓ ↓</a>
                   <KundaliGuide
                     chart={birth.chart}
                     selected={selectedHouse}
@@ -470,6 +472,7 @@ export default function GujaratiAstrology() {
           </div>
           {birth && (
             <div className="gu-birth-results" aria-live="polite">
+              <PersonalReading chart={birth.chart} />
               <div className="gu-summary">
                 <div>
                   <span>લગ્ન</span>

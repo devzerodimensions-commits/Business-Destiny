@@ -5088,3 +5088,31 @@ select:focus {
 .kundali-honesty p {margin:12px 0 0;}
 @media(max-width:700px){.kundali-explanation-grid{grid-template-columns:1fr;gap:28px;}.kundali-guide h4{font-size:18px;}}
 @media print{.kundali-house-buttons{display:none;}.gu-birth-preview{max-width:650px;}.kundali-guide,.kundali-accuracy{break-before:page;}.kundali-explanation-grid{display:block;}}
+.personal-reading {margin-top:40px;margin-bottom:42px;padding:32px;background:#fff;border:1px solid #e1d9ca;border-radius:12px;}
+.personal-reading > h2 {margin:12px 0 20px!important;}
+.personal-reading h3 {font-size:24px;margin:0 0 22px;}
+.personal-reading h4 {font-size:18px;line-height:1.7;color:#10263e;margin:12px 0;}
+.personal-reading p {color:#596b7d;font-size:14px;line-height:1.9;}
+.reading-intro {max-width:900px;}
+.reading-columns {display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:32px;}
+.reading-theme + .reading-theme {border-top:1px solid #e1d9ca;padding-top:24px;margin-top:24px;}
+.reading-basis {display:block;font-size:12px;color:#886122;line-height:1.9;}
+.reading-action {padding:18px;background:#faf7ef;border-left:3px solid #b68a3d;border-radius:6px;margin:18px 0;}
+.reading-action strong {font-size:14px;}
+.reading-action p {margin:8px 0 0;}
+.reading-columns small {display:block;color:#596b7d;line-height:1.9;font-size:12px;}
+.reading-marriage {border-top:1px solid #e1d9ca;padding-top:32px;margin-top:32px;}
+.reading-marriage h3 {margin-top:12px;}
+.reading-marriage-facts {display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:26px;}
+.reading-marriage-facts > div {padding:18px;background:#f1e9d8;border-radius:8px;}
+.reading-marriage-facts span {display:block;font-size:12px;color:#886122;}
+.reading-marriage-facts strong {display:block;margin-top:8px;font-size:17px;line-height:1.8;}
+.reading-method {margin-top:24px;border-top:1px solid #e1d9ca;padding-top:20px;}
+.reading-method summary {cursor:pointer;color:#886122;font-size:14px;}
+.reading-method p {margin-top:16px;}
+.reading-method a {text-decoration:underline;}
+@media(max-width:700px){.personal-reading{padding:22px;}.reading-columns,.reading-marriage-facts{grid-template-columns:1fr;gap:24px;}}
+@media print{.personal-reading{break-before:page;border:0;padding:0;}.reading-columns{display:block;}}
+.reading-jump {margin-top:22px;font-size:14px;line-height:1.8;white-space:normal;}
+.personal-reading {scroll-margin-top:24px;}
+@media print{.reading-jump{display:none!important;}}
