@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import type { Kundali } from '@grahan/vedic';
+import { KundaliGuide, KundaliAccuracy } from './kundali-guide';
 import {
   CalendarDays,
   Sunrise,
@@ -56,12 +57,20 @@ const anchors = [
   [0.88, 0.28],
   [0.75, 0.12],
 ];
-function BirthChart({ chart }: { chart: Kundali }) {
+function BirthChart({
+  chart,
+  selected,
+  onSelect,
+}: {
+  chart: Kundali;
+  selected: number;
+  onSelect: (house: number) => void;
+}) {
   return (
     <svg
       className="gu-chart"
       viewBox="0 0 500 500"
-      role="img"
+      role="group"
       aria-label="જન્મ રાશિ કુંડળી: રાશિના ક્રમાંક અને ગ્રહો"
     >
       <rect x="1" y="1" width="498" height="498" />
@@ -69,7 +78,22 @@ function BirthChart({ chart }: { chart: Kundali }) {
       {chart.bhavas.map((house, i) => {
         const [x, y] = anchors[i];
         return (
-          <g key={house.bhava}>
+          <g
+            key={house.bhava}
+            role="button"
+            tabIndex={0}
+            aria-label={`ભાવ ${house.bhava}, ${rashis[house.rashi]}, ${house.grahas.length ? house.grahas.map((g) => grahas[g]).join(', ') : 'કોઈ ગ્રહ નથી'}`}
+            aria-pressed={selected === house.bhava}
+            onClick={() => onSelect(house.bhava)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onSelect(house.bhava);
+              }
+            }}
+            className={selected === house.bhava ? 'selected-house' : undefined}
+          >
+            <circle cx={x * 500} cy={y * 500} r="38" />
             <text x={x * 500} y={y * 500 - 18} className="gu-sign-number">
               {number(house.rashi + 1)}
             </text>
@@ -95,12 +119,16 @@ export default function GujaratiAstrology() {
       const today = indiaDate(now);
       if (today !== lastToday) {
         const previousToday = lastToday;
-        setDate((selected) => selected === previousToday ? today : selected);
+        setDate((selected) => (selected === previousToday ? today : selected));
         lastToday = today;
       }
       clearTimeout(timer);
-      const nextMidnight = new Date(today + 'T00:00:00+05:30').getTime() + 86400000;
-      timer = setTimeout(refresh, Math.max(1000, nextMidnight - now.getTime() + 500));
+      const nextMidnight =
+        new Date(today + 'T00:00:00+05:30').getTime() + 86400000;
+      timer = setTimeout(
+        refresh,
+        Math.max(1000, nextMidnight - now.getTime() + 500),
+      );
     };
     refresh();
     window.addEventListener('focus', refresh);
@@ -124,6 +152,7 @@ export default function GujaratiAstrology() {
     city: string;
   } | null>(null);
   const [birthError, setBirthError] = useState('');
+  const [selectedHouse, setSelectedHouse] = useState(1);
   const day = useMemo(() => {
     try {
       return { data: calculatePanchang(date, city), error: '' };
@@ -142,6 +171,7 @@ export default function GujaratiAstrology() {
     e.preventDefault();
     setBirthError('');
     setBirth(null);
+    setSelectedHouse(1);
     const f = new FormData(e.currentTarget);
     const value = (key: string) => String(f.get(key) || '');
     try {
@@ -411,11 +441,20 @@ export default function GujaratiAstrology() {
                     {dateLabel(birth.date)} · {birth.time} ·{' '}
                     {getCity(birth.city).name}
                   </p>
-                  <BirthChart chart={birth.chart} />
+                  <BirthChart
+                    chart={birth.chart}
+                    selected={selectedHouse}
+                    onSelect={setSelectedHouse}
+                  />
                   <small>
                     આંકડા રાશિના ક્રમાંક દર્શાવે છે (૧ = મેષ). ગ્રહો તેમના ભાવમાં દર્શાવ્યા
                     છે.
                   </small>
+                  <KundaliGuide
+                    chart={birth.chart}
+                    selected={selectedHouse}
+                    onSelect={setSelectedHouse}
+                  />
                 </>
               ) : (
                 <>
@@ -489,6 +528,7 @@ export default function GujaratiAstrology() {
                 જન્માક્ષર છે. વિગતવાર પરંપરાગત અર્થઘટન માટે Tejas Parikh સાથે પરામર્શ
                 કરી શકો છો.
               </p>
+              <KundaliAccuracy chart={birth.chart} />
               <div className="actions">
                 <button
                   className="button outline gu-print"

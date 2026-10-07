@@ -5056,3 +5056,35 @@ select:focus {
 @media(max-width:700px){.gu-content{padding-top:24px;padding-bottom:40px;}.gu-birth-layout,.gu-summary{grid-template-columns:1fr;}.gu-toolbar{padding:18px;gap:16px;}.gu-day-buttons{width:100%;justify-content:space-between;}.gu-anga{padding:18px;}.gu-anga h3{font-size:22px;}.gu-rahu{display:block;padding:24px;}.gu-rahu p{margin-top:18px;}.gu-tabs button{padding:14px 18px;font-size:16px;}.gu-form-row{grid-template-columns:1fr;gap:0;}.gu-birth-preview{padding:20px;}}
 @media print{.topline,.header,.site-footer,.skip,.preview-bar,.gu-intro,.gu-toolbar,.gu-birth-form,.gu-birth-layout>div:first-child,.gu-bottom,.gu-birth-results .actions{display:none!important;}.gu-birth-layout{display:block;}.gu-birth-preview{max-width:500px;margin:auto;}.gu-page{background:white;}.gu-content{padding:0;}.gu-summary{margin:16px 0;}.gu-chart{max-width:340px;}.gu-table-scroll{overflow:visible;}.gu-page th,.gu-page td{padding:8px;}.gu-birth-results{break-before:page;}}
 .gu-page label {color:#10263e;}
+/* Readable explanations for the calculated Kundali. */
+.gu-chart g[role=button] {cursor:pointer;outline:none;}
+.gu-chart g circle {fill:transparent;stroke:none;}
+.gu-chart g.selected-house circle {fill:#d6a44226;}
+.gu-chart g.selected-house text {font-weight:700;}
+.gu-chart g:focus-visible circle {stroke:#886122;stroke-width:2;}
+.kundali-guide {text-align:left;margin-top:24px;border-top:1px solid #e1d9ca;padding-top:24px;}
+.kundali-guide h4 {font-size:19px;line-height:1.6;margin-bottom:12px;color:#10263e;}
+.kundali-guide p {font-size:14px;line-height:1.9;}
+.kundali-personal {background:#faf7ef;padding:18px;border-radius:8px;margin:18px 0;}
+.kundali-personal p:last-child {margin-bottom:0;}
+.kundali-house-buttons {display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0;}
+.kundali-house-buttons button {background:#faf7ef;border:1px solid #d2c6b1;border-radius:6px;padding:9px 4px;color:#10263e;font-size:13px;cursor:pointer;}
+.kundali-house-buttons button[aria-pressed=true] {background:#10263e;color:white;border-color:#10263e;}
+.kundali-house-detail {padding:20px;border:1px solid #e1d9ca;border-radius:10px;}
+.kundali-house-detail > p:last-child {margin-bottom:0;}
+.kundali-planet-detail {border-top:1px solid #e1d9ca;padding-top:16px;margin-top:16px;}
+.kundali-planet-detail p {margin:8px 0 0;}
+.kundali-sign-key {margin-top:18px;font-size:14px;}
+.kundali-sign-key summary {cursor:pointer;color:#886122;}
+.kundali-sign-key ol {display:grid;grid-template-columns:repeat(3,1fr);padding-left:30px;gap:10px;margin-top:18px;}
+.kundali-accuracy {margin-top:44px;padding-top:32px;border-top:1px solid #d2c6b1;}
+.kundali-explanation-grid {display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.kundali-explanation-grid h3 {font-size:22px;margin-bottom:20px;}
+.kundali-explanation-grid p,.kundali-explanation-grid dd {font-size:14px;line-height:1.9;color:#596b7d;}
+.kundali-explanation-grid dt {font-weight:600;margin-top:16px;}
+.kundali-explanation-grid dd {margin:6px 0 0;}
+.kundali-explanation-grid a {text-decoration:underline;color:#765619;}
+.kundali-honesty {padding:22px;background:#f1e9d8;border-radius:8px;margin-top:24px;}
+.kundali-honesty p {margin:12px 0 0;}
+@media(max-width:700px){.kundali-explanation-grid{grid-template-columns:1fr;gap:28px;}.kundali-guide h4{font-size:18px;}}
+@media print{.kundali-house-buttons{display:none;}.gu-birth-preview{max-width:650px;}.kundali-guide,.kundali-accuracy{break-before:page;}.kundali-explanation-grid{display:block;}}
